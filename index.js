@@ -278,6 +278,14 @@ const personal = {
             }
         }
     },
+    playrandomsong:function() {
+        let newindex
+        do {
+            newindex = Math.floor(Math.random()*personal.songs.length)
+        }
+        while(newindex==personal.currentIndexSong)
+        personal.currentIndexSong = newindex
+    },
     handleEvent:function() {
         tagPersonal.forEach(function(tag,index) {
             var pane = personalTags[index];
@@ -337,10 +345,17 @@ const personal = {
                     audio.currentTime=0
                     audio.play();
                 }
+                else
+                {
+                    if(personal.isshuffleSong) {
+                        personal.playrandomsong()
+                        personal.playsong()
+                    }
+                }
+                console.log(personal.currentIndexSong);
                 if(personal.indexrepeatListSong!=2&&personal.indexrepeatSong!=1)
                 {
                     personal.currentIndexSong++;
-                    personal.playsong()
                 }
             }
             audio.onpause = function() {
@@ -359,17 +374,31 @@ const personal = {
             timesong.textContent = personal.secondsToHms(audio.duration)
             
             prevSong.onclick = function() {
-                if(personal.currentIndexSong>=0)
-                    personal.currentIndexSong--;
+                if(personal.isshuffleSong)
+                {
+                    personal.playrandomsong()
+                }
                 else
-                    personal.currentIndexSong = personal.songs.length-1;
+                {
+                    if(personal.currentIndexSong>=0)
+                        personal.currentIndexSong--;
+                    else
+                        personal.currentIndexSong = personal.songs.length-1;
+                }
                 personal.playsong()
             }
             nextSong.onclick = function() {
-                if(personal.currentIndexSong<personal.songs.length-1&&personal.currentIndexSong>=0)
-                    personal.currentIndexSong++;
+                if(personal.isshuffleSong)
+                {
+                    personal.playrandomsong()
+                }
                 else
-                    personal.currentIndexSong = 0;
+                {
+                    if(personal.currentIndexSong<personal.songs.length-1&&personal.currentIndexSong>=0)
+                        personal.currentIndexSong++;
+                    else
+                        personal.currentIndexSong = 0;
+                }
                 personal.playsong()
             }
             shuffleSong.onclick = function() {
@@ -377,7 +406,7 @@ const personal = {
                 if(personal.isshuffleSong)
                     this.classList.add("active")
                 else
-                this.classList.remove("active")
+                    this.classList.remove("active")
             }
             repeatSong.onclick = function() {
                 personal.isrepeatSong = !personal.isrepeatSong
