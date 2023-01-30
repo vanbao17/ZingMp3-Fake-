@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zing Mp3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <menu>
+        <img class="logo-menu" src="https://sona7ns.github.io/zingmp3.vn/assets/img/sidebar-icon/logo/logo-dark.svg" alt="">
+        <ul id="list-menu1">
+            <li class="menu1 item1">
+                <ion-icon name="play-outline"></ion-icon>
+                <h1>Cá Nhân</h1>
+            </li>
+            <li class="menu1 item2">
+                <ion-icon name="disc-outline"></ion-icon>
+                <h1>Khám Phá</h1>
+            </li>
+            <li class="menu1 item3">
+                <ion-icon name="stats-chart-outline"></ion-icon>
+                <h1>#ZingChart</h1>
+            </li>
+            <li class="menu1 item4">
+                <ion-icon name="radio-outline"></ion-icon>
+                <h1>Radio <span>LIVE</span></h1>
+            </li>
+            <li class="menu1 item5">
+                <ion-icon name="list-outline"></ion-icon>
+                <h1>Theo Dõi</h1>
+            </li>
+        </ul>
+        <hr>
+        <ul id="list-menu2">
+            <li class="menu2 item1">
+                <ion-icon name="musical-notes-outline"></ion-icon>
+                <h1>Nhạc mới</h1>
+            </li>
+            <li class="menu2 item2">
+                <ion-icon name="apps-outline"></ion-icon>
+                <h1>Thể loại</h1>
+            </li>
+            <li class="menu2 item3">
+                <ion-icon name="star-outline"></ion-icon>
+                <h1>Top100</h1>
+            </li>
+            <li class="menu2 item4">
+                <ion-icon name="images-outline"></ion-icon>
+                <h1>MV</h1>
+            </li>
+            <div class="menu2 item5">
+                <p>Nghe nhạc không quảng cáo cùng kho nhạc VIP</p>
+                <a>NÂNG CẤP VIP</a>
+            </div>
+            <ul class="libary">
+                <li>
+                        <h2>Thư viện</h2>
+                </li>
+                <li>
+                    <img src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.0.13/static/media/my-song.cf0cb0b4.svg" alt="">
+                    <p>Song</p>
+                </li>
+                <li>
+                    <img src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.0.13/static/media/my-playlist.7e92a5f0.svg" alt="">
+                    <p>PlayList</p>
+                </li>
+                <li>
+                    <img src="https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.0.13/static/media/my-history.374cb625.svg" alt="">
+                    <p>Recent</p>
+                </li>
+            </ul>
+        </ul>
+        <hr>
+        <h1 id="menu-add"><ion-icon name="add-outline"></ion-icon>Tạo playlist mới</h1>
+    </menu>
+    <div id="content">
+        <nav>
+            <div id="next-prev">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+            <div id="input-search">
+                <ion-icon name="search-outline"></ion-icon>
+                <input type="text" placeholder="Tìm kiếm bài hát, nghệ sĩ, lời bài hát...">
+            </div>
+            <div id="option">
+                <div id="downloadPC">
+                    <ion-icon name="download-outline"></ion-icon>
+                    <span>Tải bản Windows</span>
+                </div>
+                <ul id="list-option">
+                    <li><ion-icon name="shirt-outline"></ion-icon></li>
+                    <li><ion-icon name="diamond"></ion-icon></li>
+                    <li><ion-icon name="settings-outline"></ion-icon></li>
+                    <li><img src="https://scontent.fdad7-1.fna.fbcdn.net/v/t39.30808-6/309398349_634988571478925_761045229378709455_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=kCZUKwA9IMQAX-R4NpT&_nc_ht=scontent.fdad7-1.fna&oh=00_AfDVWUWSKqnkm0cHJ15ZHrZ2ENY0_5XTDR9gZLJoFeKfcg&oe=63D2F9EE" alt=""></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="personal" class="content personal">
+            <div id="libarys">
+                <h1>Thư viện<ion-icon name="play"></ion-icon></h1>
+                <div class="list">
+                    <div class="list-libarys"></div>
+                    <div class=" xemthem">
+                        <div class="img-avatar">
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                        <div class="name" >
+                            <p>Xem Tất cả </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="playlist">
+                <h1>PLAYLIST<ion-icon name="add"></ion-icon></h1>
+                <div id="list-playlist">
+                    <div class="playlist-item">
+                       <div class="container-playlist">
+                            <div class="playlist-avatar">
+                                <img src="https://photo-playlist-zmp3.zmdcdn.me/s2/user-playlist?src=HavwqN7EvKCI1oYSFOdq0rHDR9mrYV43N5HdW6RP-GDT03I2Ojd_0mqBC8fWqwTRN5avYJRMeGj1Lt_SEf3p00eLDeHnnBfNHrbnbMsTwGfHMN7VFz3cNm82VjXfqRDHKryiWpxNi59M32g6ETMs0LWAHu0qqTu7L0D0XJt6X4K33mRNDet635n4Kfvcm8fBJGH1r2J0Z4jE14VBTDpTIXG2HPjzsjDF4WSVo7pUXar71nZCADJKJK0DL9TfWTWB4WOVrI3VarzRLrAPPyxJ614HKfjdcTCQ2a4UcJQQrXuEHKhCRfxKJ0uJJyjamDb211bFmct2qbnUMHlEVG&size=thumb/240_240" alt="">
+                            </div>
+                            <div class="playlist-active">
+                                <ion-icon name="close" class="playlist-close"></ion-icon>
+                                <ion-icon name="play" class="playlist-play"></ion-icon>
+                                <ion-icon name="ellipsis-horizontal" class="playlist-threedoc"></ion-icon>
+                            </div>
+                            <div class="playlist-opacity"></div>
+                       </div>
+                        <div class="playlist-name">
+                            <h2>Noo</h2>
+                            <p>Phạm Văn Bảo</p>
+                        </div>
+                    </div>
+                    <div class="playlist-item">
+                        <div class="container-playlist">
+                             <div class="playlist-avatar">
+                                 <img src="https://photo-playlist-zmp3.zmdcdn.me/s2/user-playlist?src=HavwqN7EvKCI1oYSFOdq0rHDR9mrYV43N5HdW6RP-GDT03I2Ojd_0mqBC8fWqwTRN5avYJRMeGj1Lt_SEf3p00eLDeHnnBfNHrbnbMsTwGfHMN7VFz3cNm82VjXfqRDHKryiWpxNi59M32g6ETMs0LWAHu0qqTu7L0D0XJt6X4K33mRNDet635n4Kfvcm8fBJGH1r2J0Z4jE14VBTDpTIXG2HPjzsjDF4WSVo7pUXar71nZCADJKJK0DL9TfWTWB4WOVrI3VarzRLrAPPyxJ614HKfjdcTCQ2a4UcJQQrXuEHKhCRfxKJ0uJJyjamDb211bFmct2qbnUMHlEVG&size=thumb/240_240" alt="">
+                             </div>
+                             <div class="playlist-active">
+                                 <ion-icon name="close" class="playlist-close"></ion-icon>
+                                 <ion-icon name="play" class="playlist-play"></ion-icon>
+                                 <ion-icon name="ellipsis-horizontal" class="playlist-threedoc"></ion-icon>
+                             </div>
+                             <div class="playlist-opacity"></div>
+                        </div>
+                         <div class="playlist-name">
+                             <h2>Noo</h2>
+                             <p>Phạm Văn Bảo</p>
+                         </div>
+                     </div>
+                </div>
+            </div>
+            <div id="container-songstitle">
+                <nav >
+                    <ul id="Category">
+                        <li class="Category-item active">BÀI HÁT</li>
+                        <li class="Category-item ">PODCAST</li>
+                        <li class="Category-item ">ALBUM</li>
+                        <li class="Category-item ">MV</li>
+                        <div id="Category-bar">
+                            <hr class="Category-up">
+                            <hr class="Category-down">
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+           <div id="personal-contentcenter">
+                <div id="songs" class="content active">
+                    <ul class="Category-tags">
+                        <li class="tag active">YÊU THÍCH</li>
+                        <li class="tag">ĐÃ TẢI LÊN</li>
+                    </ul>
+                    <div id="container-title">
+                        <div class="song-title">
+                            <div class="baihat">
+                                BÀI HÁT
+                            </div>
+                            <div class="album" >ALBUM</div>
+                            <div class="time">THỜI GIAN</div>
+                        </div>
+                    </div>
+                    <div id="songs-content">
+                        <div class="list-songs"></div>
+                    </div>
+                </div>
+                <div id="podcast" class="content">
+                    <ul class="Category-tags">
+                        <li class="tag active">TẬP MỚI</li>
+                        <li class="tag">TẬP ĐÃ LƯU</li>
+                        <li class="tag">CHƯƠNG TRÌNH</li>
+                    </ul>
+                    <div class="podcast-content">
+                        <div class="icon new-episode">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/episode-empty-1.png" alt="">
+                        </div>
+                        <div class="text">Không có tập mới</div>
+                    </div>
+                </div>
+                <div id="album" class="content">
+                    <div class="podcast-content">
+                        <div class="icon new-episode">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/empty-album-dark.png" alt="">
+                        </div>
+                        <div class="text">Chưa có album trong thư viện cá nhân</div>
+                    </div>
+                </div>
+                <div id="mv" class="content">
+                    <div class="podcast-content">
+                        <div class="icon new-episode">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/empty-mv-dark.png" alt="">
+                        </div>
+                        <div class="text">Chưa có MV nào trong thư viện cá nhân</div>
+                        <p class="explorenow">KHÁM PHÁ NGAY</p>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div id="playsong">
+        <div class="playsong-left">
+            <div class="playsong-image"><img src="" alt=""></div>
+            <div class="playsong-name">
+                <div class="name">
+                    <h3></h3>
+                <ion-icon name="cloud-outline"></ion-icon></div>
+                <p></p>
+            </div>
+            <ion-icon name="heart" class="heart"></ion-icon>
+            <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
+        </div>
+        <div class="playsong-center">
+            <div class="playsong-center-action">
+                <span class="song-shuffle"><ion-icon name="shuffle-outline"></ion-icon></span>
+                <span class="song-prev"><ion-icon name="play-skip-back" ></ion-icon></span>
+                <div class="playsong-pause-play">
+                    <ion-icon name="play" class="control play"></ion-icon>
+                    <ion-icon name="pause-outline" class="control pause active"></ion-icon>
+                </div>
+                <span class="song-next"><ion-icon name="play-skip-forward"></ion-icon></span>
+                <span class="song-repeat"><ion-icon name="repeat-outline"></ion-icon></span>
+            </div>
+            <div id="process">
+                <span class="processSong"></span>
+                <input  class="progress" type="range" value="0" step="1" min="0" max="100">
+                <span class="timeSong"></span>
+            </div>
+            
+        </div>
+        <div class="playsong-right">
+            <div class="playsong-right-action">
+                <ion-icon name="videocam-outline"></ion-icon>
+                <ion-icon name="mic"></ion-icon>
+                <ion-icon name="logo-windows"></ion-icon>
+                <div class="change-volume">
+                    <ion-icon name="volume-high-outline" class="turn off-volume"></ion-icon>
+                    <ion-icon name="volume-mute-outline" class = "turn on-volume"></ion-icon>
+                </div>
+                <input  class="process-volume" type="range" value="0" step="1" min="0" max="100">
+            </div>
+            <ion-icon name="musical-note" class="display-song-recent"></ion-icon>
+        </div>
+        <audio src="songs/song1.mp3" class="audio"></audio>
+    </div>
+    <div id="song-recent">
+        <div class="recent-title">
+            <ul>
+                <li class="recent active">Danh sách phát</li>
+                <li class="recent">Nghe gần đây</li>
+            </ul>
+            <ion-icon name="alarm-outline"></ion-icon>
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+        </div>
+    </div>
+    <script src="/index.js"></script>
+</body>
+</html>
