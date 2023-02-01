@@ -2,11 +2,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Inter,sans-serif;
 }
 body {
-    display: flex;
-    overflow: auto;
+    width: 100%;
+    height: 100vh;
+     display: flex; 
+     overflow: auto;
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
 }
@@ -19,6 +21,22 @@ li {
 }
 #list-menu1 {
     padding-bottom: 20px;
+}
+#list-menu1 li:hover h1,
+#list-menu2 li:hover h1 {
+    color: #fff;
+}
+#list-menu1 li,#list-menu2 li {
+    border-left: 3px solid transparent;
+}
+#list-menu1 li h1,#list-menu2 li h1 {
+    font-size: 13px;
+    color: #dadada;
+}
+#list-menu1 .active,#list-menu2 .active  {
+    border-left: 3px solid #3560F5;
+    background-color: #9096af4e;
+    color: #fff ;
 }
 #list-menu2 {
     margin: 10px 0px;
@@ -54,6 +72,7 @@ menu {
     background-color: #102A5C;
     position: fixed;
     margin-right: 10px;
+    z-index: 999;
 }
 menu .logo-menu {
     width: 60%;
@@ -68,12 +87,11 @@ menu ul {
 menu ul li {
     display: flex;
     align-items: center;
-    padding: 10px 0px 10px 20px;
+    padding: 7px 0px 7px 20px;
     cursor: pointer;
 }
 menu h1 {
     font-size: 14px;
-    color: #fff;
     font-weight: bold;
 }
 menu ion-icon {
@@ -120,36 +138,38 @@ menu ul .menu2.item5 a {
     background-color: #061D4F;
     transform: translateX(240px);
 }
-#content>nav {
-    width: 98%;
-    display: flex;
-    align-items: center;
-    margin: 0px auto; 
-    color: #fff;
-    padding: 20px 0px;
+.content-nav{
+    width: 85%;
     position: fixed;
-    top: 0;
+    z-index: 990    ;
     right: 0;
     background-color: #061D4F;
 }
-.content-nav-scroll {
-    box-shadow: 0 3px 5px var(--sticky-header-box-shadow);
-    position: fixed;
+.content-nav>div {
+    display: flex;
+    align-items: center; 
+    color: #fff;
+    padding: 20px 0px;
+    z-index: 990;
+    width: 100%;
+    margin: 0px auto;
+    right: 0;
 }
-#content #next-prev  {
+
+#next-prev  {
     width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-#content #next-prev ion-icon  {
+ #next-prev ion-icon  {
     padding: 10px 10px;
     border-radius: 50%;
     color: rgba(225, 225, 225, 0.5);
     cursor: pointer;
 }
-#content #option li {
+#option li {
     width: 40px ;
     height: 40px;
     display: flex;
@@ -160,12 +180,12 @@ menu ul .menu2.item5 a {
     background-color: rgba(225, 225, 225, 0.05);
     cursor: pointer;
 }
-#content #option li img {
+#option li img {
     width: 40px ;
     height: 40px;
     border-radius: 50px;
 }
-#content #input-search {
+#input-search {
     width: 30%;
 }
 #container-content {
@@ -173,7 +193,7 @@ menu ul .menu2.item5 a {
     background-color: black;
     transform: translateX(240px);
 }
-#content #input-search input {
+#input-search input {
     width: 100%;
     height: 40px;
     outline: none;
@@ -184,29 +204,29 @@ menu ul .menu2.item5 a {
     text-indent: 40px;
     color: #fff;
 }
-#content ion-icon {
+.content-nav ion-icon {
     font-size: 20px;
 }
-#content #input-search ion-icon {
+.content-nav #input-search ion-icon {
     font-size: 20px;
     position: absolute;
     z-index: 999;
     padding: 6px;
     transform: translate(5px,2px);
 }
-#content #option {
+.content-nav #option {
     width:55%;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
-#content #option #list-option {
+.content-nav #option #list-option {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-#content #option #downloadPC {
+.content-nav #option #downloadPC {
     gap: 10px;
     color: #4470e5;
     display: flex;
@@ -429,6 +449,7 @@ menu ul .menu2.item5 a {
     width: 100%;
     margin: 50px 0px 50px 0px;
     color: #fff;
+    background-color: #061D4F;
 }
 #container-songstitle {
     width: 100%;
@@ -634,6 +655,7 @@ menu ul .menu2.item5 a {
 #songs #songs-content .song .baihat .avatar-baihat img {
     width: 40px;
     height: 40px;
+    object-fit: cover;
 }
 #songs #songs-content .song .baihat .avatar-baihat .gif {
     width: 20px;
@@ -685,6 +707,9 @@ menu ul .menu2.item5 a {
     border: 1px solid #3560F5;
     border-radius: 50px;
     background-color: #3560F5;
+}
+#personal {
+    background-color: #061D4F;
 }
 #personal-contentcenter {
     padding-bottom: 50px;
@@ -849,6 +874,9 @@ menu ul .menu2.item5 a {
     padding:10px 20px;
     border-right: 1px solid #aaa;
 }
+#playsong .playsong-right .playsong-right-action .process-volume {
+    height: 3px;
+}
 #playsong .playsong-right .playsong-right-action .change-volume {
     position: relative;
 }
@@ -921,4 +949,20 @@ menu ul .menu2.item5 a {
     background-color:#395083 ;
     border-radius: 50%;
     cursor: pointer;
+}
+#explore {
+    width: 100%;
+    display: flex;
+}
+#explore img{ 
+    width: 20%;
+}
+#explore .item1 {
+    order: 1;
+}
+#explore .item2 {
+    order: 2 ;
+}
+#explore .item3 {
+    order: 3;
 }

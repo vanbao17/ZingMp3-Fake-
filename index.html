@@ -15,7 +15,7 @@
     <menu>
         <img class="logo-menu" src="https://sona7ns.github.io/zingmp3.vn/assets/img/sidebar-icon/logo/logo-dark.svg" alt="">
         <ul id="list-menu1">
-            <li class="menu1 item1">
+            <li class="menu1 item1 active">
                 <ion-icon name="play-outline"></ion-icon>
                 <h1>Cá Nhân</h1>
             </li>
@@ -38,19 +38,19 @@
         </ul>
         <hr>
         <ul id="list-menu2">
-            <li class="menu2 item1">
+            <li class="menu1 item1">
                 <ion-icon name="musical-notes-outline"></ion-icon>
                 <h1>Nhạc mới</h1>
             </li>
-            <li class="menu2 item2">
+            <li class="menu1 item2">
                 <ion-icon name="apps-outline"></ion-icon>
                 <h1>Thể loại</h1>
             </li>
-            <li class="menu2 item3">
+            <li class="menu1 item3">
                 <ion-icon name="star-outline"></ion-icon>
                 <h1>Top100</h1>
             </li>
-            <li class="menu2 item4">
+            <li class="menu1 item4">
                 <ion-icon name="images-outline"></ion-icon>
                 <h1>MV</h1>
             </li>
@@ -77,10 +77,10 @@
             </ul>
         </ul>
         <hr>
-        <h1 id="menu-add"><ion-icon name="add-outline"></ion-icon>Tạo playlist mới</h1>
+        <h1 id="menu-add" style="color: #fff;"><ion-icon name="add-outline"></ion-icon>Tạo playlist mới</h1>
     </menu>
-    <div id="content">
-        <nav>
+    <nav class="content-nav">
+        <div>
             <div id="next-prev">
                 <ion-icon name="arrow-back-outline"></ion-icon>
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -101,7 +101,9 @@
                     <li><img src="https://scontent.fdad7-1.fna.fbcdn.net/v/t39.30808-6/309398349_634988571478925_761045229378709455_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=kCZUKwA9IMQAX-R4NpT&_nc_ht=scontent.fdad7-1.fna&oh=00_AfDVWUWSKqnkm0cHJ15ZHrZ2ENY0_5XTDR9gZLJoFeKfcg&oe=63D2F9EE" alt=""></li>
                 </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <div id="content">
         <div id="personal" class="content personal">
             <div id="libarys">
                 <h1>Thư viện<ion-icon name="play"></ion-icon></h1>
@@ -220,6 +222,8 @@
                     </div>
                 </div>
            </div>
+        </div>
+        <div id="explore" class="content explore">
         </div>
     </div>
     <div id="playsong">

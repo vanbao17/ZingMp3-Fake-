@@ -27,11 +27,11 @@ const recent = $$(".recent")
 const songrecent = $("#song-recent")
 const displaysongrecent = $('.display-song-recent')
 const processVolume = $('.process-volume')
-
+const activeMenu =$$('.menu1')
 const turnOnVolume = $(".on-volume") 
 const turnOffVolume = $(".off-volume") 
-
-
+const navContent = $(".content-nav")
+navContent.style.position = 'fixed !improtant'
 audio.volume = 20/100;
 processVolume.value = 20;
 const personal = {
@@ -153,6 +153,83 @@ const personal = {
             album:'',
             path:'songs/song11.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Đi đâu để thấy hoa bay',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song12.mp3',
+            image:'https://i.pinimg.com/736x/80/1e/61/801e61077fd861bd67d248116c04ad97.jpg'
+        },
+        {
+            name:'Đi đâu để thấy hoa bay',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song12.mp3',
+            image:'https://i.pinimg.com/736x/e0/f6/ed/e0f6ede85da3aa0964b5e1d9262fdbd5.jpg'
+        },
+        {
+            name:'Chưa Bao Giờ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song13.mp3',
+            image:'https://i.pinimg.com/564x/e3/9c/9e/e39c9ea172a31c46fc9289212b593680.jpg'
+        },
+        {
+            name:'Giâc mơ chỉ là giấc mơ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song14.mp3',
+            image:'https://i.pinimg.com/564x/bf/b4/b7/bfb4b7d496fb3046d7f07ee6e22230ac.jpg'
+        },
+        {
+            name:'Mashup chỉ còn những mùa nhớ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song15.mp3',
+            image:'https://i.pinimg.com/564x/88/d6/f6/88d6f633996932935d43dca34c305820.jpg'
+        },
+        {
+            name:'Người',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song16.mp3',
+            image:'https://i.pinimg.com/736x/2e/d1/54/2ed15444732711e74a184a8d5da401cd.jpg'
+        },
+        {
+            name:'Người tình mùa đông',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song17.mp3',
+            image:'https://i.pinimg.com/736x/bc/58/9b/bc589b90ac406a936ec647eb8df34eeb.jpg'
+        },
+        {
+            name:'Phố mùa đông',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song18.mp3',
+            image:'https://i.pinimg.com/564x/0b/34/d4/0b34d4444fea16aac0685d2a115ab511.jpg'
+        },
+        {
+            name:'Tháng mấy em nhớ anh ?',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song19.mp3',
+            image:'https://i.pinimg.com/736x/7f/b2/a9/7fb2a9e07ffc6b4546e95e9fa05b020b.jpg'
+        },
+        {
+            name:'Tháng tư là lời nói dối của em',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song20.mp3',
+            image:'https://i.pinimg.com/736x/86/73/f0/8673f00fed92c363da30de4492b241a3.jpg'
+        },
+        {
+            name:'Trái tim em cũng biết đau',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song21.mp3',
+            image:'https://i.pinimg.com/736x/21/5c/ce/215ccebf41f0805969ca33c09daf7722.jpg'
         }
     ],
     defineproperties: function() {
@@ -161,6 +238,9 @@ const personal = {
                 return personal.songs[personal.currentIndexSong ]
             }
         })
+    },
+    iconplaying:function(d) {
+        console.log(d);
     },
     rendersong: function() {
         var htmls = personal.songs.map(function(song,index) {
@@ -286,6 +366,13 @@ const personal = {
         while(newindex==personal.currentIndexSong)
         personal.currentIndexSong = newindex
     },
+    displayPlayingsong :function(d) {
+        $$(".gif").forEach(function(gif,index) {
+            gif.style.visibility = "hidden"
+            if(d==index)
+                gif.style.visibility = "visible"
+        })
+    },
     handleEvent:function() {
         tagPersonal.forEach(function(tag,index) {
             var pane = personalTags[index];
@@ -308,17 +395,24 @@ const personal = {
                 buttonPlay.classList.remove("active")
                 personal.playsong()
                 cdThumbAnimation.play()
+                personal.displayPlayingsong(index)
+            }
+        })
+        activeMenu.forEach(function(menu) {
+            menu.onclick = function() {
+                $('.menu1.active').classList.remove('active')
+                this.classList.add("active")
             }
         })
         buttonPause.onclick=function(){
             buttonPause.classList.remove("active")
             buttonPlay.classList.add("active")
             audio.pause();
-            buttonPlay.onclick = function() {
-                buttonPause.classList.add("active")
-                buttonPlay.classList.remove("active")
-                audio.play()
-            }
+        }
+        buttonPlay.onclick = function() {
+            buttonPause.classList.add("active")
+            buttonPlay.classList.remove("active")
+            audio.play()
         }
         const cdThumbAnimation = $('.playsong-image').animate([
             {transform :'rotate(360deg)'}
@@ -352,16 +446,24 @@ const personal = {
                         personal.playsong()
                     }
                 }
-                console.log(personal.currentIndexSong);
                 if(personal.indexrepeatListSong!=2&&personal.indexrepeatSong!=1)
                 {
-                    personal.currentIndexSong++;
+                    if (personal.currentIndexSong<personal.songs.length-1)
+                    {
+                        personal.currentIndexSong++;
+                        personal.playsong()
+                    }
+                    personal.displayPlayingsong( personal.currentIndexSong)
                 }
+                buttonPause.classList.remove("active")
+                buttonPlay.classList.add("active")
             }
             audio.onpause = function() {
                 cdThumbAnimation.pause()
             }
             audio.onplay = function() {
+                buttonPause.classList.add("active")
+                buttonPlay.classList.remove("active")
                 cdThumbAnimation.play()
             }
             var min = Math.floor(audio.currentTime % 3600 / 60)
@@ -433,7 +535,7 @@ const personal = {
         }   
         window.addEventListener('scroll',function() {
             if(window.pageYOffset=1);
-                
+                console.log(window.pageYOffset);
         })
         progress.addEventListener("mousedown",function() {
             personal.isChange = !personal.isChange
@@ -461,7 +563,7 @@ const personal = {
                 this.style.backgroundColor =  '#443856';               
             }
         }
-        processVolume.onchange = function() {
+        processVolume.onmousemove = function() {            
             audio.volume = (this.value/100)*1
         }
         turnOffVolume.onclick = function() {
@@ -510,4 +612,18 @@ const personal = {
         this.handleTimeSong(0);
     }
 }
+const item = $$('#explore .items')
+const explore = {
+    log:function() 
+    {
+        for(var i=0;i<=item.length;i++) 
+        {
+            setTimeout(function() {
+                item[i].style.order = item.length+1
+                console.log(item.style.order);
+            },3000)
+        }
+    } 
+}
+explore.log()
 personal.start()
