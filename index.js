@@ -342,22 +342,22 @@ const personal = {
             return(demso);
         }
     },
-    // secondsToHms:function(d) {
-    //     var m = Math.floor(d % 3600 / 60);
-    //     var s = Math.floor(d % 3600 % 60);
-    //     if(this.checkNumber(s)!=undefined&&this.checkNumber(m)!=undefined)
-    //     {
-    //         if(!isNaN(m)&&!isNaN(s))
-    //         {
-    //             if(personal.checkNumber(m)==1)
-    //                 var m ="0" + Math.floor(d % 3600 / 60);
-    //             if(personal.checkNumber(s)==1)
-    //                 var s ="0" + Math.floor(d % 3600 % 60);
+    secondsToHms:function(d) {
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        if(this.checkNumber(s)!=undefined&&this.checkNumber(m)!=undefined)
+        {
+            if(!isNaN(m)&&!isNaN(s))
+            {
+                if(personal.checkNumber(m)==1)
+                    var m ="0" + Math.floor(d % 3600 / 60);
+                if(personal.checkNumber(s)==1)
+                    var s ="0" + Math.floor(d % 3600 % 60);
 
-    //             return(m+':'+s)
-    //         }
-    //     }
-    // },
+                return(m+':'+s)
+            }
+        }
+    },
     playrandomsong:function() {
         let newindex
         do {
@@ -407,7 +407,7 @@ const personal = {
         buttonPause.onclick=function(){
             buttonPause.classList.remove("active")
             buttonPlay.classList.add("active")
-            audio.pause();
+            // audio.pause();
         }
         buttonPlay.onclick = function() {
             buttonPause.classList.add("active")
@@ -472,8 +472,8 @@ const personal = {
                 min = "0" + Math.floor(audio.currentTime % 3600 / 60)
             if(personal.checkNumber(Math.floor(audio.currentTime % 3600 % 60))==1)
                 second = "0"+Math.floor(audio.currentTime % 3600 % 60)
-            // processsong.textContent = min + ":" + second
-            // timesong.textContent = personal.secondsToHms(audio.duration)
+            processsong.textContent = min + ":" + second
+            timesong.textContent = personal.secondsToHms(audio.duration)
             
             prevSong.onclick = function() {
                 if(personal.isshuffleSong)
@@ -535,7 +535,6 @@ const personal = {
         }   
         window.addEventListener('scroll',function() {
             if(window.pageYOffset=1);
-                console.log(window.pageYOffset);
         })
         progress.addEventListener("mousedown",function() {
             personal.isChange = !personal.isChange
@@ -609,7 +608,7 @@ const personal = {
         this.rederlibary()
         this.rederplaylist()
         this.handleEvent()
-        // this.handleTimeSong(0);
+        this.handleTimeSong(0);
     }
 }
 personal.start()
