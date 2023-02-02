@@ -88,27 +88,27 @@ const personal = {
             name:'Định Mệnh',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song4.mp3',
+            path:'https://vnso-zn-10-tf-mp3-320s1-zmp3.zmdcdn.me/9514eaaab0ea59b400fb/4567263235643082012?authen=exp=1675520334~acl=/9514eaaab0ea59b400fb/*~hmac=5a946ce0bdce2cf6093eb7ec17644b34&fs=MTY3NTM0NzUzNDYxNXx3ZWJWNnwwfDQyLjExOS4xMDEdUngNjM',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
         },
         {
             name:'Chạm khẽ tim anh một chút thôi',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/789aa00a7b4e9210cb5f/2046322050105663264?authen=exp=1675520575~acl=/789aa00a7b4e9210cb5f/*~hmac=991d1651c00a3c7e1dea77ec5c84adb0&fs=MTY3NTM0NzmUsIC3NTQyNHx3ZWJWNnwwfDEyNS4yMzUdUngMjEyLjgx',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
         },
         {
             name:'Em đã thương người ta hơn anh',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song8.mp3',
+            path:'https://vnso-zn-5-tf-mp3-320s1-zmp3.zmdcdn.me/45770b085249bb17e258/5683485288626074057?authen=exp=1675520643~acl=/45770b085249bb17e258/*~hmac=7f469e5d7b63226151cb140ccc30de1b&fs=MTY3NTM0Nzg0MzkyM3x3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMjQdUngMjI',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
         },
         {
             name:'Yêu một người sao buồn đến thế',
             singer:'Noo Phước Thịnh',
-            path:'songs/song10.mp3',
+            path:'https://vnso-zn-5-tf-mp3-320s1-zmp3.zmdcdn.me/a73d46c0f88711d94896/6266499990891969805?authen=exp=1675520224~acl=/a73d46c0f88711d94896/*~hmac=17620485ada37b9095f6b6890403f8de&fs=MTY3NTM0NzQyNDI0Mnx3ZWJWNnwwfDExMy4xNzYdUngNjIdUngMjI3',
             album:'',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
         },
@@ -317,6 +317,7 @@ const personal = {
         listplaylist.innerHTML = htmls.join('')
     },
     playsong:function() {
+        audio.load();
         personal.LoadCurrentSong()
         // audio.currentTime=0;
         audio.play()
