@@ -239,9 +239,6 @@ const personal = {
             }
         })
     },
-    iconplaying:function(d) {
-        console.log(d);
-    },
     rendersong: function() {
         var htmls = personal.songs.map(function(song,index) {
             return`
@@ -320,6 +317,7 @@ const personal = {
         listplaylist.innerHTML = htmls.join('')
     },
     playsong:function() {
+        audio.load();
         personal.LoadCurrentSong()
         audio.currentTime=0;
         audio.play()
