@@ -612,18 +612,4 @@ const personal = {
         this.handleTimeSong(0);
     }
 }
-const item = $$('#explore .items')
-const explore = {
-    log:function() 
-    {
-        for(var i=0;i<=item.length;i++) 
-        {
-            setTimeout(function() {
-                item[i].style.order = item.length+1
-                console.log(item.style.order);
-            },3000)
-        }
-    } 
-}
-explore.log()
 personal.start()
