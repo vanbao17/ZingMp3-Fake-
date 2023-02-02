@@ -410,6 +410,7 @@ const personal = {
         buttonPlay.onclick = function() {
             buttonPause.classList.add("active")
             buttonPlay.classList.remove("active")
+            audio.load()
             audio.play()
         }
         const cdThumbAnimation = $('.playsong-image').animate([
@@ -435,6 +436,7 @@ const personal = {
                 if(personal.indexrepeatSong==1)
                 {
                     audio.currentTime=0
+                    audio.load();
                     audio.play();
                 }
                 else
