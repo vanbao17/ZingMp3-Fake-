@@ -472,8 +472,8 @@ const personal = {
                 min = "0" + Math.floor(audio.currentTime % 3600 / 60)
             if(personal.checkNumber(Math.floor(audio.currentTime % 3600 % 60))==1)
                 second = "0"+Math.floor(audio.currentTime % 3600 % 60)
-            processsong.textContent = min + ":" + second
-            timesong.textContent = personal.secondsToHms(audio.duration)
+            // processsong.textContent = min + ":" + second
+            // timesong.textContent = personal.secondsToHms(audio.duration)
             
             prevSong.onclick = function() {
                 if(personal.isshuffleSong)
@@ -609,7 +609,7 @@ const personal = {
         this.rederlibary()
         this.rederplaylist()
         this.handleEvent()
-        this.handleTimeSong(0);
+        // this.handleTimeSong(0);
     }
 }
 personal.start()
