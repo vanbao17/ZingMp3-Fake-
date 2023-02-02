@@ -586,29 +586,29 @@ const personal = {
             processVolume.value = 20
         }
     },
-    handleTimeSong:function(s) {
-        if(s<personal.songs.length)
-        {
-            audio.src = personal.songs[s].path
-            audio.onloadedmetadata = function() {
-                personal.songs.forEach(function(song,index) {
-                    if(s==index)
-                    {
-                        const listsongtime = $$('.list-songs .song .time .listtimesong')
-                        listsongtime[s].textContent = personal.secondsToHms(audio.duration)   
-                    }
-                })
-                personal.handleTimeSong(s+1)
-            }
-        }
-    },
+    // handleTimeSong:function(s) {
+    //     if(s<personal.songs.length)
+    //     {
+    //         audio.src = personal.songs[s].path
+    //         audio.onloadedmetadata = function() {
+    //             personal.songs.forEach(function(song,index) {
+    //                 if(s==index)
+    //                 {
+    //                     const listsongtime = $$('.list-songs .song .time .listtimesong')
+    //                     listsongtime[s].textContent = personal.secondsToHms(audio.duration)   
+    //                 }
+    //             })
+    //             personal.handleTimeSong(s+1)
+    //         }
+    //     }
+    // },
     start:function() {
         this.defineproperties()
         this.rendersong()
         this.rederlibary()
         this.rederplaylist()
         this.handleEvent()
-        this.handleTimeSong(0);
+        // this.handleTimeSong(0);
     }
 }
 personal.start()
