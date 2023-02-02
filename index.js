@@ -606,7 +606,9 @@ const personal = {
         this.rederlibary()
         this.rederplaylist()
         this.handleEvent()
-        personal.handleTimeSong(0);
+        setTimeout(function() {
+            personal.handleTimeSong(0);
+        },5000)
     }
 }
 personal.start()
