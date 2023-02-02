@@ -325,10 +325,10 @@ const personal = {
         audio.play()
     },
     LoadCurrentSong : function() {
-        imgplaysong.src = this.currentSong.image;
-        nameplaysong.textContent = this.currentSong.name
-        singerplaysong.textContent = this.currentSong.singer
-        audio.src = this.currentSong.path
+        imgplaysong.src = personal.currentSong.image;
+        nameplaysong.textContent = personal.currentSong.name
+        singerplaysong.textContent = personal.currentSong.singer
+        audio.src = personal.currentSong.path
     },
     checkNumber :function(a) {
         var demso = 1;
