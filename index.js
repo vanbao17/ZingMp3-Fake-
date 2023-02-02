@@ -317,7 +317,6 @@ const personal = {
         listplaylist.innerHTML = htmls.join('')
     },
     playsong:function() {
-        audio.load();
         personal.LoadCurrentSong()
         audio.currentTime=0;
         audio.play()
@@ -385,15 +384,26 @@ const personal = {
                 pane.classList.add("active")
             }
         });
+        // $$('.song').forEach(function(song,index) {
+        //     song.onclick = function() {
+        //         personal.currentIndexSong = index;
+        //         tagplaysong.style.bottom = 0;
+        //         buttonPause.classList.add("active")
+        //         buttonPlay.classList.remove("active")
+        //         audio.load();
+        //         audio.play
+        //         cdThumbAnimation.play()
+        //         personal.displayPlayingsong(index)
+        //     }
+        // })
         $$('.song').forEach(function(song,index) {
             song.onclick = function() {
                 personal.currentIndexSong = index;
-                tagplaysong.style.bottom = 0;
                 buttonPause.classList.add("active")
                 buttonPlay.classList.remove("active")
-                personal.playsong()
+                personal.LoadCurrentSong();
                 cdThumbAnimation.play()
-                personal.displayPlayingsong(index)
+                audio.play()
             }
         })
         activeMenu.forEach(function(menu) {
