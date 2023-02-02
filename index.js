@@ -407,7 +407,7 @@ const personal = {
         buttonPause.onclick=function(){
             buttonPause.classList.remove("active")
             buttonPlay.classList.add("active")
-            // audio.pause();
+            audio.load();
         }
         buttonPlay.onclick = function() {
             buttonPause.classList.add("active")
