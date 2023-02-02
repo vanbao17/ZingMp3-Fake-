@@ -91,132 +91,132 @@ const personal = {
             path:'songs/song4.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
         },
-        // {
-        //     name:'Chạm khẽ tim anh một chút thôi',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song6.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
-        // },
-        // {
-        //     name:'Em đã thương người ta hơn anh',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song8.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
-        // },
-        // {
-        //     name:'Yêu một người sao buồn đến thế',
-        //     singer:'Noo Phước Thịnh',
-        //     path:'songs/song10.mp3',
-        //     album:'',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
-        // },
-        // {
-        //     name:'Thương em là điều anh không thể ngờ',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song2.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/6/5/1/6/6516b96ae8353ef11f6b7148c74bb387.jpg'
-        // },
-        // {
-        //     name:'Cause I Love You',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song7.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
-        // },
-        // {
-        //     name:'Thương mấy cũng là người dưng',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song9.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
-        // },
-        // {
-        //     name:'Cơn mơ băng giá',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song5.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
-        // },
-        // {
-        //     name:'Những kẻ mộng mơ',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song1.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
-        // },
-        // {
-        //     name:'Chợt thấy em khóc',
-        //     singer:'Noo Phước Thịnh',
-        //     album:'',
-        //     path:'songs/song11.mp3',
-        //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
-        // },
-        // {
-        //     name:'Đi đâu để thấy hoa bay',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song12.mp3',
-        //     image:'https://i.pinimg.com/736x/80/1e/61/801e61077fd861bd67d248116c04ad97.jpg'
-        // },
-        // {
-        //     name:'Đi đâu để thấy hoa bay',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song12.mp3',
-        //     image:'https://i.pinimg.com/736x/e0/f6/ed/e0f6ede85da3aa0964b5e1d9262fdbd5.jpg'
-        // },
-        // {
-        //     name:'Chưa Bao Giờ',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song13.mp3',
-        //     image:'https://i.pinimg.com/564x/e3/9c/9e/e39c9ea172a31c46fc9289212b593680.jpg'
-        // },
-        // {
-        //     name:'Giâc mơ chỉ là giấc mơ',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song14.mp3',
-        //     image:'https://i.pinimg.com/564x/bf/b4/b7/bfb4b7d496fb3046d7f07ee6e22230ac.jpg'
-        // },
-        // {
-        //     name:'Mashup chỉ còn những mùa nhớ',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song15.mp3',
-        //     image:'https://i.pinimg.com/564x/88/d6/f6/88d6f633996932935d43dca34c305820.jpg'
-        // },
-        // {
-        //     name:'Người',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song16.mp3',
-        //     image:'https://i.pinimg.com/736x/2e/d1/54/2ed15444732711e74a184a8d5da401cd.jpg'
-        // },
-        // {
-        //     name:'Người tình mùa đông',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song17.mp3',
-        //     image:'https://i.pinimg.com/736x/bc/58/9b/bc589b90ac406a936ec647eb8df34eeb.jpg'
-        // },
-        // {
-        //     name:'Phố mùa đông',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song18.mp3',
-        //     image:'https://i.pinimg.com/564x/0b/34/d4/0b34d4444fea16aac0685d2a115ab511.jpg'
-        // },
-        // {
-        //     name:'Tháng mấy em nhớ anh ?',
-        //     singer:'Hà Anh Tuấn',
-        //     album:'',
-        //     path:'songs/song19.mp3',
-        //     image:'https://i.pinimg.com/736x/7f/b2/a9/7fb2a9e07ffc6b4546e95e9fa05b020b.jpg'
-        // },
+        {
+            name:'Chạm khẽ tim anh một chút thôi',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song6.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Em đã thương người ta hơn anh',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song8.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Yêu một người sao buồn đến thế',
+            singer:'Noo Phước Thịnh',
+            path:'songs/song10.mp3',
+            album:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
+        },
+        {
+            name:'Thương em là điều anh không thể ngờ',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song2.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/6/5/1/6/6516b96ae8353ef11f6b7148c74bb387.jpg'
+        },
+        {
+            name:'Cause I Love You',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song7.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Thương mấy cũng là người dưng',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song9.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Cơn mơ băng giá',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song5.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
+        },
+        {
+            name:'Những kẻ mộng mơ',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song1.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
+        },
+        {
+            name:'Chợt thấy em khóc',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Đi đâu để thấy hoa bay',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song12.mp3',
+            image:'https://i.pinimg.com/736x/80/1e/61/801e61077fd861bd67d248116c04ad97.jpg'
+        },
+        {
+            name:'Đi đâu để thấy hoa bay',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song12.mp3',
+            image:'https://i.pinimg.com/736x/e0/f6/ed/e0f6ede85da3aa0964b5e1d9262fdbd5.jpg'
+        },
+        {
+            name:'Chưa Bao Giờ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song13.mp3',
+            image:'https://i.pinimg.com/564x/e3/9c/9e/e39c9ea172a31c46fc9289212b593680.jpg'
+        },
+        {
+            name:'Giâc mơ chỉ là giấc mơ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song14.mp3',
+            image:'https://i.pinimg.com/564x/bf/b4/b7/bfb4b7d496fb3046d7f07ee6e22230ac.jpg'
+        },
+        {
+            name:'Mashup chỉ còn những mùa nhớ',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song15.mp3',
+            image:'https://i.pinimg.com/564x/88/d6/f6/88d6f633996932935d43dca34c305820.jpg'
+        },
+        {
+            name:'Người',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song16.mp3',
+            image:'https://i.pinimg.com/736x/2e/d1/54/2ed15444732711e74a184a8d5da401cd.jpg'
+        },
+        {
+            name:'Người tình mùa đông',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song17.mp3',
+            image:'https://i.pinimg.com/736x/bc/58/9b/bc589b90ac406a936ec647eb8df34eeb.jpg'
+        },
+        {
+            name:'Phố mùa đông',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song18.mp3',
+            image:'https://i.pinimg.com/564x/0b/34/d4/0b34d4444fea16aac0685d2a115ab511.jpg'
+        },
+        {
+            name:'Tháng mấy em nhớ anh ?',
+            singer:'Hà Anh Tuấn',
+            album:'',
+            path:'songs/song19.mp3',
+            image:'https://i.pinimg.com/736x/7f/b2/a9/7fb2a9e07ffc6b4546e95e9fa05b020b.jpg'
+        },
         {
             name:'Tháng tư là lời nói dối của em',
             singer:'Hà Anh Tuấn',
