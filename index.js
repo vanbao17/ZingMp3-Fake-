@@ -33,7 +33,7 @@ const turnOffVolume = $(".off-volume")
 const navContent = $(".content-nav")
 navContent.style.position = 'fixed !improtant'
 audio.volume = 20/100;
-processVolume.value = 20;
+processVolume.value = 50;
 const personal = {
     currentIndexSong:0,
     isPlay:false,
@@ -524,9 +524,6 @@ const personal = {
                 }
             }
         }   
-        window.addEventListener('scroll',function() {
-            if(window.pageYOffset=1);
-        })
         progress.addEventListener("mousedown",function() {
             personal.isChange = !personal.isChange
         })
@@ -599,9 +596,10 @@ const personal = {
         this.rederlibary()
         this.rederplaylist()
         this.handleEvent()
-        setTimeout(function() {
+        // setTimeout(function() {
+        //     personal.handleTimeSong(0);
+        // },1000)
             personal.handleTimeSong(0);
-        },1000)
     }
 }
 personal.start()
