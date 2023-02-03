@@ -601,7 +601,7 @@ const personal = {
         this.handleEvent()
         setTimeout(function() {
             personal.handleTimeSong(0);
-        },5000)
+        },1000)
     }
 }
 personal.start()
