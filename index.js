@@ -256,7 +256,7 @@ const personal = {
                     <div class="time">
                         <ion-icon name="mic" class="mic"></ion-icon>
                         <ion-icon name="heart" class="heart"></ion-icon>
-                        <p class="listtimesong">04:03</p>
+                        <p class="listtimesong">00:00</p>
                         <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
                     </div>
                 </div>
