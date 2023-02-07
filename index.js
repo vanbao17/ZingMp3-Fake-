@@ -97,61 +97,54 @@ const personal = {
             album:'',
             path:'songs/song6.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
-        },
+        },  
         {
             name:'Em đã thương người ta hơn anh',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song8.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
         },
         {
             name:'Yêu một người sao buồn đến thế',
             singer:'Noo Phước Thịnh',
-            path:'songs/song6.mp3',
+            path:'songs/song10.mp3',
             album:'',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
-        },
-        {
-            name:'Quay về đi',
-            singer:'Noo Phước Thịnh',
-            album:'',
-            path:'songs/song6.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/6/5/1/6/6516b96ae8353ef11f6b7148c74bb387.jpg'
         },
         {
             name:'Cause I Love You',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song7.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
         },
         {
             name:'Thương mấy cũng là người dưng',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song9.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
         },
         {
             name:'Cơn mơ băng giá',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song5.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
         },
         {
             name:'Những kẻ mộng mơ',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song1.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
         },
         {
             name:'Chợt thấy em khóc',
             singer:'Noo Phước Thịnh',
             album:'',
-            path:'songs/song6.mp3',
+            path:'songs/song11.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
         // {
