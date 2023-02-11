@@ -1237,6 +1237,9 @@ menu ul .menu2.item5 a {
     flex-wrap: nowrap;
     gap: 30px;
 }
+.explore-FavoriteArtist-list .item-img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 50%, rgb(217, 213, 206));
+}
 #explore-youwanthear .explore-youwanthear-list .youwanthear-item,
 .powerMidWeek-item,.famousSinger-item,.onlyfan-item,.FavoriteArtist-item{
     width: 18%;
@@ -1325,7 +1328,7 @@ menu ul .menu2.item5 a {
     width: 91%;
     margin: 0px auto;
     color: #fff;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 .explore-newdeloy-tags {
     width:100%;
@@ -1644,6 +1647,8 @@ menu ul .menu2.item5 a {
     transform: none; 
 }
 .explore-radio-list {
+    padding: 10px 0px ;
+    display: flex;
     width: 100%;
     overflow: hidden;
     position: relative;

@@ -232,10 +232,10 @@ const personal = {
         //     image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/d/0/b/2d0bf08b1ddaa07bae28208796316571.jpg'
         // }
     ],
-    defineproperties: function() {
-        Object.defineProperty(this,'currentSong',{
+    defineproperties: function(page) {
+        Object.defineProperty(page,'currentSong',{
             get : function() {
-                return personal.songs[personal.currentIndexSong ]
+                return page.songs[page.currentIndexSong ]
             }
         })
     },
@@ -316,17 +316,17 @@ const personal = {
         })  
         listplaylist.innerHTML = htmls.join('')
     },
-    playsong:function() {
+    playsong:function(type) {
         audio.load();
-        personal.LoadCurrentSong()
+        personal.LoadCurrentSong(type)
         // audio.currentTime=0;
         audio.play()
     },
-    LoadCurrentSong : function() {
-        imgplaysong.src = personal.currentSong.image;
-        nameplaysong.textContent = personal.currentSong.name
-        singerplaysong.textContent = personal.currentSong.singer
-        audio.src = personal.currentSong.path
+    LoadCurrentSong : function(ob) {
+        imgplaysong.src = ob.currentSong.image;
+        nameplaysong.textContent = ob.currentSong.name
+        singerplaysong.textContent = ob.currentSong.singer
+        audio.src = ob.currentSong.path
     },
     checkNumber :function(a) {
         var demso = 1;
@@ -391,7 +391,7 @@ const personal = {
                 tagplaysong.style.bottom = 0;
                 buttonPause.classList.add("active")
                 buttonPlay.classList.remove("active")
-                personal.playsong()
+                personal.playsong(personal)
                 cdThumbAnimation.play()
                 personal.displayPlayingsong(index)
             }
@@ -432,7 +432,7 @@ const personal = {
                 {
                     if(personal.currentIndexSong==personal.songs.length-1)
                         personal.currentIndexSong=0;
-                    personal.playsong()
+                    personal.playsong(personal)
                 }
                 if(personal.indexrepeatSong==1)
                 {
@@ -443,7 +443,7 @@ const personal = {
                 {
                     if(personal.isshuffleSong) {
                         personal.playrandomsong()
-                        personal.playsong()
+                        personal.playsong(personal)
                     }
                 }
                 if(personal.indexrepeatListSong!=2&&personal.indexrepeatSong!=1)
@@ -451,7 +451,7 @@ const personal = {
                     if(personal.currentIndexSong<personal.songs.length-1)
                     {
                         personal.currentIndexSong++;
-                        personal.playsong()
+                        personal.playsong(personal)
                     }
                     personal.displayPlayingsong( personal.currentIndexSong)
                 }
@@ -487,7 +487,7 @@ const personal = {
                     else
                         personal.currentIndexSong = personal.songs.length-1;
                 }
-                personal.playsong()
+                personal.playsong(personal)
             }
             nextSong.onclick = function() {
                 if(personal.isshuffleSong)
@@ -501,7 +501,7 @@ const personal = {
                     else
                         personal.currentIndexSong = 0;
                 }
-                personal.playsong()
+                personal.playsong(personal)
             }
             shuffleSong.onclick = function() {
                 personal.isshuffleSong = !personal.isshuffleSong
@@ -600,7 +600,7 @@ const personal = {
         }
     },
     start:function() {
-        this.defineproperties()
+        this.defineproperties(personal)
         this.rendersong()
         this.rederlibary()
         this.rederplaylist()
@@ -615,9 +615,9 @@ const exlporeTags = $$(".explore-newdeloy-tags .newdeloy-tag")
 const exlporeConTentTags = $$("#explore-newdeloy .explore-newdeloys")
 const nextRadio = $(".radio-next")
 const prevRadio = $(".radio-prev")
-
 const exlpore = {
     isShow:false,
+    currentIndexSong:0,
     slides: [
         {
             image:"https://photo-zmp3.zmdcdn.me/banner/3/4/1/b/341b43479d99aabab258cb180bdeb58d.jpg"
@@ -695,7 +695,7 @@ const exlpore = {
             singers:['Katy Perry','Taylor Swift','Justin Bieber']
         },
     ],
-    NewDeloyAll:[
+    songs:[
         {
             name:'Định Mệnh',
             singer:'Noo Phước Thịnh',
@@ -953,6 +953,337 @@ const exlpore = {
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
     ],
+    powerMidWeeks:[
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/1/7/5/f1756dd7c13150fed7b25bb87ef21d5d.jpg',
+            title:'Nhạc cho thứ 7',
+            description:'EDM không thể thiếu cho ngày thứ Bảy cuối tuần'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/2/c/8/c2c89b57b7cea83c8c1972861a5301a1.jpg',
+            title:'Và thế là yêu',
+            description:'Gặp em một buổi chiều, thấy lòng thiếu thiếu... thế là yêu!'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/5/7/a/8/57a8aacf893bb82891f9ad2ff570a7f6.jpg',
+            title:'Đỉnh cao Trending',
+            description:'Chiếm trọn Top Trending Việt Nam khi vừa ra mắt'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/0/e/e/4/0ee403c2084b53f0bbd9f7a4474f12ac.jpg',
+            title:'R&B viêt ngày nay',
+            description:'Bức tranh đa màu sắc của R&B Việt ngày nay'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/5/5/e/a/55ea69e44927a99b943be1a2e3047430.jpg    ',
+            title:'Nhạc sĩ hát',
+            description:'Ở đây có nhạc sĩ Kai Đinh và nhiều hơn nữa'
+        },
+    ],
+    famousSingers:[
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/images/a/1/e/0/a1e02cdf50690af710b77af59db01d60.jpg',
+            description:'Những chiếc nhạc mlem của HIEUTHUHAI'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/a/2/e/1a2e7b4845e7b40cfd9d1e169245928f.jpg',
+            description:'Trúc Nhân và siêu Hit Có không giữ mất đừng tìm, Sáng mắt chưa'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/5/1/9/a5199dc00d416498bd38ca44b8b79c4d.jpg',
+            description:'Ú òa một cái có ngay nhạc xịn của MONO'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/f/5/1/4f517d7a902dc1eb1b9735dc11108536.jpg',
+            description:'Nghe Anh chưa thương em đến vậy đâu của Myra Trần và …'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/d/a/c/8dac50eb79753190ee18bb46f95797f3.jpg',
+            description:'Vũ Cát Tường và bộ sưu tập Hit"độc nhất"'
+        },
+    ],
+    onlyfans:[
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/images/b/4/8/0/b4807a29d5b9f6abb009bed66f81af8d.jpg',
+            title:'Những Bài Hát Hay Nhất Của ...',
+            description:'Alan Walker'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/8/8/f/9/88f98c32c575699aa4af4124de6d1be9.jpg',
+            title:'Ritual (Single)',
+            description:'Alan Walker'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/e/a/7/bea7743cfcdc9464d1cd1fd1281a6ba8.jpg',
+            title:'Faded (Remixes)',
+            description:'Alan Walker'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/e/d/d/fedd3035df204386e68275a79369047f.jpg',
+            title:'Sing Me to Sleep (EP)',
+            description:'Alan Walker'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/8/2/8/f828971973632637d83b119fe5801965.jpg    ',
+            title:'Faded (EP)',
+            description:'Alan Walker'
+        },
+    ],
+    FavoriteArtists:[
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w480_r2x3_webp/cover_artist/e/d/6/d/ed6dfbd391ac1c13ab2abbfb1854ed47.jpg',
+            name:'Bùi Anh Tuấn',
+            listimage:
+            [
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/c/2/6/4/c26405ed0a45459ad3af76210f4878bd.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/8/9/89af1855ce349828e851a9fe834afc80_1474942606.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/8/9/89af1855ce349828e851a9fe834afc80_1474942606.jpg'
+            ]
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w480_r2x3_webp/cover_artist/f/4/f/f/f4ffb4dd34649a9b8ed66cf7924b657c.jpg',
+            name:'Bức tường',
+            listimage:[
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/7/f/7fdc1a630c238af0815181f9faa190f5_1285212114.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/7/f/7fdc1a630c238af0815181f9faa190f5_1285212114.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/7/f/7fdc1a630c238af0815181f9faa190f5_1285212114.jpg   '
+            ]
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w480_r2x3_webp/cover_artist/e/a/6/0/ea601168be387cec200c4a08f528ed88.jpg',
+            name:'Lil Nas X',
+            listimage:[
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/4/0/3/5/40354058076ab81f7da2e14e8965a3e2.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/4/2/d/6/42d6a1aa54e1fdafb6f241db6902c60f.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/5/9/8/3/598368a45f9061cff3275937295b7584.jpg'
+            ]
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w480_r2x3_webp/cover_artist/4/3/0/c/430cd64ec15d30b342678c95185f76ba.jpg',
+            name:'Noo Phước Thịnh',
+            listimage:[
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/6/e/6e7b90d96728c9ce1b4c2a104d622784_1507799020.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/9/6/6/6/96661ff604cbdfcbe5751d8ff96c82c6.jpg'
+            ]
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w480_r2x3_webp/cover_artist/3/5/a/d/35ad281a468d21a2d0ad5a8d96c62f23.jpg',
+            name:'Mr.Siro',
+            listimage:[
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/8/d/5/d/8d5dbe985cfcd4f76d2c1ff3ce78abf3.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/4/d/6/2/4d62b014dddf2702af85e1d14d5c0a0b.jpg',
+                'https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/6/9/4/4/6944b95014e0aa283befab1bcd5f8cdd.jpg'
+            ]
+        },
+    ],
+    radios:[
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/f/d/7/9/fd79808d2180de9a421afa6aff38953e.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/1/4/6/b/146b49d11cc9b3bc591823bfedb8bce2.jpg',
+            title:"V-POP",
+            duration:'360',
+            viewer:'1k đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/5/b/8/2/5b82aaa0580bd3917bfd8f2b07577e69.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/2/c/c/f/2ccf96f6da468b466c5f8d1188f62eee.jpg',
+            title:'Pladio',
+            duration:'143',
+            viewer:'109 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/2/3/5/e235117d191db9f7bbc82a3d31f17e60.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/7/7/8/d/778d152062edfbe0e4c4abf151858bf0.jpg',
+            title:'Chạm',
+            duration:'160',
+            viewer:'65 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/0/5/0/0/050026740ab256072ce322be0fcd01bb.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/8/5/4/0/854010f76bddeefd5f13305a1d6cc8be.jpg',
+            title:'On Air',
+            duration:'188',
+            viewer:'14 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/4/8/c/e/48cefd41cfc03533d52303190f47e6ef.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/1/3/0/5/1305cd954d22d89fef4354301613fd68.jpg',
+            title:'US-UK',
+            duration:'300',
+            viewer:'67 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/d/4/f/f/d4ffcd5734d4dae6266fec08719324f0.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/b/0/d/a/b0da7c8ecd6521337682f3a86fa0170f.jpg',
+            title:'K-POP',
+            duration:'250',
+            viewer:'33 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/c/2/1/bc2115886f2e2e9f7cf2fa28a39cda12.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/c/f/2/4/cf2428f7e56a8c2a52d84cb106891de2.jpg',
+            title:'Acoustic',
+            duration:'234',
+            viewer:'99 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/f/b/0/efb05fb9097a7057aecef6ecb62bff5a.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/0/9/9/3/0993b3110c60ba6518fceeba9913d20d.jpg',
+            title:'Acoustic',
+            duration:'118',
+            viewer:'23 đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/f/2/2/bf223818f85e7fe129091b415038ca6c.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/b/f/3/b/bf3bf87a788a5d0b8719c6feee774a2e.jpg',
+            title:'Rap Việt',
+            duration:'223',
+            viewer:'1k đang nghe'
+        },
+        {
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/f/6/2/ef629460aba3bf16ced1931b951a9dc6.jpg',
+            imagesuport:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/e/7/f/3/e7f3098c8bc0e12444a9495900580ed5.jpg',
+            title:'EDM',
+            duration:'444',
+            viewer:'6k đang nghe'
+        },
+    ],
+    renderradios:function() {
+        var htmls = exlpore.radios.map(function(radio) {
+            return `
+            <div class="radio-item">
+                <div class="item-img">
+                    <div class="item-img-avatar">
+                        <img src="${radio.image}" alt="">
+                        <div class="item-img-con">
+                            <img src="${radio.imagesuport}" alt="">
+                        </div>
+                    </div>
+                    <div class="item-action">
+                        <ion-icon name="play"></ion-icon>
+                    </div>
+                    <div class="item-shadow"></div>
+                    <span class="radio-live">LIVE</span>
+                    <svg viewBox="0 0 80 80" class="radio-duration">
+                        <circle class="circle" cx="40" cy="40" r="38" style="stroke-dasharray:${radio.duration};"/>
+                    </svg>
+                </div>
+                <div class="item-title">
+                    <h3>${radio.title}</h3>
+                    <span>${radio.viewer}</span>
+                </div>
+            </div>
+            `
+        })
+        $(".radio-list").innerHTML = htmls.join('')
+    },
+    renderFavoriteArtists :function() {
+        var htmls  = exlpore.FavoriteArtists.map(function(FavoriteArtist) {
+            return `
+            <div class="FavoriteArtist-item">
+                <div class="item-img">
+                    <img src="${FavoriteArtist.image}" alt="">
+                </div>
+                <div class="FavoriteArtist-down">
+                    <h4>${FavoriteArtist.name}</h4>
+                    <div class="FavoriteArtist-listimgsong">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <ion-icon name="play" class="FavoriteArtist-play"></ion-icon>
+                <div class="item-shadow"></div>
+            </div>
+            `
+        })
+        $(".explore-FavoriteArtist-list").innerHTML = htmls.join('')
+        var list = exlpore.FavoriteArtists.map(function(FavoriteArtist) {
+            return FavoriteArtist.listimage
+        })
+        for(var i=0;i<list.length;i++) {
+            var htmlslist = list[i].map(function(e) {
+                return `<img src="${e}" alt="">`
+            })
+            $$('.FavoriteArtist-listimgsong').forEach(function(e,index) {
+                if(i===index) {
+                    e.innerHTML = htmlslist.join('')
+                }
+            })
+        }
+    },
+    renderonlyfans:function() {
+        var htmls = exlpore.onlyfans.map(function(onlyfan) {
+            return `
+            <div class="onlyfan-item">
+                <div class="item-img">
+                    <img src="${onlyfan.image}" alt="">
+                    <div class="item-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                    <div class="item-shadow"></div>
+                </div>
+                <div class="item-title">
+                    <h3>${onlyfan.title}</h3>
+                    <div class="singers">
+                        <span>${onlyfan.description}</span>
+                    </div>
+                </div>
+            </div>
+            `
+        })
+        $(".explore-onlyfan-list").innerHTML = htmls.join('')
+    },
+    renderfamousSingers:function() {
+        var htmls = exlpore.famousSingers.map(function(famousSinger) {
+            return `
+            <div class="famousSinger-item">
+                <div class="item-img">
+                    <img src="${famousSinger.image}" alt="">
+                    <div class="item-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                    <div class="item-shadow"></div>
+                </div>
+                <div class="item-title">
+                    <div class="singers">
+                        <span>${famousSinger.description}</span>
+                    </div>
+                </div>
+            </div>
+            `
+        })
+        $(".explore-famousSinger-list").innerHTML = htmls.join('')
+    },
+    renderpowerMidWeek:function() {
+        var htmls = exlpore.powerMidWeeks.map(function(powerMidWeek) {
+            return `
+            <div class="powerMidWeek-item">
+                <div class="item-img">
+                    <img src="${powerMidWeek.image}" alt="">
+                    <div class="item-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                    <div class="item-shadow"></div>
+                </div>
+                <div class="item-title">
+                    <h3>${powerMidWeek.title}</h3>
+                    <div class="singers">
+                        <span>${powerMidWeek.description}</span>
+                    </div>
+                </div>
+            </div>
+            `
+        })
+        $(".explore-powerMidWeek-list").innerHTML = htmls.join('');
+    },
     renderSlide:function() {
         var htmls = exlpore.slides.map(function(slide) {
             return `<div class="gallery-item"><img src="${slide.image}" alt=""></div>`
@@ -1016,7 +1347,7 @@ const exlpore = {
         }
     },
     renderDeloyNewAll:function() {
-        var htmls = exlpore.NewDeloyAll.map(function(NewDeloy) {
+        var htmls = exlpore.songs.map(function(NewDeloy) {
             return `
                 <div class="explore-newdeloy-item">
                     <div class="newdeloy-item-left">
@@ -1298,16 +1629,33 @@ const exlpore = {
                 prevRadio.classList.remove("active")
             },3000)
         }
+        const onclickSongExplore = $$('.explore-newdeloy-item')
+        onclickSongExplore.forEach(function(e,index) {
+            e.onclick = function() {
+                exlpore.currentIndexSong = index;
+                tagplaysong.style.bottom = 0;
+                buttonPause.classList.add("active")
+                buttonPlay.classList.remove("active");
+                audio.load()
+                personal.playsong(exlpore)
+                personal.displayPlayingsong(personal.currentIndexSong)
+            }
+        })
     },
     start:function() {
+        personal.defineproperties(exlpore)
         this.renderSlide()
         this.renderListRecent()
         this.renderYouWantHear()
         this.renderDeloyNewAll()
-        this.handleEvent()
         this.renderDeloyNewVietNam()
         this.renderDeloyNewNuocNgoai()
-
+        this.renderpowerMidWeek()
+        this.renderfamousSingers()
+        this.renderonlyfans()
+        this.renderFavoriteArtists()
+        this.renderradios()
+        this.handleEvent()
     }
 }
 exlpore.start()
