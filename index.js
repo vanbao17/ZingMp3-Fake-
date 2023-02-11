@@ -1,8 +1,6 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
-
-
 const listsong = $(".list-songs");
 const listlibary = $(".list-libarys");
 const listplaylist = $("#list-playlist");
@@ -31,9 +29,11 @@ const activeMenu =$$('.menu1')
 const turnOnVolume = $(".on-volume") 
 const turnOffVolume = $(".off-volume") 
 const navContent = $(".content-nav")
+const main = $$('#content>.content');
 navContent.style.position = 'fixed !improtant'
 audio.volume = 20/100;
 processVolume.value = 50;
+
 const personal = {
     currentIndexSong:0,
     isPlay:false,
@@ -145,6 +145,13 @@ const personal = {
             singer:'Noo Phước Thịnh',
             album:'',
             path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Old Town Road',
+            singer:'hehe',
+            album:'',
+            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
         // {
@@ -389,10 +396,12 @@ const personal = {
                 personal.displayPlayingsong(index)
             }
         })
-        activeMenu.forEach(function(menu) {
-            menu.onclick = function() {
+        activeMenu.forEach(function(menu,index) {
+            menu.onclick = function(e) {
                 $('.menu1.active').classList.remove('active')
                 this.classList.add("active")
+                $('#content>.content.active').classList.remove('active')
+                main[index].classList.add('active');
             }
         })
         buttonPause.onclick=function(){
@@ -439,7 +448,7 @@ const personal = {
                 }
                 if(personal.indexrepeatListSong!=2&&personal.indexrepeatSong!=1)
                 {
-                    if (personal.currentIndexSong<personal.songs.length-1)
+                    if(personal.currentIndexSong<personal.songs.length-1)
                     {
                         personal.currentIndexSong++;
                         personal.playsong()
@@ -599,4 +608,707 @@ const personal = {
         personal.handleTimeSong(0);
     }
 }
+const iconnext = $('.icon-next')
+const iconprev = $('.icon-prev')
+const listgallery = $('.list-gallery')
+const exlporeTags = $$(".explore-newdeloy-tags .newdeloy-tag")
+const exlporeConTentTags = $$("#explore-newdeloy .explore-newdeloys")
+const nextRadio = $(".radio-next")
+const prevRadio = $(".radio-prev")
+
+const exlpore = {
+    isShow:false,
+    slides: [
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/3/4/1/b/341b43479d99aabab258cb180bdeb58d.jpg"
+        },
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/d/5/d/6/d5d69a3c27f366ff77a741a5e68933c0.jpg"
+        },
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/f/1/f/9/f1f9e232d47bc0d37034f90da15b9654.jpg"
+        },
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/0/0/6/0/006012720e42ced2337abdfb903f8ac9.jpg"
+        },
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/d/d/2/4/dd243b3822a181f31e98ed89be31b30d.jpg"
+        },
+        {
+            image:"https://photo-zmp3.zmdcdn.me/banner/5/1/0/e/510ebfe923d34d5fe27392dacb0fb9b0.jpg"
+        }
+    ],
+    recents: [
+        {
+            imgage:'https://photo-playlist-zmp3.zmdcdn.me/s2/user-playlist?src=HavwqN7EvKCI1oYSFOdq0r5DF9mzYV03KGHhqJ7OyLW90stHOelpKGjGPTastgeDMmDdtcICg0iJ3NRSQChw05XFFuGZdhDN5GDubJ_7iWfN0tYBETYp20PNV8zgsR48KbHwYJBTvLnR1o-ACOhYNr004zuztevPLWSHs3p2rHW22rUADucNKLr00yDdnDiMJ5nQaphKsnO0Ma6VQ82DImaF59eoq89BMbuSp663XaK8KKl2Dzo3BLy46wynre8fMWq2ytE1Zcy81acnEj_5Eq5N1FrzpeLr2nC4ftt8XIyIGHkjVvZHUKD6J_yfcz4hHK4UhNdBW2GG4qkYUfk3F4a0Igvz&size=thumb/240_240',
+            title:"Động lực"
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/e/d/2/5/ed251cf560be4747e7737b535c357f07.jpg',
+            title:"#Zingchart"
+        },
+        {
+            imgage:'https://photo-playlist-zmp3.zmdcdn.me/s2/user-playlist?src=HavwqN7EvKCI1oYSFOdq0rHDR9mrYV43N5HdW6RP-GDT03I2Ojd_0mqBC8fWqwTRN5avYJRMeGj1Lt_SEf3p00eLDeHnnBfNHrbnbMsTwGfHMN7VFz3cNm82VjXfqRDHKryiWpxNi59M32g6ETMs0LWAHu0qqTu7L0D0XJt6X4K33mRNDet635n4Kfvcm8fBJGH1r2J0Z4jE14VBTDpTIXG2HPjzsjDF4WSVo7pUXar71nZCADJKJK0DL9TfWTWB4WOVrI3VarzRLrAPPyxJ614HKfjdcTCQ2a4UcJQQrXuEHKhCRfxKJ0uJJyjamDb211bFmct2qbnUMHlEVG&size=thumb/240_240',
+            title:"Noo"
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/images/8/4/d/8/84d853405a3420614784d74b66d4a858.jpg',
+            title:"Vũ"
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/2/f/a/2/2fa2c5d52c030eeb492b29e5c30a6512.jpg',
+            title:"Lối nhỏ Đen Vâu"
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/images/c/a/6/7/ca67e30d6a7fedbb64d1341b61ad4b94.jpg',
+            title:"Những bài hát hay của Noo Phước Thịnh"
+        },
+        {
+            imgage:'https://photo-playlist-zmp3.zmdcdn.me/s2/user-playlist?src=HavwqN7EvKCI1oYSFOdq0rPDOvnjYQi31bjdrMxJ-51M2ZU5ReB_0WK8OzGzqgXSK5q_tc-5z5SO12g0OyEcN5D6OzWeb-yB7WeaoJJElrPS2YJNCu2wNmvU9umsqRmB30ydZsFGl5bP3t2CDuRg2rbL6uepYuSFNbKVXZQGsqO8MLdKFTkP3rSI3PrjbjL8Hb8TrtwMW4X5KaYPBzk774y4ICuWtOLEImOScYNRWKvF0n_BTz29J4y82PPcX8KA7GD2r2_QpbvKKW-OQCkEJXuJ3yzedOuP0aT5ppcSZnvP5KANECg845CL49WyoDiU0HP7bppAqGaFKHYRVG&size=thumb/240_240',
+            title:"Chill"
+        },
+    ],
+    YouWantHears:[
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/d/3/0/fd303f58e16acee435800b32621b5b60.jpg',
+            title:"Pop princess",
+            singers:['Britney Spears','Christina Aguilera','pham van minh']
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/1/7/e/d17ede63fae6b485d1bc003170ee39b5.jpg',
+            title:"Pop princess",
+            singers:['The Chainsmokers','Calvin Harris','Alan Walker']
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/4/4/4/d444dcf90cf33747e9369763474f2216.jpg',
+            title:"Pop princess",
+            singers:['Taylor Swift','Justin Bieber','Adele']
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/1/3/8/b138850701bdb9b4f8c444f0e60e212d.jpg',
+            title:"Pop princess",
+            singers:['Zedd','Alessia Cara','Gryffin']
+        },
+        {
+            imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/d/f/c/ddfc89a5793ba5e0219aad3a86859756.jpg',
+            title:"Pop princess",
+            singers:['Katy Perry','Taylor Swift','Justin Bieber']
+        },
+    ],
+    NewDeloyAll:[
+        {
+            name:'Định Mệnh',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'42 phút trước',
+            path:'songs/song4.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Chạm khẽ tim anh một chút thôi',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:' 3 giây trước',
+            path:'songs/song6.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },  
+        {
+            name:'Em đã thương người ta hơn anh',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'5 tiếng trước',
+            path:'songs/song8.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Yêu một người sao buồn đến thế',
+            singer:'Noo Phước Thịnh',
+            path:'songs/song10.mp3',
+            timeDeloy:'3 tiếng trước',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
+        },
+        {
+            name:'Cause I Love You',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'12 tiếng trước',
+            path:'songs/song7.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Thương mấy cũng là người dưng',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song9.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Cơn mơ băng giá',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'8 tiếng trước',
+            path:'songs/song5.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
+        },
+        {
+            name:'Những kẻ mộng mơ',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song1.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
+        },
+        {
+            name:'Chợt thấy em khóc',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'10 tiếng trước',
+            path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Old Town Road',
+            singer:'hehe',
+            timeDeloy:'5 tiếng trước',
+            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Something just like this',
+            singer:'hehe',
+            timeDeloy:'4 tiếng trước',
+            path:'https://vnso-zn-24-tf-mp3-s1-zmp3.zmdcdn.me/b5535a5c671a8e44d70b/8692159048210559009?authen=exp=1676126132~acl=/b5535a5c671a8e44d70b/*~hmac=79aa31a04fe6cb77c0579c91bd2fc0cc&fs=MTY3NTk1MzMzMjIzMXx3ZWJWNnwwfDE0LjI0OC4xMTIdUngODk',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Take me to church',
+            singer:'hehe',
+            timeDeloy:'vừa xong',
+            path:'https://vnso-zn-5-tf-mp3-320s1-zmp3.zmdcdn.me/99811863c024297a7035/2841815870575837844?authen=exp=1676126532~acl=/99811863c024297a7035/*~hmac=be34c8b1fa5cc1b2fb664bda504dbf84&fs=MTY3NTk1MzmUsICzMjkxOHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+    ],
+    NewDeloyVietNam:[
+        {
+            name:'Pham Van Bao',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'42 phút trước',
+            path:'songs/song4.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Chạm khẽ tim anh một chút thôi',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:' 3 giây trước',
+            path:'songs/song6.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },  
+        {
+            name:'Em đã thương người ta hơn anh',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'5 tiếng trước',
+            path:'songs/song8.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Yêu một người sao buồn đến thế',
+            singer:'Noo Phước Thịnh',
+            path:'songs/song10.mp3',
+            timeDeloy:'3 tiếng trước',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
+        },
+        {
+            name:'Cause I Love You',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'12 tiếng trước',
+            path:'songs/song7.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Thương mấy cũng là người dưng',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song9.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Cơn mơ băng giá',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'8 tiếng trước',
+            path:'songs/song5.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
+        },
+        {
+            name:'Những kẻ mộng mơ',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song1.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
+        },
+        {
+            name:'Chợt thấy em khóc',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'10 tiếng trước',
+            path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Old Town Road',
+            singer:'hehe',
+            timeDeloy:'5 tiếng trước',
+            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Something just like this',
+            singer:'hehe',
+            timeDeloy:'4 tiếng trước',
+            path:'https://vnso-zn-24-tf-mp3-s1-zmp3.zmdcdn.me/b5535a5c671a8e44d70b/8692159048210559009?authen=exp=1676126132~acl=/b5535a5c671a8e44d70b/*~hmac=79aa31a04fe6cb77c0579c91bd2fc0cc&fs=MTY3NTk1MzMzMjIzMXx3ZWJWNnwwfDE0LjI0OC4xMTIdUngODk',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Take me to church',
+            singer:'hehe',
+            timeDeloy:'vừa xong',
+            path:'https://vnso-zn-5-tf-mp3-320s1-zmp3.zmdcdn.me/99811863c024297a7035/2841815870575837844?authen=exp=1676126532~acl=/99811863c024297a7035/*~hmac=be34c8b1fa5cc1b2fb664bda504dbf84&fs=MTY3NTk1MzmUsICzMjkxOHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+    ],
+    NewDeloyNuocNgoai:[
+        {
+            name:'Pham Van Minh',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'42 phút trước',
+            path:'songs/song4.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Chạm khẽ tim anh một chút thôi',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:' 3 giây trước',
+            path:'songs/song6.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },  
+        {
+            name:'Em đã thương người ta hơn anh',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'5 tiếng trước',
+            path:'songs/song8.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+        },
+        {
+            name:'Yêu một người sao buồn đến thế',
+            singer:'Noo Phước Thịnh',
+            path:'songs/song10.mp3',
+            timeDeloy:'3 tiếng trước',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/0/c/3/e0c341956a038d66b77275b20168b112.jpg'
+        },
+        {
+            name:'Cause I Love You',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'12 tiếng trước',
+            path:'songs/song7.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Thương mấy cũng là người dưng',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song9.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+        },
+        {
+            name:'Cơn mơ băng giá',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'8 tiếng trước',
+            path:'songs/song5.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/d/d/9/bdd90e2f31c41756ba054b6d96ccd674.jpg'
+        },
+        {
+            name:'Những kẻ mộng mơ',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'1 tiếng trước',
+            path:'songs/song1.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
+        },
+        {
+            name:'Chợt thấy em khóc',
+            singer:'Noo Phước Thịnh',
+            timeDeloy:'10 tiếng trước',
+            path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Old Town Road',
+            singer:'hehe',
+            timeDeloy:'5 tiếng trước',
+            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Something just like this',
+            singer:'hehe',
+            timeDeloy:'4 tiếng trước',
+            path:'https://vnso-zn-24-tf-mp3-s1-zmp3.zmdcdn.me/b5535a5c671a8e44d70b/8692159048210559009?authen=exp=1676126132~acl=/b5535a5c671a8e44d70b/*~hmac=79aa31a04fe6cb77c0579c91bd2fc0cc&fs=MTY3NTk1MzMzMjIzMXx3ZWJWNnwwfDE0LjI0OC4xMTIdUngODk',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+        {
+            name:'Take me to church',
+            singer:'hehe',
+            timeDeloy:'vừa xong',
+            path:'https://vnso-zn-5-tf-mp3-320s1-zmp3.zmdcdn.me/99811863c024297a7035/2841815870575837844?authen=exp=1676126532~acl=/99811863c024297a7035/*~hmac=be34c8b1fa5cc1b2fb664bda504dbf84&fs=MTY3NTk1MzmUsICzMjkxOHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
+        },
+    ],
+    renderSlide:function() {
+        var htmls = exlpore.slides.map(function(slide) {
+            return `<div class="gallery-item"><img src="${slide.image}" alt=""></div>`
+        })
+        listgallery.innerHTML = htmls.join('')
+    },
+    renderListRecent:function() {
+        const htmls = exlpore.recents.map(function(recent) {
+            return `
+                <div class="recent-item">
+                    <div class="recent-item-img">
+                        <img src="${recent.imgage}" alt="">
+                        <div class="recent-item-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                            <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                            <ion-icon name="close-outline"></ion-icon>
+                        </div>
+                        <div class="recent-item-shadow"></div>
+                    </div>
+                    <div class="recent-item-title">
+                        <h3>${recent.title}</h3>
+                    </div>
+                </div>
+            `
+        })  
+        $('.explore-recents-list').innerHTML = htmls.join("")
+    },
+    renderYouWantHear:function() {
+        var htmls = exlpore.YouWantHears.map(function(YouWantHear) {
+            return `
+            <div class="youwanthear-item">
+                <div class="item-img">
+                    <img src="${YouWantHear.imgage}" alt="">
+                    <div class="item-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                    <div class="item-shadow"></div>
+                </div>
+                <div class="item-title">
+                    <h3>${YouWantHear.title}</h3>
+                    <div class="singers"></div>
+                </div>
+            </div>
+            `
+        })
+        $('.explore-youwanthear-list').innerHTML = htmls.join('')
+        var singers = exlpore.YouWantHears.map(function(YouWantHear) {
+            return YouWantHear.singers
+        })
+        for(var i=0;i<singers.length;i++) {
+            var htmlslist = singers[i].map(function(e) {
+                return `<span>${e},  </span>`
+            })
+            $$('.singers').forEach(function(e,index) {
+                if(i===index) {
+                    e.innerHTML = htmlslist.join('')
+                }
+            })
+        }
+    },
+    renderDeloyNewAll:function() {
+        var htmls = exlpore.NewDeloyAll.map(function(NewDeloy) {
+            return `
+                <div class="explore-newdeloy-item">
+                    <div class="newdeloy-item-left">
+                        <div class="item-left-avatar">
+                            <img src="${NewDeloy.image}" alt="">
+                            <div class="item-left-action">
+                                <ion-icon name="play" class="play"></ion-icon>
+                                <div class="gif"></div>
+                                <div class="opacity"></div>
+                            </div>
+                        </div>
+                        <div class="item-left-title">
+                            <h3>${NewDeloy.name}</h3>
+                            <p>${NewDeloy.singer}</p>
+                            <p class="deloytime">${NewDeloy.timeDeloy}</p>
+                        </div>
+                    </div>
+                    <div class="newdeloy-item-right">
+                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    </div>
+                </div>
+            `
+        })
+        $(".newdeloy-All").innerHTML = htmls.join('')
+    },
+    renderDeloyNewVietNam:function() {
+        var htmls = exlpore.NewDeloyVietNam.map(function(NewDeloy) {
+            return `
+                <div class="explore-newdeloy-item">
+                    <div class="newdeloy-item-left">
+                        <div class="item-left-avatar">
+                            <img src="${NewDeloy.image}" alt="">
+                            <div class="item-left-action">
+                                <ion-icon name="play" class="play"></ion-icon>
+                                <div class="gif"></div>
+                                <div class="opacity"></div>
+                            </div>
+                        </div>
+                        <div class="item-left-title">
+                            <h3>${NewDeloy.name}</h3>
+                            <p>${NewDeloy.singer}</p>
+                            <p class="deloytime">${NewDeloy.timeDeloy}</p>
+                        </div>
+                    </div>
+                    <div class="newdeloy-item-right">
+                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    </div>
+                </div>
+            `
+        })
+        $(".newdeloy-Vietnam").innerHTML = htmls.join('')
+    },
+    renderDeloyNewNuocNgoai:function() {
+        var htmls = exlpore.NewDeloyNuocNgoai.map(function(NewDeloy) {
+            return `
+                <div class="explore-newdeloy-item">
+                    <div class="newdeloy-item-left">
+                        <div class="item-left-avatar">
+                            <img src="${NewDeloy.image}" alt="">
+                            <div class="item-left-action">
+                                <ion-icon name="play" class="play"></ion-icon>
+                                <div class="gif"></div>
+                                <div class="opacity"></div>
+                            </div>
+                        </div>
+                        <div class="item-left-title">
+                            <h3>${NewDeloy.name}</h3>
+                            <p>${NewDeloy.singer}</p>
+                            <p class="deloytime">${NewDeloy.timeDeloy}</p>
+                        </div>
+                    </div>
+                    <div class="newdeloy-item-right">
+                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    </div>
+                </div>
+            `
+        })
+        $(".newdeloy-Nuocngoai").innerHTML = htmls.join('')
+    },
+    slideshowprev:function() {
+            previous = $('.gallery-item.previous')
+            first = $('.gallery-item.first')
+            add = $('.gallery-item.add')
+            last = $('.gallery-item.last')
+            next = $('.gallery-item.next')
+            select = $('.gallery-item.select')
+            if(previous!=null)
+            {
+                previous.classList.add('select')
+                previous.classList.remove('previous')
+            }
+            if(first!=null)
+            {
+                first.classList.add('previous')
+                first.classList.remove('first')
+            }
+            if(add!=null)
+            {
+                add.classList.add('first')
+                add.classList.remove('add')
+            }
+            if(last!=null)
+            {
+                last.classList.add('add')
+                last.classList.remove('last')
+            }
+            if(next!=null)
+            {
+                next.classList.add('last')
+                next.classList.remove('next')
+            }
+            if(select!=null)
+            {
+                select.classList.add('next')
+                select.classList.remove('select')
+            }
+    },
+    slideshownext:function() {
+        previous = $('.gallery-item.previous')
+            first = $('.gallery-item.first')
+            add = $('.gallery-item.add')
+            last = $('.gallery-item.last')
+            next = $('.gallery-item.next')
+            select = $('.gallery-item.select')
+            if(previous!=null)
+            {
+                previous.classList.add('first')
+                previous.classList.remove('previous')
+            }
+            if(first!=null)
+            {
+                first.classList.add('add')
+                first.classList.remove('first')
+            }
+            if(add!=null)
+            {
+                add.classList.add('last')
+                add.classList.remove('add')
+            }
+            if(last!=null)
+            {
+                last.classList.add('next')
+                last.classList.remove('last')
+            }
+            if(next!=null)
+            {
+                next.classList.add('select')
+                next.classList.remove('next')
+            }
+            if(select!=null)
+            {
+                select.classList.add('previous')
+                select.classList.remove('select')
+            }
+    },
+    handleEvent:function() {
+        $$('.gallery-item')[0].classList.add('select')
+        $$('.gallery-item')[1].classList.add('next')
+        $$('.gallery-item')[2].classList.add('last')
+        $$('.gallery-item')[3].classList.add('add')
+        $$('.gallery-item')[4].classList.add('first')
+        $$('.gallery-item')[5].classList.add('previous')
+        var timeshow = setInterval(function() {   
+            previous = $('.gallery-item.previous')
+            first = $('.gallery-item.first')
+            add = $('.gallery-item.add')
+            last = $('.gallery-item.last')
+            next = $('.gallery-item.next')
+            select = $('.gallery-item.select')
+            if(previous!=null)
+            {
+                previous.classList.add('first')
+                previous.classList.remove('previous')
+            }
+            if(first!=null)
+            {
+                first.classList.add('add')
+                first.classList.remove('first')
+            }
+            if(add!=null)
+            {
+                add.classList.add('last')
+                add.classList.remove('add')
+            }
+            if(last!=null)
+            {
+                last.classList.add('next')
+                last.classList.remove('last')
+            }
+            if(next!=null)
+            {
+                next.classList.add('select')
+                next.classList.remove('next')
+            }
+            if(select!=null)
+            {
+                select.classList.add('previous')
+                select.classList.remove('select')
+            }
+        },4000)
+        listgallery.onmousemove = function() {
+            listgallery.onmouseover = function() {
+                $(".gallery-item-icon.icon-next").classList.add("show");
+                $(".gallery-item-icon.icon-prev").classList.add("show");
+            }
+            clearInterval(timeshow)
+        }
+        listgallery.onmouseleave = function() {
+            $(".gallery-item-icon.icon-next").classList.remove("show");
+            $(".gallery-item-icon.icon-prev").classList.remove("show");
+            var timeshow =  setInterval(function() {   
+                previous = $('.gallery-item.previous')
+                first = $('.gallery-item.first')
+                add = $('.gallery-item.add')
+                last = $('.gallery-item.last')
+                next = $('.gallery-item.next')
+                select = $('.gallery-item.select')
+                if(previous!=null)
+                {
+                    previous.classList.add('first')
+                    previous.classList.remove('previous')
+                }
+                if(first!=null)
+                {
+                    first.classList.add('add')
+                    first.classList.remove('first')
+                }
+                if(add!=null)
+                {
+                    add.classList.add('last')
+                    add.classList.remove('add')
+                }
+                if(last!=null)
+                {
+                    last.classList.add('next')
+                    last.classList.remove('last')
+                }
+                if(next!=null)
+                {
+                    next.classList.add('select')
+                    next.classList.remove('next')
+                }
+                if(select!=null)
+                {
+                    select.classList.add('previous')
+                    select.classList.remove('select')
+                }
+            },4000)
+            listgallery.onmousemove = function() {
+                clearInterval(timeshow)
+            }
+        }
+        iconnext.onclick = function() {
+            exlpore.slideshownext()
+        }
+        iconprev.onclick = function() {
+            exlpore.slideshowprev()
+        }
+        exlporeTags.forEach(function(exlporeTag,index) {
+            exlporeTag.onclick = function() {
+                $(".newdeloy-tag.active").classList.remove('active')
+                this.classList.add("active");
+                $(".explore-newdeloys.active").classList.remove("active");
+                exlporeConTentTags[index].classList.add("active");
+            }
+        })
+        nextRadio.onclick = function() {
+            $(".radio-list").style.transform =`translateX(-${$$('.radio-item').length*$('.radio-item').offsetWidth-$('.radio-item').offsetWidth*7}px)`
+            nextRadio.classList.remove("active")
+            prevRadio.classList.add("active")
+            prevRadio.onclick = function() {
+                $(".radio-list").style.transform =`translateX(0px)`
+                nextRadio.classList.add("active")
+                prevRadio.classList.remove("active")
+            }
+            setTimeout(function() {
+                $(".radio-list").style.transform =`translateX(0px)`
+                nextRadio.classList.add("active")
+                prevRadio.classList.remove("active")
+            },3000)
+        }
+    },
+    start:function() {
+        this.renderSlide()
+        this.renderListRecent()
+        this.renderYouWantHear()
+        this.renderDeloyNewAll()
+        this.handleEvent()
+        this.renderDeloyNewVietNam()
+        this.renderDeloyNewNuocNgoai()
+
+    }
+}
+exlpore.start()
 personal.start()
