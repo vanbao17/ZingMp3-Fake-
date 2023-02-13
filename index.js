@@ -319,7 +319,6 @@ const personal = {
     playsong:function(type) {
         audio.load();
         personal.LoadCurrentSong(type)
-        // audio.currentTime=0;
         audio.play()
     },
     LoadCurrentSong : function(ob) {
@@ -615,9 +614,14 @@ const exlporeTags = $$(".explore-newdeloy-tags .newdeloy-tag")
 const exlporeConTentTags = $$("#explore-newdeloy .explore-newdeloys")
 const nextRadio = $(".radio-next")
 const prevRadio = $(".radio-prev")
+const newsongslist = $('.newsongs-list')
+const indexsongslist = $$('.newsongs-item')
+const eventPrev = $('.explore-title p .icon:first-child')
+const eventNext = $('.explore-title p .icon:last-child')
 const exlpore = {
     isShow:false,
     currentIndexSong:0,
+    indexEvent:0,
     slides: [
         {
             image:"https://photo-zmp3.zmdcdn.me/banner/3/4/1/b/341b43479d99aabab258cb180bdeb58d.jpg"
@@ -1149,6 +1153,78 @@ const exlpore = {
             viewer:'6k đang nghe'
         },
     ],
+    imageNewSongs:[
+        {
+            name:'Hoa lạc lối',
+            singer:'Khang Việt',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/a/8/9/9a894135b316f76d84a2ed6e113d8ad6.jpg',
+        },
+        {
+            name:'Ghệ iu dấu của em ơi',
+            singer:'Tlinh',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/9/5/7/b95760bf9d1dc98d671e494b73f15492.jpg',
+        },
+        {
+            name:'Người yêu xịn xò',
+            singer:'Tiên Tiên',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/7/c/6/e7c62eca5fea137039126c3009682937.jpg',
+        },
+        {
+            name:'Tuesday',
+            singer:'Vương anh tú',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/a/d/b/4/adb4e8399efce647e0d5b2516851ba54.jpg',
+        },
+        {        
+            name:'Cẩm y vệ ',
+            singer:'Đình Dũng',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/a/c/6/4/ac641faa185e8dd10e64df943a755c63.jpg',
+        },
+        {
+            name:'Rời xa thế giới',
+            singer:'ChuChu',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/d/f/4/b/df4b97eed06fc583cfe690bea4872a23.jpg',
+        },
+        {
+            name:'Mình ơi',
+            singer:'Đoàn Thúy Trang',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/0/6/2/1/06215c94c0e55ff17cde7aa453daa578.jpg',
+        },
+        {
+            name:'Pháo hoa',
+            singer:'Gill',
+            day:'',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/1/5/2215e1749302789c6450aa5243b4e1a1.jpg',
+        },
+    ],
+    renderimageNewSongs :function() {
+        exlpore.imageNewSongs.forEach(function(imageNewSong,index) {
+            $$(".newsongs-item img").forEach(function(a,indeximg) {
+                if(index==indeximg) {
+                    a.src = imageNewSong.image;
+                }
+            })
+            $$(".newsongs-item h3").forEach(function(a,indexname) {
+                if(index==indexname) {
+                    a.textContent = imageNewSong.name;
+                }
+            })
+            $$(".newsongs-item span").forEach(function(a,indexsinger) {
+                if(index==indexsinger) {
+                    a.textContent = imageNewSong.singer;
+                }
+            })
+            $$(".newsongs-item .item-top").forEach(function(a,indextop) {
+                a.textContent = `#${indextop+1}`
+            })
+        })
+    },
     renderradios:function() {
         var htmls = exlpore.radios.map(function(radio) {
             return `
@@ -1503,6 +1579,35 @@ const exlpore = {
                 select.classList.remove('select')
             }
     },
+    slidenewsongs:function() {
+        var i=2;
+        var IntervalSlideNewSong = setInterval(function() {
+            newsongslist.style.transform = `translateX(calc(${(i+1)*-34}%))`
+            i=i+3;
+            if(i>indexsongslist.length)
+            {
+                newsongslist.style.transform = `translateX(0)`
+                i=2;
+            }
+        },5000)
+        $('.explore-newsongs-list').onmousemove = function() {
+            clearInterval(IntervalSlideNewSong);
+        }
+        $('.explore-newsongs-list').onmouseleave = function() {
+            var IntervalSlide = setInterval(function() {
+                newsongslist.style.transform = `translateX(calc(${(i+1)*-34}%))`
+                i=i+3;
+                if(i>indexsongslist.length)
+                {
+                    newsongslist.style.transform = `translateX(0)`
+                    i=2;
+                }
+            },5000)
+            $('.explore-newsongs-list').onmousemove = function() {
+                clearInterval(IntervalSlide);
+            }
+        }
+    },
     handleEvent:function() {
         $$('.gallery-item')[0].classList.add('select')
         $$('.gallery-item')[1].classList.add('next')
@@ -1641,6 +1746,23 @@ const exlpore = {
                 personal.displayPlayingsong(personal.currentIndexSong)
             }
         })
+        $$('#explore-event .explore-title p .icon').forEach(function(icon,index) {
+            icon.onclick = function() {
+                this.classList.remove("active")
+                if(index==1&&($$('.event-item').length-exlpore.indexEvent)>3)
+                {
+                    $("#explore-event p .icon-prev").classList.add("active")
+                    exlpore.indexEvent++;
+                    $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
+                }
+                if(index==0&&(exlpore.indexEvent)>0)
+                {
+                    $("#explore-event p .icon-next").classList.add("active")
+                    exlpore.indexEvent--;
+                    $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
+                }
+            }
+        })
     },
     start:function() {
         personal.defineproperties(exlpore)
@@ -1655,6 +1777,8 @@ const exlpore = {
         this.renderonlyfans()
         this.renderFavoriteArtists()
         this.renderradios()
+        this.slidenewsongs()
+        this.renderimageNewSongs()
         this.handleEvent()
     }
 }

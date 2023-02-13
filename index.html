@@ -7,6 +7,7 @@
     <title>Zing Mp3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylemobile.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="shortcut icon" href="#">
@@ -228,25 +229,25 @@
            </div>
         </div>
         <div id="explore" class="content explore">
-            <div class="explore-slide">
+            <div class="explore-slide" class="explore-content">
                 <div class="gallery-item-icon icon-prev"><ion-icon name="chevron-back-outline"></ion-icon></div>
                 <div class="list-gallery"></div>
                 <div class="gallery-item-icon icon-next"><ion-icon name="chevron-forward-outline"></ion-icon></div>  
             </div>
-            <div id="explore-recent">
+            <div id="explore-recent" class="explore-content">
                 <div class="explore-recent-title">
                     <h3>Gần Đây</h3>
                     <p>TẤT CẢ <ion-icon name="chevron-forward-outline"></ion-icon></p>
                 </div>
-                <div class="explore-recents-list"></div>
+                <div class="explore-recents-list "></div>
             </div>
-            <div id="explore-youwanthear">
+            <div id="explore-youwanthear" class="explore-content">
                 <div class="explore-title">
                     <h3>Có Thể Bạn Muốn Nghe</h3>
                 </div>
-                <div class="explore-youwanthear-list"></div>
+                <div class="explore-youwanthear-list explore-content-list"></div>
             </div>
-            <div id="explore-newdeloy">
+            <div id="explore-newdeloy" class="explore-content">
                 <div class="explore-newdeloy-title">
                     <h3>Mới Phát Hành</h3>
                     <p>TẤT CẢ <ion-icon name="chevron-forward-outline"></ion-icon></p>
@@ -268,21 +269,21 @@
                     <div class="newdeloy-Nuocngoai"></div>
                 </div>
             </div>
-            <div id="explore-powerMidWeek">
+            <div id="explore-powerMidWeek" class="explore-content">
                 <div class="explore-title">
                     <h3>Năng Lượng Giữa Tuần</h3>
                 </div>
-                <div class="explore-powerMidWeek-list">
+                <div class="explore-powerMidWeek-list explore-content-list">
                 </div>
             </div>
-            <div id="explore-famousSinger">
+            <div id="explore-famousSinger" class="explore-content">
                 <div class="explore-title">
                     <h3>Nghệ Sĩ "Hot" 💫</h3>
                 </div>
-                <div class="explore-famousSinger-list">
+                <div class="explore-famousSinger-list explore-content-list">
                 </div>
             </div>
-            <div id="explore-onlyfan">
+            <div id="explore-onlyfan" class="explore-content">
                 <div class="explore-title">
                     <div class="explore-title-avtar">
                         <img src="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/f/7/d/c/f7dc4f30e0db6b059354c3d4f392ae94.jpg" alt="">
@@ -292,30 +293,354 @@
                         <h3>Billy Ray Cyrus</h3>
                     </div>
                 </div>
-                <div class="explore-onlyfan-list">
+                <div class="explore-onlyfan-list explore-content-list">
                 </div>
             </div>
-            <div id="explore-FavoriteArtist">
+            <div id="explore-FavoriteArtist" class="explore-content">
                 <div class="explore-title">
                     <h3>Nghệ Sĩ Yêu Thích</h3>
                 </div>
-                <div class="explore-FavoriteArtist-list">
-                </div>
+                <div class="explore-FavoriteArtist-list explore-content-list"></div>
             </div>
-            <div id="explore-radio">
+            <div id="explore-radio" class="explore-content">
                 <div class="explore-title">
                     <h3>Nghệ Sĩ Yêu Thích</h3>
                 </div>
                 <ion-icon name="chevron-back-outline" class="radio-prev radio-icon display"></ion-icon>
-                <div class="explore-radio-list">
+                <div class="explore-radio-list explore-content-list">
                     <div class="radio-list"></div>
                 </div>
                 <ion-icon name="chevron-forward-outline" class="radio-next radio-icon active"></ion-icon>
             </div>
-        </div>
-        <div id="zingchart" class="content zingchart"></div>
-        <div id="radio" class="content radio">  </div>
-        <div id="follow" class="content follow"></div>
+            <div id="explore-zingchart" class="explore-content">
+                <div id="zingchart-banner">
+                    <div class="banner-item">
+                        <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/song-vn-2x.jpg" alt="">
+                    </div>
+                    <div class="banner-item">
+                        <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/web_song_usuk.jpg" alt="">
+                    </div>
+                    <div class="banner-item">
+                        <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/web_song_kpop.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="explore-newsongs" class="explore-content">
+                <div class="explore-title">
+                    <h3>Nhạc Mới</h3>
+                </div>
+                <div class="explore-newsongs-list explore-content-list">
+                    <div class="newsongs-list">
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top"></p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top"></p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>Hoa lạc lối</h3>
+                                    <span>Khang Việt</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#1</p>
+                                    <p>17.11.2003</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsongs-item item-last">
+                            xem tất cả
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="explore-event" class="explore-content">
+                <div class="explore-title">
+                    <h3>Sự kiện</h3>
+                    <p>
+                        <ion-icon class="icon icon-prev" name="chevron-back-outline"></ion-icon> 
+                        <ion-icon class="icon active icon-next" name="chevron-forward-outline"></ion-icon>
+                    </p>
+                </div>
+                <div class="explore-event-list explore-content-list">
+                    <div class="event-item">
+                        <div class="item-img">
+                            <img src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/8/4/1/c/841c721a22d5928f0af2be48b1c39062.jpg" alt="">
+                            <div class="event-item-title">
+                                <span class="tag">Sinh nhật sao</span>
+                                <h3>Sinh nhật sao x Orange</h3>
+                                <p class="event-time">00:00 Thứ Ba,14 tháng 2</p>
+                            </div>
+                            <div class="event-item-opacity"></div>
+                        </div>
+                        <div class="event-congratulations">
+                            <div class="event-view-congratulations">
+                                <p>lượt chúc mừng</p>
+                                <ul>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/2/2/4/156/240/d85ec81a385c662dbf1ea1b2ec169edb.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/7/c/0/30/240/5b913cc3682c079b0eb30becfa914636.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/6/9/0/19/240/863f9edfa52300d2d6ef7a26fc1782a2.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/9/2/5/72/240/957a2cdb5f13b0a585b21c076ab529de.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/c/1/0/a/122/240/0502fb8c8bedb051c6edbb274771433d.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/d/7/3/6/5/240/1e161431aeff5c9956f90e8a3553571c.jpg" alt=""></li>
+                                    <li>+86</li>
+                                </ul>
+                            </div>
+                            <span>Chúc Mừng</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="item-img">
+                            <img src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/8/4/1/c/841c721a22d5928f0af2be48b1c39062.jpg" alt="">
+                            <div class="event-item-title">
+                                <span class="tag">Sinh nhật sao</span>
+                                <h3>Sinh nhật sao x Orange</h3>
+                                <p class="event-time">00:00 Thứ Ba,14 tháng 2</p>
+                            </div>
+                            <div class="event-item-opacity"></div>
+                        </div>
+                        <div class="event-congratulations">
+                            <div class="event-view-congratulations">
+                                <p>lượt chúc mừng</p>
+                                <ul>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/2/2/4/156/240/d85ec81a385c662dbf1ea1b2ec169edb.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/7/c/0/30/240/5b913cc3682c079b0eb30becfa914636.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/6/9/0/19/240/863f9edfa52300d2d6ef7a26fc1782a2.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/9/2/5/72/240/957a2cdb5f13b0a585b21c076ab529de.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/c/1/0/a/122/240/0502fb8c8bedb051c6edbb274771433d.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/d/7/3/6/5/240/1e161431aeff5c9956f90e8a3553571c.jpg" alt=""></li>
+                                    <li>+86</li>
+                                </ul>
+                            </div>
+                            <span>Chúc Mừng</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="item-img">
+                            <img src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/0/c/b/5/0cb5d9dbbdccda56de94f808dcd67c33.jpg" alt="">
+                            <div class="event-item-title">
+                                <span class="tag">Sinh nhật sao</span>
+                                <h3>Sinh nhật sao x Orange</h3>
+                                <p class="event-time">00:00 Thứ Ba,14 tháng 2</p>
+                            </div>
+                            <div class="event-item-opacity"></div>
+                        </div>
+                        <div class="event-congratulations">
+                            <div class="event-view-congratulations">
+                                <p>lượt chúc mừng</p>
+                                <ul>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/2/2/4/156/240/d85ec81a385c662dbf1ea1b2ec169edb.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/7/c/0/30/240/5b913cc3682c079b0eb30becfa914636.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/6/9/0/19/240/863f9edfa52300d2d6ef7a26fc1782a2.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/9/2/5/72/240/957a2cdb5f13b0a585b21c076ab529de.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/c/1/0/a/122/240/0502fb8c8bedb051c6edbb274771433d.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/d/7/3/6/5/240/1e161431aeff5c9956f90e8a3553571c.jpg" alt=""></li>
+                                    <li>+86</li>
+                                </ul>
+                            </div>
+                            <span>Chúc Mừng</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="item-img">
+                            <img src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/2/6/7/d/267d8e69b2430a237efc1ef0b92e7320.jpg" alt="">
+                            <div class="event-item-title">
+                                <span class="tag">Sinh nhật sao</span>
+                                <h3>Sinh nhật sao x Orange</h3>
+                                <p class="event-time">00:00 Thứ Ba,14 tháng 2</p>
+                            </div>
+                            <div class="event-item-opacity"></div>
+                        </div>
+                        <div class="event-congratulations">
+                            <div class="event-view-congratulations">
+                                <p>lượt chúc mừng</p>
+                                <ul>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/2/2/4/156/240/d85ec81a385c662dbf1ea1b2ec169edb.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/7/c/0/30/240/5b913cc3682c079b0eb30becfa914636.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/6/9/0/19/240/863f9edfa52300d2d6ef7a26fc1782a2.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/9/2/5/72/240/957a2cdb5f13b0a585b21c076ab529de.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/c/1/0/a/122/240/0502fb8c8bedb051c6edbb274771433d.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/d/7/3/6/5/240/1e161431aeff5c9956f90e8a3553571c.jpg" alt=""></li>
+                                    <li>+86</li>
+                                </ul>
+                            </div>
+                            <span>Chúc Mừng</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="item-img">
+                            <img src="https://photo-resize-zmp3.zmdcdn.me/w600_r12x7_webp/event/1/0/c/a/10caf636b900cdcdaa234e895a36952f.jpg" alt="">
+                            <div class="event-item-title">
+                                <span class="tag">Sinh nhật sao</span>
+                                <h3>Sinh nhật sao x Orange</h3>
+                                <p class="event-time">00:00 Thứ Ba,14 tháng 2</p>
+                            </div>
+                            <div class="event-item-opacity"></div>
+                        </div>
+                        <div class="event-congratulations">
+                            <div class="event-view-congratulations">
+                                <p>lượt chúc mừng</p>
+                                <ul>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/2/2/4/156/240/d85ec81a385c662dbf1ea1b2ec169edb.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/4/7/c/0/30/240/5b913cc3682c079b0eb30becfa914636.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/6/9/0/19/240/863f9edfa52300d2d6ef7a26fc1782a2.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/6/9/2/5/72/240/957a2cdb5f13b0a585b21c076ab529de.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/c/1/0/a/122/240/0502fb8c8bedb051c6edbb274771433d.jpg" alt=""></li>
+                                    <li><img src="https://s240-ava-talk-zmp3.zmdcdn.me/d/7/3/6/5/240/1e161431aeff5c9956f90e8a3553571c.jpg" alt=""></li>
+                                    <li>+86</li>
+                                </ul>
+                            </div>
+                            <span>Chúc Mừng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="explore-end" class="explore-content">
+                <h4>Đối tác âm nhạc</h4>
+                <ul class="explore-list-company">
+                    <li><img src="https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/SM-Entertainment.png" alt=""></li>
+                    <li><img src="https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/SM-Entertainment.png" alt=""></li>
+
+                    <li><img src="https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/SM-Entertainment.png" alt=""></li>
+
+                </ul>
+            </div>
+        </div>   
     </div>
     <div id="playsong">
         <div class="playsong-left">
@@ -372,6 +697,46 @@
             <ion-icon name="ellipsis-horizontal"></ion-icon>
         </div>
     </div>
+    <div id="responsive-mobile">
+        <nav>
+            <div id="list-menu">
+                <ion-icon name="list-outline"></ion-icon>
+            </div>
+            <div id="logo-menu"></div>
+            <div id="search-personal">
+                <ion-icon name="search-outline"></ion-icon>
+                <img src="https://scontent.fdad8-1.fna.fbcdn.net/v/t39.30808-6/309398349_634988571478925_761045229378709455_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LI9knCRwsYQAX8kjz3w&_nc_ht=scontent.fdad8-1.fna&oh=00_AfDtDCkpouPB_50hAxf_Vdf5oqn9btJfPn_paK5VdCF5zA&oe=63ECAF2E" alt="">
+            </div>
+        </nav>
+        <div id="menu-bar">
+            <ul>
+                <li>TRANG CHỦ</li>
+                <li>#ZINGCHART</li>
+                <li>NHẠC CÁ NHÂN</li>
+                <hr>
+            </ul>
+        </div>
+        <div id="slide">
+                <div class="list-slide">
+                    <div class="slide-item item1">
+                        <img src="https://photo-zmp3.zmdcdn.me/banner/7/f/d/7/7fd7525eeeafabdbb00a8a46d94c4f9e.jpg" alt="">
+                    </div>
+                    <div class="slide-item item2">
+                        <img src="https://photo-zmp3.zmdcdn.me/banner/0/f/3/4/0f34dce0f938401109e913bcdf9412a1.jpg" alt="">
+                    </div>
+                    <div class="slide-item item3">
+                        <img src="https://photo-zmp3.zmdcdn.me/banner/d/7/0/b/d70bec2b7f86754b41f124e04a0704bf.jpg" alt="">
+                    </div>
+                    <div class="slide-item item4">
+                        <img src="https://photo-zmp3.zmdcdn.me/banner/a/1/2/0/a120a4a4046ba0ea4b37c1eb94782425.jpg" alt="">
+                    </div>
+                    <div class="slide-item item5">
+                        <img src="https://photo-zmp3.zmdcdn.me/banner/1/3/0/7/1307edb0bd2cc13ab43019e8b653c453.jpg" alt="">
+                    </div>
+                </div>
+        </div>
+    </div>
     <script src="index.js"></script>
+    <script src="responsive.js"></script>
 </body>
 </html>

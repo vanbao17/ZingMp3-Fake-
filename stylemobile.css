@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100%;
+    height: 10vh;
+    overflow-x: auto;
+
+}
+#responsive-mobile {
+    width: 100%;
+    display: none;
+}
+#responsive-mobile nav {
+    width: 95%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+}
+#responsive-mobile nav #logo-menu {
+    background-image: url('https://static-zmp3.zmdcdn.me/skins/zmp3-mobile-v5.2/images/logo-mp-3.svg');
+    display: block;
+    width: 100px;
+    height: 32px;
+    font-size: 0;
+    margin: 0 auto;
+    background-size: cover;
+}
+#responsive-mobile nav ion-icon {
+    font-size: 25px;
+}
+#responsive-mobile nav #search-personal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#responsive-mobile nav img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+}
+#responsive-mobile #menu-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f1f1;
+}
+#responsive-mobile #menu-bar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+#responsive-mobile #menu-bar ul li {
+    padding: 20px 10px;
+}
+#responsive-mobile #menu-bar hr {
+    width: 0;
+    height: 2px;
+    background-color:blue;
+    position: absolute;
+    bottom: 0;
+}
+#slide {
+    width: 100%;
+    height: 232px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    -webkit-scroll-snap-points-x: repeat(414px);
+    -ms-scroll-snap-points-x: repeat(414px);
+    scroll-snap-points-x: repeat(414px);
+    -webkit-scroll-snap-type: mandatory;
+    -ms-scroll-snap-type: mandatory;
+    scroll-snap-type: mandatory;
+}
+#slide .list-slide {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    height: 300px;
+    display: flex;
+}
+#slide .list-slide .slide-item img {
+    width: 414px;
+    flex-shrink: 0;
+    height: 232px;
+}
+@media (max-width:600px) {
+    #responsive-mobile {
+        display: block;
+    }
+}
