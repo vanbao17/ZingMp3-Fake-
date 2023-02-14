@@ -1687,10 +1687,8 @@ const exlpore = {
             }
         },4000)
         listgallery.onmousemove = function() {
-            listgallery.onmouseover = function() {
-                $(".gallery-item-icon.icon-next").classList.add("show");
-                $(".gallery-item-icon.icon-prev").classList.add("show");
-            }
+            $(".gallery-item-icon.icon-next").classList.add("show");
+            $(".gallery-item-icon.icon-prev").classList.add("show");
             clearInterval(timeshow)
         }
         listgallery.onmouseleave = function() {

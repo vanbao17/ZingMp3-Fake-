@@ -1041,7 +1041,7 @@ menu ul .menu2.item5 a {
     visibility: hidden;
 }
 .icon-next:hover,.icon-prev:hover {
-    opacity: 1;
+    visibility: visible !important;
 }
 .show {
     visibility: visible !important;
