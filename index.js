@@ -1203,6 +1203,24 @@ const exlpore = {
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/1/5/2215e1749302789c6450aa5243b4e1a1.jpg',
         },
     ],
+    listimageCompanys:[
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/genie.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/beggers.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/FUGA.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/hikoon.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/orcahrd.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/kakao.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/taihe.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/empire.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/ingrooves.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/universal-1.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/jsj.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/SM-Entertainment.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/danal.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/stone-music.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/believe.png',
+        'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/route-note.png', 
+    ],
     renderimageNewSongs :function() {
         exlpore.imageNewSongs.forEach(function(imageNewSong,index) {
             $$(".newsongs-item img").forEach(function(a,indeximg) {
@@ -1224,6 +1242,12 @@ const exlpore = {
                 a.textContent = `#${indextop+1}`
             })
         })
+    },
+    renderlistimageCompany:function() {
+        var htmls = exlpore.listimageCompanys.map(function(listimageCompany) {
+            return `<li><img src="${listimageCompany}" alt=""</li>`
+        })
+        $(".explore-list-company").innerHTML = htmls.join('')
     },
     renderradios:function() {
         var htmls = exlpore.radios.map(function(radio) {
@@ -1752,14 +1776,22 @@ const exlpore = {
                 if(index==1&&($$('.event-item').length-exlpore.indexEvent)>3)
                 {
                     $("#explore-event p .icon-prev").classList.add("active")
+                    $("#explore-event p .icon-next").classList.add("active")
                     exlpore.indexEvent++;
                     $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
                 }
                 if(index==0&&(exlpore.indexEvent)>0)
                 {
+                    $("#explore-event p .icon-prev").classList.add("active")
                     $("#explore-event p .icon-next").classList.add("active")
                     exlpore.indexEvent--;
                     $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
+                }
+                if(($$('.event-item').length-3) == exlpore.indexEvent) {
+                    $("#explore-event p .icon-next").classList.remove("active")
+                }
+                if(exlpore.indexEvent==0) {
+                    $("#explore-event p .icon-prev").classList.remove("active")
                 }
             }
         })
@@ -1779,6 +1811,7 @@ const exlpore = {
         this.renderradios()
         this.slidenewsongs()
         this.renderimageNewSongs()
+        this.renderlistimageCompany()
         this.handleEvent()
     }
 }

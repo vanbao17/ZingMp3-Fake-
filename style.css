@@ -1805,18 +1805,29 @@ menu ul .menu2.item5 a {
 .explore-list-company {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 .explore-list-company li {
     width:calc(88%/8);
-    margin-right: calc(12%/7);
+    margin-right: calc(10%/7);
     background-color: #fff;
-    height: 60px;
+    height: 70px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center ;
     border-radius: 10px;
+    margin-top: 20px;
 }
 .explore-list-company li img {
-    width: 85%;
+    max-width: 83%;
+    max-height: 80%;
+    width: auto;
+}
+#explore-end h4{
+text-align: center;
+color: #aaa;
+padding-bottom: 0;
 }
