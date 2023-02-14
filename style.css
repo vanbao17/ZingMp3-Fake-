@@ -12,6 +12,16 @@ body {
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
     overscroll-behavior: none;
+    position: relative;
+}
+body>#Change-Background {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/rose.jpg') ;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 body::-webkit-scrollbar { 
     width: 0 !important;
@@ -67,10 +77,10 @@ menu hr {
     margin-left: 30px;
 }
 menu {
-    width: 240px;
+    width: 15%;
     height: 100vh;
     font-size: 14px;
-    background-color: #102A5C;
+    background-color: #ffffff13;
     position: fixed;
     z-index: 999;
 }
@@ -140,8 +150,6 @@ menu ul .menu2.item5 a {
 }
 #content {
     width: 85%;
-    background-color: #061D4F;
-    transform: translateX(240px);
 }
 #content>.content {
     display: none;
@@ -722,9 +730,6 @@ menu ul .menu2.item5 a {
     border-radius: 50px;
     background-color: #3560F5;
 }
-#personal {
-    background-color: #061D4F;
-}
 #personal-contentcenter {
     padding-bottom: 50px;
 }
@@ -967,7 +972,6 @@ menu ul .menu2.item5 a {
 #explore {
     width: 100%;
     padding: 100px 0px;
-    background-color: #061D4F;
 }
 #explore .explore-slide img {
     width: 370px;
@@ -1034,13 +1038,13 @@ menu ul .menu2.item5 a {
     left: 20px;
 }
 .explore-slide .icon-next,.explore-slide .icon-prev {
-    opacity: 0;
+    visibility: hidden;
 }
 .icon-next:hover,.icon-prev:hover {
     opacity: 1;
 }
 .show {
-    opacity: 1;
+    visibility: visible !important;
 }
 #explore .gallery-item-icon {
     font-size: 40px;
@@ -1051,6 +1055,8 @@ menu ul .menu2.item5 a {
     top: 35%;
     padding: 10px;
     cursor: pointer;
+    display: grid;
+    place-items: center;
 }
 .gallery-item-icon:hover {
     display: flex;
@@ -1830,4 +1836,16 @@ menu ul .menu2.item5 a {
 text-align: center;
 color: #aaa;
 padding-bottom: 0;
+}
+#changeBackground {
+    width: 60%;
+    height: 80%;
+    position: absolute;
+    background-color: #ffffff4a;
+    z-index: 999;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    display: none;
 }

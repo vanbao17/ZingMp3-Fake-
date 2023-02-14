@@ -618,6 +618,11 @@ const newsongslist = $('.newsongs-list')
 const indexsongslist = $$('.newsongs-item')
 const eventPrev = $('.explore-title p .icon:first-child')
 const eventNext = $('.explore-title p .icon:last-child')
+const eventChangeBackground = $('#list-option li:first-child')
+eventChangeBackground.onclick = function() {
+    console.log($('menu').offsetWidth);
+}
+$('#content').style.transform=`translateX(${$('menu').offsetWidth}px)`
 const exlpore = {
     isShow:false,
     currentIndexSong:0,
@@ -1220,6 +1225,10 @@ const exlpore = {
         'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/stone-music.png',
         'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/believe.png',
         'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/route-note.png', 
+    ],
+    listimageBody:[
+        "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-light1.jpg",
+        "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/rose.jpg",
     ],
     renderimageNewSongs :function() {
         exlpore.imageNewSongs.forEach(function(imageNewSong,index) {
