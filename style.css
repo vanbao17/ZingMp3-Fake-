@@ -15,11 +15,11 @@ body {
     position: relative;
 }
 body>#Change-Background {
-    width: 100%;
+    width: 125%;
     height: 100vh;
     position: fixed;
-    z-index: 0;
-    background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/rose.jpg') ;
+    z-index: -8;
+    background-color: #061D4F;
     background-size: 100% auto;
     background-repeat: no-repeat;
 }
@@ -80,7 +80,7 @@ menu {
     width: 15%;
     height: 100vh;
     font-size: 14px;
-    background-color: #ffffff13;
+    background-color: hsla(0,0%,100%,0.05);
     position: fixed;
     z-index: 999;
 }
@@ -151,7 +151,7 @@ menu ul .menu2.item5 a {
 #content {
     width: 85%;
 }
-#content>.content {
+#content .content {
     display: none;
 }
 #content>.active {
@@ -170,7 +170,7 @@ menu ul .menu2.item5 a {
     color: #fff;
     padding: 20px 0px;
     z-index: 990;
-    width: 100%;
+    width: 95%;
     margin: 0px auto;
     right: 0;
 }
@@ -270,7 +270,7 @@ menu ul .menu2.item5 a {
 }
 #libarys  .xemthem {
     display: inline-block;
-    width: 173px;
+    width: 15%;
     height: 173px;
 }
 #libarys  .xemthem .name p {
@@ -471,7 +471,6 @@ menu ul .menu2.item5 a {
     width: 100%;
     margin: 50px 0px 50px 0px;
     color: #fff;
-    background-color: #061D4F;
 }
 #container-songstitle {
     width: 100%;
@@ -1068,6 +1067,20 @@ menu ul .menu2.item5 a {
 }
 @media only screen and (max-width:500px) {
     menu,.content-nav,#content,#playsong,#song-recent {
+        display: none;
+    }
+    #Change-Background {
+        display: none;
+    }
+    #responsive-mobile {
+        display: block;
+    }
+    #changeBackground {
+        display: none;
+    }
+}
+@media only screen and (min-width:500px) {
+    #responsive-mobile {
         display: none;
     }
 }
@@ -1839,13 +1852,94 @@ padding-bottom: 0;
 }
 #changeBackground {
     width: 60%;
-    height: 80%;
-    position: absolute;
+    height:80%;
+    position: fixed;
     background-color: #ffffff4a;
     z-index: 999;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
     border-radius: 15px;
+    color: #fff;
+    background-color: #2e3e60;
     display: none;
+}
+#changeBackground .interface {
+    width: 97%;
+    margin: 0px auto;
+    padding: 20px;
+    font-size: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#changeBackground .interface ion-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+.changeBackground-type {
+    width:97% ;
+    margin: 0px auto;
+    padding: 20px;
+}
+.types-interface {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.types-interface .type-interface-item {
+    width: 15%;
+    font-size: 12px;
+    cursor: pointer;
+    padding-top: 10px;
+}
+.type-interface-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.interface-item-up {
+    position: relative;
+}
+.interface-image {
+    width: 100%;
+}
+.interface-image-change {
+    width: 70%;
+    font-size: 8px;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    line-height: 2;
+    position: absolute;
+    visibility: hidden;
+    z-index: 9;
+}
+.interface-image-change .active {
+    background-color: #7D3EB6;
+    border: 1px solid #7D3EB6;
+}
+.interface-image-change p {
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    padding: 3px 0px;
+    border: 1px solid #ffffff50;
+}
+.interface-image-opacity {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.264);
+    visibility: hidden;
+}
+.type-interface-item:hover .interface-image-opacity,
+.type-interface-item:hover .interface-image-change {
+    visibility: visible;
+}
+.singerInterface {
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -398,9 +398,9 @@ const personal = {
         activeMenu.forEach(function(menu,index) {
             menu.onclick = function(e) {
                 $('.menu1.active').classList.remove('active')
-                this.classList.add("active")
-                $('#content>.content.active').classList.remove('active')
-                main[index].classList.add('active');
+                this.classList.add("active")    
+                $("#content>.active").classList.remove('active')
+                main[index].classList.add('active')
             }
         })
         buttonPause.onclick=function(){
@@ -619,9 +619,6 @@ const indexsongslist = $$('.newsongs-item')
 const eventPrev = $('.explore-title p .icon:first-child')
 const eventNext = $('.explore-title p .icon:last-child')
 const eventChangeBackground = $('#list-option li:first-child')
-eventChangeBackground.onclick = function() {
-    console.log($('menu').offsetWidth);
-}
 $('#content').style.transform=`translateX(${$('menu').offsetWidth}px)`
 const exlpore = {
     isShow:false,
@@ -1226,9 +1223,14 @@ const exlpore = {
         'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/believe.png',
         'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/route-note.png', 
     ],
-    listimageBody:[
-        "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-light1.jpg",
-        "https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme-background/rose.jpg",
+    listimageSingerBody:[
+        "ExploreSingerBody/jack.jpg",
+        "ExploreSingerBody/ui.jpg",
+        "ExploreSingerBody/ji-chang-wook.jpg",
+        "ExploreSingerBody/lisa.jpg",
+        "ExploreSingerBody/jennie.jpg",
+        "ExploreSingerBody/jisoo.jpg",
+        "ExploreSingerBody/rose.jpg",
     ],
     renderimageNewSongs :function() {
         exlpore.imageNewSongs.forEach(function(imageNewSong,index) {
@@ -1733,6 +1735,8 @@ const exlpore = {
                 }
             },4000)
             listgallery.onmousemove = function() {
+                $(".gallery-item-icon.icon-next").classList.add("show");
+                $(".gallery-item-icon.icon-prev").classList.add("show");
                 clearInterval(timeshow)
             }
         }
@@ -1802,6 +1806,70 @@ const exlpore = {
                 }
             }
         })
+        $$('.Dynamic .active').forEach(function(type,index) {
+            type.onclick = function() {
+                if(index==0)
+                {
+                    $('#Change-Background').style.backgroundImage = 'url(https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-Mid1.jpg)'
+                    $('.content-nav').style.backgroundColor = "transparent"
+                    $('.content-nav').style.backdropFilter= " blur(50px)"
+                }
+                if(index==1)
+                {
+                    $("#playsong").style.backgroundColor = "#1E1E1E"
+                    $('.content-nav').style.backgroundColor = "#1E1E1E"
+                    $('#Change-Background').style.backgroundImage = 'none'
+                    $('#Change-Background').style.backgroundColor = "#1E1E1E"
+                }
+                if(index==2)
+                {
+                    $("#playsong").style.backgroundColor = "#0F1A2E"
+                    $('.content-nav').style.backgroundColor = "#0F1A2E"
+                    $('#Change-Background').style.backgroundImage = 'none'
+                    $('#Change-Background').style.backgroundColor = "#0F1A2E"
+                }
+                if(index==3)
+                {
+                    $("#playsong").style.backgroundColor = "#411636"
+                    $('.content-nav').style.backgroundColor = "#411636"
+                    $('#Change-Background').style.backgroundImage = 'none'
+                    $('#Change-Background').style.backgroundColor = "#411636"
+                }
+                if(index==4)
+                {
+                    $("#playsong").style.backgroundColor = "#1E1E1E"
+                    $('.content-nav').style.backgroundColor = "#1E1E1E"
+                    $('#Change-Background').style.backgroundImage = 'none'
+                    $('#Change-Background').style.backgroundColor = "#1E1E1E"
+                }
+                if(index==5)
+                {
+                    $("#playsong").style.backgroundColor = "#251B18"
+                    $('.content-nav').style.backgroundColor = "#251B18"
+                    $('#Change-Background').style.backgroundImage = 'none'
+                    $('#Change-Background').style.backgroundColor = "#251B18"
+                }
+                $('#changeBackground').style.display = 'none'
+            }
+
+        })
+        $$('.singerInterface .active').forEach(function(type,index) {
+            type.onclick = function() {
+                $('#Change-Background').style.backgroundImage = `url(${exlpore.listimageSingerBody[index]})`
+                $('.content-nav').style.backgroundColor = "transparent"
+                $('.content-nav').style.backdropFilter= " blur(50px)"
+                $('#changeBackground').style.display = 'none'
+            }
+            if(index==2) {
+                $("#songs .Category-tags").style.color = "none"
+            }
+        })
+        eventChangeBackground.onclick = function() {
+            $('#changeBackground').style.display = 'block'
+        }
+        $('.interface ion-icon').onclick = function() {
+            $('#changeBackground').style.display = 'none'
+        }
     },
     start:function() {
         personal.defineproperties(exlpore)

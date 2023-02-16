@@ -609,7 +609,10 @@
                 <h4>Đối tác âm nhạc</h4>
                 <ul class="explore-list-company"></ul>
             </div>
-        </div>   
+        </div>  
+        <div id="ZingChart" class="content zingchart"></div> 
+        <div id="radio" class="content radio"></div> 
+        <div id="follow" class="content follow"></div> 
     </div>
     <div id="playsong">
         <div class="playsong-left">
@@ -667,8 +670,21 @@
         </div>
     </div>
     <div id="responsive-mobile">
-        <nav id="responsive-menu">
-
+        <nav id="responsive-menu">     
+            <div class="nav-responsive-avatar">
+                <img src="https://i.pinimg.com/564x/a0/13/7e/a0137e19c3536195e32082b3f153adf1.jpg" alt="">
+            </div>
+            <div class="nav-menu-search">
+                <input type="text" placeholder="Tìm kiếm bài hát, nghệ Sĩ">
+                <div class="nav-menu-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <ion-icon name="mic"></ion-icon>
+                </div>
+            </div>
+            <div class="nav-responsive-noti">
+                <ion-icon name="notifications-outline"></ion-icon>
+                <span></span>
+            </div>
         </nav>
     </div>
     <div id="changeBackground">
@@ -676,140 +692,200 @@
             <h3>Giao diện</h3>
             <ion-icon name="close-outline"></ion-icon>
         </div>
-        <ul class="Dynamic">
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-        </ul>
-        <ul class="chude">
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-        </ul>
-        <ul class="nghesi">
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-        </ul>
-        <ul class="mautoi">
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-        </ul>
-        <ul class="mausang">
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-            <li>
-                <img src="" alt="">
-                <span></span>
-            </li>
-        </ul>
+        <div class="changeBackground-type">
+            <div class="dynamic-title">
+                <h4>Dynamic</h4>
+            </div>
+            <div class=" Dynamic types-interface">
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/London-thumb.png" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-light-dark-1.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-blue.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-pink.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dynamic-brown.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="dynamic-title">
+                <h4>Nghệ Sĩ</h4>
+            </div>
+            <div class=" singerInterface types-interface">
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jack.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/iu.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/ji-chang-wook.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/lisa.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jennie.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jisoo.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+                <div class="type-interface-item">
+                    <div class="interface-item-up">
+                        <div class="interface-image">
+                            <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/rose.jpg" alt="">
+                        </div>
+                        <div class="interface-image-change">
+                            <p class="active">ÁP DỤNG</p>
+                            <p>XEM TRƯỚC</p>
+                        </div>
+                        <div class="interface-image-opacity"></div>
+                    </div>
+                    <div class="interface-item-down">
+                        <h4>London</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="index.js"></script>
     <script src="responsive.js"></script>
