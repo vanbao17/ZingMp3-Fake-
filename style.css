@@ -154,7 +154,7 @@ menu ul .menu2.item5 a {
 #content .content {
     display: none;
 }
-#content>.active {
+#content>.activecontent {
     display: block;
 }
 .content-nav{
@@ -472,7 +472,7 @@ menu ul .menu2.item5 a {
     margin: 50px 0px 50px 0px;
     color: #fff;
 }
-#container-songstitle {
+.container-songstitle {
     width: 100%;
     display: flex;
     align-items: center;
@@ -480,19 +480,19 @@ menu ul .menu2.item5 a {
     color: #fff;
     margin-top: 50px;
 }
-#container-songstitle nav {
+.container-songstitle nav {
     width: 91%;
 }
 #content hr,#playsong hr {
     border: none;
 }
-#Category-bar {
+.Category-bar {
     width: 100%;
     overflow: hidden;
     position: absolute;
     bottom: 0;
 }
-#Category-bar .Category-up {
+.Category-bar .Category-up {
     width: 100%;
     background-color:hsla(0,0%,100%,0.1);
     height: 1px;
@@ -509,7 +509,7 @@ menu ul .menu2.item5 a {
     transition: all 0.2s ease;
     transform: translateX(0);
 }
-#container-songstitle #Category {
+.container-songstitle .Category {
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -519,12 +519,12 @@ menu ul .menu2.item5 a {
     position: relative;
 
 }
-#container-songstitle #Category li {
+.container-songstitle .Category li {
     padding: 15px 0px;
     cursor: pointer;
     color: #dadada;
 }
-#container-songstitle #Category .Category-item.active {
+#container-songstitle .Category .Category-item.active {
     color: #fff;
 } 
 #songs .Category-tags {
@@ -1078,6 +1078,18 @@ menu ul .menu2.item5 a {
     #changeBackground {
         display: none;
     }
+    #personal-contentcenter {
+        display: block;
+    }
+    .container-songstitle {
+        margin-top: 10px;
+    }
+    .container-songstitle .Category li {
+        color: black;
+    }
+    .container-songstitle nav {
+        width: 100%;
+    }
 }
 @media only screen and (min-width:500px) {
     #responsive-mobile {
@@ -1118,6 +1130,7 @@ menu ul .menu2.item5 a {
 }
 #explore-recent .recent-item .recent-item-img {
     width: 100%;
+    height: 145px;
     position: relative;
     margin-bottom: 10px;
     cursor: pointer;
@@ -1127,7 +1140,7 @@ menu ul .menu2.item5 a {
 }
 #explore-recent .recent-item .recent-item-img img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 10px;
     object-fit: cover;
     transition: 0.5s;
@@ -1678,7 +1691,7 @@ menu ul .menu2.item5 a {
     gap: 2%;
     width: 100%;
     transition: 0.5s;
-    transform: translateX(0);
+    /* transform: translateX(0); */
 }
 .explore-newsongs-list .item-last {
     background-color: #ffffff33;

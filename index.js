@@ -4,8 +4,8 @@ const $$ = document.querySelectorAll.bind(document)
 const listsong = $(".list-songs");
 const listlibary = $(".list-libarys");
 const listplaylist = $("#list-playlist");
-const tagPersonal = $$('#Category li')
-const hr = $('#Category-bar .Category-down ')
+const tagPersonal = $$('.Category li')
+const hr = $$('.Category-bar .Category-down ')
 const audio = $('.audio')
 const personalTags = $$('#personal-contentcenter .content')
 const imgplaysong = $(".playsong-left img")
@@ -373,15 +373,22 @@ const personal = {
     handleEvent:function() {
         tagPersonal.forEach(function(tag,index) {
             var pane = personalTags[index];
-            hr.style.left = 0
-            hr.style.width = $('.Category-item.active').offsetWidth+'px'
+            hr.forEach(function(a,index) {
+                a.style.left = 0
+                a.style.width = $$('.Category-item.active')[index].offsetWidth+'px'
+            } )
             tag.onclick = function() {
-                $('.Category-item.active').classList.remove("active")
+                $$('.Category-item.active').forEach(function(e) {
+                    e.classList.remove("active")
+                })
                 this.classList.add("active")
-                hr.style.left = $('.Category-item.active').offsetLeft+'px'
-                hr.style.width  = $('.Category-item.active').offsetWidth + "px";
+                hr.forEach(function(a) {
+                    a.style.left = $('.Category-item.active').offsetLeft+'px'
+                    a.style.width  = $('.Category-item.active').offsetWidth + "px";
+                } )
                 $('.content.active').classList.remove("active")
                 pane.classList.add("active")
+
             }
         });
         $$('.song').forEach(function(song,index) {
@@ -399,8 +406,9 @@ const personal = {
             menu.onclick = function(e) {
                 $('.menu1.active').classList.remove('active')
                 this.classList.add("active")    
-                $("#content>.active").classList.remove('active')
-                main[index].classList.add('active')
+                $(".content.activecontent").classList.remove('activecontent')
+                console.log($(".content.activecontent"));
+                main[index].classList.add('activecontent')
             }
         })
         buttonPause.onclick=function(){
@@ -615,7 +623,6 @@ const exlporeConTentTags = $$("#explore-newdeloy .explore-newdeloys")
 const nextRadio = $(".radio-next")
 const prevRadio = $(".radio-prev")
 const newsongslist = $('.newsongs-list')
-const indexsongslist = $$('.newsongs-item')
 const eventPrev = $('.explore-title p .icon:first-child')
 const eventNext = $('.explore-title p .icon:last-child')
 const eventChangeBackground = $('#list-option li:first-child')
@@ -1159,49 +1166,49 @@ const exlpore = {
         {
             name:'Hoa lạc lối',
             singer:'Khang Việt',
-            day:'',
+            day:'17.11.2003',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/a/8/9/9a894135b316f76d84a2ed6e113d8ad6.jpg',
         },
         {
             name:'Ghệ iu dấu của em ơi',
             singer:'Tlinh',
-            day:'',
+            day:'11.12.2000',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/9/5/7/b95760bf9d1dc98d671e494b73f15492.jpg',
         },
         {
             name:'Người yêu xịn xò',
             singer:'Tiên Tiên',
-            day:'',
+            day:'12.12.2012',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/e/7/c/6/e7c62eca5fea137039126c3009682937.jpg',
         },
         {
             name:'Tuesday',
             singer:'Vương anh tú',
-            day:'',
+            day:'30.12.2011',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/a/d/b/4/adb4e8399efce647e0d5b2516851ba54.jpg',
         },
         {        
             name:'Cẩm y vệ ',
             singer:'Đình Dũng',
-            day:'',
+            day:'05.08.2000',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/a/c/6/4/ac641faa185e8dd10e64df943a755c63.jpg',
         },
         {
             name:'Rời xa thế giới',
             singer:'ChuChu',
-            day:'',
+            day:'10.01.2010',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/d/f/4/b/df4b97eed06fc583cfe690bea4872a23.jpg',
         },
         {
             name:'Mình ơi',
             singer:'Đoàn Thúy Trang',
-            day:'',
+            day:'06.07.1997',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/0/6/2/1/06215c94c0e55ff17cde7aa453daa578.jpg',
         },
         {
             name:'Pháo hoa',
             singer:'Gill',
-            day:'',
+            day:'19.10.1979',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/1/5/2215e1749302789c6450aa5243b4e1a1.jpg',
         },
     ],
@@ -1233,26 +1240,52 @@ const exlpore = {
         "ExploreSingerBody/rose.jpg",
     ],
     renderimageNewSongs :function() {
-        exlpore.imageNewSongs.forEach(function(imageNewSong,index) {
-            $$(".newsongs-item img").forEach(function(a,indeximg) {
-                if(index==indeximg) {
-                    a.src = imageNewSong.image;
-                }
-            })
-            $$(".newsongs-item h3").forEach(function(a,indexname) {
-                if(index==indexname) {
-                    a.textContent = imageNewSong.name;
-                }
-            })
-            $$(".newsongs-item span").forEach(function(a,indexsinger) {
-                if(index==indexsinger) {
-                    a.textContent = imageNewSong.singer;
-                }
-            })
-            $$(".newsongs-item .item-top").forEach(function(a,indextop) {
-                a.textContent = `#${indextop+1}`
-            })
+        var htmls = exlpore.imageNewSongs.map(function(imageNewSong,index) {
+            // $$(".newsongs-item img").forEach(function(a,indeximg) {
+            //     if(index==indeximg) {
+            //         a.src = imageNewSong.image;
+            //     }
+            // })
+            // $$(".newsongs-item h3").forEach(function(a,indexname) {
+            //     if(index==indexname) {
+            //         a.textContent = imageNewSong.name;
+            //     }
+            // })
+            // $$(".newsongs-item span").forEach(function(a,indexsinger) {
+            //     if(index==indexsinger) {
+            //         a.textContent = imageNewSong.singer;
+            //     }
+            // })
+            // $$(".newsongs-item .item-top").forEach(function(a,indextop) {
+            //     a.textContent = `#${indextop+1}`
+            // })
+            return `
+                        <div class="newsongs-item">
+                            <div class="item-img">
+                                <img src="${imageNewSong.image}" alt="">
+                                <div class="item-action">
+                                    <ion-icon name="play"></ion-icon>
+                                </div>
+                                <div class="item-shadow"></div>
+                            </div>
+                            <div class="item-title">
+                                <div class="title-top">
+                                    <h3>${imageNewSong.name}</h3>
+                                    <span>${imageNewSong.singer}</span>
+                                </div>
+                                <div class="item-day">
+                                    <p class="item-top">#${index+1}</p>
+                                    <p>${imageNewSong.day}</p>
+                                </div>
+                            </div>
+                        </div>
+            `
         })
+        $('.newsongs-list').innerHTML = htmls.join('')
+        const seeall = document.createElement('div')
+        seeall.classList.add('newsongs-item','item-last');
+        seeall.textContent = "xem tất cả";
+        $('.newsongs-list').appendChild(seeall)
     },
     renderlistimageCompany:function() {
         var htmls = exlpore.listimageCompanys.map(function(listimageCompany) {
@@ -1420,7 +1453,9 @@ const exlpore = {
                 </div>
             `
         })  
-        $('.explore-recents-list').innerHTML = htmls.join("")
+        $$('.explore-recents-list').forEach(function(e) {
+            e.innerHTML = htmls.join("")
+        })
     },
     renderYouWantHear:function() {
         var htmls = exlpore.YouWantHears.map(function(YouWantHear) {
@@ -1615,8 +1650,9 @@ const exlpore = {
             }
     },
     slidenewsongs:function() {
+        const indexsongslist = $$('.newsongs-item')
         var i=2;
-        var IntervalSlideNewSong = setInterval(function() {
+        setInterval(function() {
             newsongslist.style.transform = `translateX(calc(${(i+1)*-34}%))`
             i=i+3;
             if(i>indexsongslist.length)
@@ -1625,23 +1661,6 @@ const exlpore = {
                 i=2;
             }
         },5000)
-        $('.explore-newsongs-list').onmousemove = function() {
-            clearInterval(IntervalSlideNewSong);
-        }
-        $('.explore-newsongs-list').onmouseleave = function() {
-            var IntervalSlide = setInterval(function() {
-                newsongslist.style.transform = `translateX(calc(${(i+1)*-34}%))`
-                i=i+3;
-                if(i>indexsongslist.length)
-                {
-                    newsongslist.style.transform = `translateX(0)`
-                    i=2;
-                }
-            },5000)
-            $('.explore-newsongs-list').onmousemove = function() {
-                clearInterval(IntervalSlide);
-            }
-        }
     },
     handleEvent:function() {
         $$('.gallery-item')[0].classList.add('select')
@@ -1884,8 +1903,8 @@ const exlpore = {
         this.renderonlyfans()
         this.renderFavoriteArtists()
         this.renderradios()
-        this.slidenewsongs()
         this.renderimageNewSongs()
+        this.slidenewsongs()
         this.renderlistimageCompany()
         this.handleEvent()
     }
