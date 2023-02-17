@@ -84,15 +84,17 @@ body {
     gap: 5%;
     overflow-x:scroll ;
     scroll-snap-type: x mandatory;
+    padding: 10px 10px;
 }
 .item-libary {
     width: 44%;
     padding: 10px;
-    border: 1px solid black;
     border-radius: 15px;
     flex-shrink: 0;
-    scroll-snap-align: start;
-    /* flex: 0 0 100%; */
+    box-shadow: 0.1px 0.1px 3px 0.5px #aaa;
+}
+.responsive-personal-libarys::-webkit-scrollbar,.explore-recents-list::-webkit-scrollbar {
+    display: none; /* cho Chrome, Safari, and Opera */
 }
 .item-libary ion-icon {
     padding-bottom: 10px;
@@ -165,7 +167,7 @@ body {
 #responsive-menu-down {
     width: 100%;
     bottom: 0;
-    background-color: #d0cece;
+    background-color: #e8dfdf;
     position: fixed;
 }
 #responsive-menu-down ul {
@@ -187,4 +189,103 @@ body {
 }
 .responsive-item.active {
     color: #3560F5;
+}
+#responsive-explore {
+    width: 90%;
+    margin: 0px auto;
+}
+.responsive-slide-explore {
+    display: flex;
+    overflow-x:scroll ;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    transition: 0.25s;
+    margin: 15px 0px;
+}
+.responsive-slide-explore::-webkit-scrollbar {
+    display: none;
+}
+.responsive-slide-item {
+    width: 90%;
+    height: 150px;
+    display: flex;
+    padding: 10px;
+    background-color: rgba(87, 87, 87, 0.607);
+    color: #fff;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+.responsive-slide-item ion-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.responsive-slide-item h4 {
+    color: #fff;
+    font-size: 14px;
+}
+.responsive-slide-item span {
+    color: #dadada;
+    font-size: 12px;
+}
+.responsive-slide-avatar{
+    width: 75%;
+    height: 100%;
+}
+.responsive-slide-item img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.responsive-slide-new {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+}
+.responsive-list-slide {
+    width: 100%;
+    display: flex;
+    transition: 0.5s;
+}
+.responsive-list-slide .slide-item {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+}
+.responsive-list-slide .slide-item img {
+    width: 100%;
+    height: auto;
+}
+.responsive-list-action {
+    display: flex;
+    position: absolute;
+    gap: 1px;
+    transform: translate(-50%,-50%);
+    top: 98%;
+    left: 50%;
+}
+.responsive-list-action hr {
+    width: 10px;
+    height: 2px;
+    background-color: #aaa;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.responsive-list-action .item.active {
+    background-color: #fff;
+    width: 15px;
+}
+#responsive-explore h2 {
+    margin-bottom: 15px;
+}
+.responsive-content {
+    display: none;
+    padding-bottom: 60px;
+}
+.responsive-content.active {
+    display: block;
 }
