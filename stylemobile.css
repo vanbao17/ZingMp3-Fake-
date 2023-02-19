@@ -148,27 +148,12 @@ body {
     align-items: center;
     margin: 0px auto;
 }
-.responsive-listsong-tym {
-    width: 90%;
-    height: 200px;
-    margin: 0px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.responsive-listsong-tym span {
-    display: grid;
-    place-items: center;
-    padding: 10px 20px;
-    background-color: #3560F5;
-    color: #fff;
-    border-radius: 50px;
-}
 #responsive-menu-down {
     width: 100%;
     bottom: 0;
     background-color: #e8dfdf;
     position: fixed;
+    z-index: 99;
 }
 #responsive-menu-down ul {
     width: 90%;
@@ -288,4 +273,200 @@ body {
 }
 .responsive-content.active {
     display: block;
+}
+.container-songstitle.responsive hr:first-child {
+    background-color: #dedbdb;
+}
+.container-songstitle.responsive hr {
+    height: 2px;
+    border: none;
+    outline: none;
+}
+.youwanthear-responsive {
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+.youwanthear-responsive::-webkit-scrollbar {
+    display: none;
+}
+.youwanthear-responsive .youwanthear-item{
+    width: 25% !important;
+    flex-shrink: 0;
+}
+.youwanthear-responsive .youwanthear-item h3 {
+    font-size: 12px !important;
+    font-weight: 300;
+}
+.explore-list-company.responsive li {
+    width: 30%;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+.explore-event-list.responsive {
+    gap: 10px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+.explore-event-list.responsive::-webkit-scrollbar {
+    display: none;
+}
+.explore-event-list.responsive .event-item {
+    flex-shrink: 0;
+    width: 48%;
+}
+.explore-event-list.responsive .event-item .event-item-title{
+    font-size: 12px;
+    line-height: 1.3;
+    color: #fff;
+}
+.explore-event-list.responsive .event-item .event-item-title h3 {
+    font-size: 13px;
+}
+.explore-event-list.responsive .event-item .event-congratulations span {
+    background-color: transparent;
+    padding: 0;
+}
+.explore-event-list.responsive .event-item .event-congratulations span ion-icon {
+    background-color: transparent;
+    font-size: 27px !important;
+    padding: 3px;
+}
+.explore-event-list.responsive .event-congratulations ul li {
+    width: 10px;
+}
+.event-view-congratulations ul li:last-child {
+    width: 14px !important;
+    padding: 0px 5px;
+    transform: translateY(-3px);
+}
+#responsive-zingchart {
+    margin: 0px auto;
+}
+#responsive-zingchart h1{
+    width: 90%;
+    padding: 10px 0px ;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#responsive-zingchart h1 ion-icon {
+    font-size: 30px;
+    color: #3560F5;
+}
+.zingchart-recommend,.zingchart-item {
+    width: 90%;
+    display: flex;
+    margin: 0px auto;
+    padding: 20px 0px;
+}
+.responsive-content .zingchart-stt {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #3560F5;
+}
+.responsive-content .zingchart-stt p{
+    width: 100%;
+}
+.responsive-content .zingchart-song {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.responsive-content .zingchart-action {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.responsive-content .zingchart-title {
+    line-height: 1.3;
+    flex-grow: 1;
+}
+.responsive-content .zingchart-title h3 {
+    font-size: 14px;
+}
+.responsive-content .zingchart-title span {
+    font-size: 12px;
+    color: #aaa;
+}
+.responsive-content .zingchart-ava {
+    width: 50px;
+    height: 50px;
+}
+.responsive-content .zingchart-ava  img {
+    width: 100%;
+    height: 100%;
+}
+.zingchart-list-songs .zingchart-stt p {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.responsive-content hr {
+    width: 100%;
+    position: absolute;
+    color: #ddd6d6;
+}
+.responsive-listsong-tym {
+    margin: 0px auto;
+}
+.responsive-listsong-tym .listsong-tym-item{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #dadada;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-title {
+    width: 60%;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-title h3 {
+    font-size: 14px;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-title p {
+    font-size: 12px;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-avatar {
+    width: 14%;
+    overflow: hidden;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-avatar img {
+    width: 100%;
+    height: 100%;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-action ion-icon {
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-action ion-icon:hover {
+    background-color: #aaaaaa53;
+}
+.responsive-listsong-tym .listsong-tym-item .listsong-tym-action ion-icon:first-child {
+    color: #3560F5;
+}
+.responsive-listsong-tym span {
+    display: grid;
+    place-items: center;
+    padding: 10px 20px;
+    background-color: #3560F5;
+    color: #fff;
+    border-radius: 50px;
+}
+#responsive-zingchart .heart {
+    transition: 0.5s;
+    padding: 10px;
 }

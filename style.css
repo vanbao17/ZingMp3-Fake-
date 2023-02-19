@@ -1066,7 +1066,7 @@ menu ul .menu2.item5 a {
     display: block;
 }
 @media only screen and (max-width:500px) {
-    menu,.content-nav,#content,#playsong,#song-recent {
+    menu,.content-nav,#playsong,#content,#song-recent {
         display: none;
     }
     #Change-Background {

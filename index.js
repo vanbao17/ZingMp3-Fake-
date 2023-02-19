@@ -382,9 +382,9 @@ const personal = {
                     e.classList.remove("active")
                 })
                 this.classList.add("active")
-                hr.forEach(function(a) {
-                    a.style.left = $('.Category-item.active').offsetLeft+'px'
-                    a.style.width  = $('.Category-item.active').offsetWidth + "px";
+                hr.forEach(function(b) {
+                    b.style.left = $('.Category-item.active').offsetLeft+'px'
+                    b.style.width  = $('.Category-item.active').offsetWidth + "px";
                 } )
                 $('.content.active').classList.remove("active")
                 pane.classList.add("active")
@@ -689,22 +689,22 @@ const exlpore = {
         },
         {
             imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/1/7/e/d17ede63fae6b485d1bc003170ee39b5.jpg',
-            title:"Pop princess",
+            title:"Hit quốc dân",
             singers:['The Chainsmokers','Calvin Harris','Alan Walker']
         },
         {
             imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/4/4/4/d444dcf90cf33747e9369763474f2216.jpg',
-            title:"Pop princess",
+            title:"2010s EDM",
             singers:['Taylor Swift','Justin Bieber','Adele']
         },
         {
             imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/1/3/8/b138850701bdb9b4f8c444f0e60e212d.jpg',
-            title:"Pop princess",
+            title:"EDM with female vocals",
             singers:['Zedd','Alessia Cara','Gryffin']
         },
         {
             imgage:'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/d/d/f/c/ddfc89a5793ba5e0219aad3a86859756.jpg',
-            title:"Pop princess",
+            title:"2010s Pop",
             singers:['Katy Perry','Taylor Swift','Justin Bieber']
         },
     ],
@@ -1291,7 +1291,9 @@ const exlpore = {
         var htmls = exlpore.listimageCompanys.map(function(listimageCompany) {
             return `<li><img src="${listimageCompany}" alt=""</li>`
         })
-        $(".explore-list-company").innerHTML = htmls.join('')
+        $$(".explore-list-company").forEach(function(item) {
+            item.innerHTML = htmls.join('')
+        })
     },
     renderradios:function() {
         var htmls = exlpore.radios.map(function(radio) {
@@ -1477,7 +1479,10 @@ const exlpore = {
             </div>
             `
         })
-        $('.explore-youwanthear-list').innerHTML = htmls.join('')
+        $$('.explore-youwanthear-list').forEach(function(item) {
+            item.innerHTML = htmls.join('')
+        })
+
         var singers = exlpore.YouWantHears.map(function(YouWantHear) {
             return YouWantHear.singers
         })
