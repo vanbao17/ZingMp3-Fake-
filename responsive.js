@@ -1,9 +1,13 @@
 
 const menuresponsive = $$('#responsive-menu-down .responsive-item')
 const renderinPersonal = $('.responsive-listsong-tym')
+const hrdown = $(".container-songstitle.responsive .Category-down");
 var getApi ='http://localhost:3000/songs';
 const zingchartresponsive = {
     isChangeColorTym:false,
+    playpause:false,
+    listsongRender:[],
+    widthHR:0,
     listsong : [
         {
             name:'Định Mệnh',
@@ -61,6 +65,44 @@ const zingchartresponsive = {
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
         },
     ],
+    playsong:function(data) {
+        $('#responsive-playsong').innerHTML = `
+        <div class="playsong-infor">
+            <hr>
+            <div class="avatar">
+                <img src="${data.image}" alt="">
+            </div>
+            <div class="title">
+                <h3>${data.name}</h3>
+                <p>${data.singer}</p>
+            </div>
+        </div>
+        <div class="playsong-action">
+            <ion-icon name="heart-outline"></ion-icon>
+            <div class="pause-play">
+                <ion-icon name="pause" class="tag-action active">
+                <ion-icon name="play" class="tag-action">
+            </ion-icon>
+            </div>
+            <ion-icon name="play-skip-forward"></ion-icon>
+        </div>
+        `
+        audio.src = data.path;
+        audio.play()
+        audio.ontimeupdate = function() {
+            $("#responsive-playsong hr").style.width = ($("#responsive-playsong").offsetWidth*audio.currentTime)/audio.duration +'px';
+        }
+        $$('.pause-play').onclick = function() {
+            zingchartresponsive.playpause = !zingchartresponsive.playpause
+            if(zingchartresponsive.playpause==true) {
+
+            }
+            if(zingchartresponsive.playpause==false) {
+
+            }
+            console.log(zingchartresponsive.playpause);
+        }
+    },
     handleEvent :function() {
         menuresponsive.forEach(function(e,index) {
             e.onclick = function() {
@@ -94,12 +136,14 @@ const zingchartresponsive = {
                 {
                     this.name = 'heart';
                     var objectsong = {
-                        name:zingchartresponsive.listsong[index+1].name,
-                        path:zingchartresponsive.listsong[index+1].path,
-                        image:zingchartresponsive.listsong[index+1].image,
-                        singer:zingchartresponsive.listsong[index+1].singer,
+                        id:index-1,
+                        name:zingchartresponsive.listsong[index-1].name,
+                        path:zingchartresponsive.listsong[index-1].path,
+                        image:zingchartresponsive.listsong[index-1].image,
+                        singer:zingchartresponsive.listsong[index-1].singer,
                     }
-                    zingchartresponsive.addsongtoTym(objectsong)
+                    zingchartresponsive.listsongRender.push(objectsong)
+                    zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
                 }
                 if(zingchartresponsive.isChangeColorTym==false)
                 {
@@ -107,16 +151,65 @@ const zingchartresponsive = {
                 }
             }
         })
-    },
-    getSonginPersonal:function(callback) {
-        fetch(getApi)
-            .then(function(response) {
-                return response.json();
+        $('.responsive-listsong-tym .toExplore').onclick = function() {
+            $$(".responsive-item").forEach(function(a) {
+                $(".responsive-item.active").classList.remove('active')
+                menuresponsive[1].classList.add("active")
             })
-            .then(callback)
+            $$(".responsive-content").forEach(function(e) {
+                $('.responsive-content.active').classList.remove('active')
+                $$(".responsive-content")[1].classList.add("active")
+            })
+        }
+        $$("#songs-responsive .tag").forEach(function(item,index) {
+            item.onclick=function() {
+                $("#songs-responsive .tag.active").classList.remove('active')
+                item.classList.add('active')
+                $$("#songs-responsive .tag-content").forEach(function(item1,index1) {
+                    if(index==index1)
+                    {
+                        $("#songs-responsive .tag-content.active").classList.remove('active')
+                        $$("#songs-responsive .tag-content")[index].classList.add("active")
+                    }
+                })
+            }
+        })
+        $$("#podcast-responsive .tag").forEach(function(item,index) {
+            item.onclick=function() {
+                $("#podcast-responsive .tag.active").classList.remove('active')
+                item.classList.add('active')
+            }
+        })
+        $$(".container-songstitle.responsive .Category-item ").forEach(function(item,index) {
+            hrdown.style.left = 0
+            hrdown.style.width = '54px'
+            item.onclick = function() {
+                hrdown.style.left = item.offsetLeft +'px'
+                hrdown.style.width = item.offsetWidth+'px'
+                $$('#responsive-personal .content').forEach(function(item1,index1) {
+                    if(index==index1) {
+                        $('#responsive-personal .content.active').classList.remove('active')
+                            
+                    }
+                })
+            }
+        })
+        $$('.zingchart-item').forEach(function(item,index) {
+            item.onclick = function() {
+                var objectsong = {
+                    id:index,
+                    name:zingchartresponsive.listsong[index].name,
+                    path:zingchartresponsive.listsong[index].path,
+                    image:zingchartresponsive.listsong[index].image,
+                    singer:zingchartresponsive.listsong[index].singer,
+                }
+                zingchartresponsive.playsong(objectsong)
+                $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight+'px'
+            }
+        })
     },
     rendersongPersonal:function(data) {
-        var htmls  = data.map(function(item) {
+        var htmls  = data.map(function(item,index) {
             return `
                 <div class="listsong-tym-item songs-item-${item.id}">
                     <div class="listsong-tym-avatar">
@@ -134,12 +227,26 @@ const zingchartresponsive = {
             `
         })
         $('.responsive-listsong-tym').innerHTML = htmls.join('')
-        if($$(".listsong-tym-item").length==0)
+    },
+    deleteSongAtPersonal:function(id) {
+        zingchartresponsive.listsongRender.forEach(function(item) {
+            if (item.id==id) {
+                $('.songs-item-'+id).remove()
+            }
+        })
+        var a = zingchartresponsive.listsongRender.filter(function(item) {
+            return item.id!=id
+        })
+        $$("#responsive-zingchart .heart")[id+1].name = "heart-outline"
+        zingchartresponsive.isChangeColorTym = !zingchartresponsive.isChangeColorTym
+        zingchartresponsive.listsongRender = a;
+        if(zingchartresponsive.listsongRender.length==0)
         {
             var span = document.createElement('span');
+            span.classList.add("toExplore")
             span.textContent = "Explore";
             $(".responsive-listsong-tym").appendChild(span)
-            $('.responsive-listsong-tym span').onclick = function() {
+            $('.responsive-listsong-tym .toExplore').onclick = function() {
                 $$(".responsive-item").forEach(function(a) {
                     $(".responsive-item.active").classList.remove('active')
                     menuresponsive[1].classList.add("active")
@@ -149,39 +256,7 @@ const zingchartresponsive = {
                     $$(".responsive-content")[1].classList.add("active")
                 })
             }
-        }
-    },
-    addsongtoTym:function(data) {
-        var option = {
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }
-        fetch(getApi,option)
-            .then(function(response) {
-                return response.json()
-            })
-            .then(zingchartresponsive.getSonginPersonal(zingchartresponsive.rendersongPersonal))
-    },
-    deleteSongAtPersonal:function(id) {
-        var option = {
-            method:'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        }
-        fetch(getApi+'/' + id,option)
-            .then(function(response) {
-                return response.json()
-            })
-            .then(function() {
-                var songs = $(".listsong-tym-item .songs-item-" +id);
-                if(songs) {
-                    songs.remove()
-                }
-            })
+        }   
     },
     renderListsong:function() {
         var htmls = this.listsong.map(function(item,index) {
@@ -213,9 +288,8 @@ const zingchartresponsive = {
         })
         $('.zingchart-list-songs').innerHTML = htmls.join('')
     },
-    start:function(event) {
+    start:function() {
         this.renderListsong() ;
-        this.getSonginPersonal(zingchartresponsive.rendersongPersonal)
         this.handleEvent()
     }
 }

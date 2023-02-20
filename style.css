@@ -488,6 +488,7 @@ menu ul .menu2.item5 a {
 }
 .Category-bar {
     width: 100%;
+    height: 2px;
     overflow: hidden;
     position: absolute;
     bottom: 0;

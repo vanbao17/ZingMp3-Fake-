@@ -153,7 +153,11 @@ body {
     bottom: 0;
     background-color: #e8dfdf;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 99;
+    height: 50px;
 }
 #responsive-menu-down ul {
     width: 90%;
@@ -162,7 +166,6 @@ body {
     font-size: 12px;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0px;
 }
 #responsive-menu-down ul li {
     text-align: center;
@@ -273,6 +276,9 @@ body {
 }
 .responsive-content.active {
     display: block;
+}
+.container-songstitle.responsive {
+    margin-bottom: 10px;
 }
 .container-songstitle.responsive hr:first-child {
     background-color: #dedbdb;
@@ -469,4 +475,98 @@ body {
 #responsive-zingchart .heart {
     transition: 0.5s;
     padding: 10px;
+}
+#responsive-personal .Category-tags {
+    width: 100% !important;
+    width: 20%;
+    display: flex;
+    padding: 10px 0px;
+    font-size: 12px;
+    gap: 15px;
+    margin: 0px auto;
+}
+#responsive-personal .Category-tags .tag {
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+#responsive-personal .Category-tags .tag.active {
+    border: 1px solid transparent;
+    color: #fff;
+}
+#songs-responsive .tag-content {
+    display: none;
+}
+#songs-responsive .tag-content.active {
+    display: block;
+}
+#responsive-personal .text{
+    text-align: center;
+}
+#responsive-personal .content {
+    display: none;
+}
+#responsive-personal .content.active {
+    display: block;
+}
+#responsive-playsong {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: #fff;
+    padding: 10px 0px;
+    z-index: 10;
+    bottom: -100%;
+    transition: 0.5s;
+}
+#responsive-playsong .playsong-infor {
+    display: flex;
+    margin-left: 20px;
+    gap: 10px;
+}
+#responsive-playsong .playsong-infor h3 {
+    font-size: 14px;
+}
+#responsive-playsong .playsong-infor p {
+    font-size: 12px;
+    color: #aaa;
+}
+#responsive-playsong .playsong-infor .avatar {
+    width: 15%;
+    display: grid;
+    place-items: center;
+}
+#responsive-playsong .playsong-infor img {
+    width: 100%;
+    border-radius: 50%;
+}
+#responsive-playsong .playsong-action {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+#responsive-playsong hr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: #3560F5;
+}
+#responsive-playsong .pause-play {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#responsive-playsong .pause-play ion-icon[name="play"] {
+    position: absolute;
+    left: 0;
+}
+#responsive-playsong .pause-play .tag-action {
+    display: none;
+}
+#responsive-playsong .pause-play .tag-action.active {
+    display: block;
 }

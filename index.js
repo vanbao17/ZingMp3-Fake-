@@ -4,10 +4,10 @@ const $$ = document.querySelectorAll.bind(document)
 const listsong = $(".list-songs");
 const listlibary = $(".list-libarys");
 const listplaylist = $("#list-playlist");
-const tagPersonal = $$('.Category li')
-const hr = $$('.Category-bar .Category-down ')
+const tagPersonal = $$('#content .Category li')
+const hr = $('#content .Category-bar .Category-down ')
 const audio = $('.audio')
-const personalTags = $$('#personal-contentcenter .content')
+const personalTags = $$('#content #personal-contentcenter .content')
 const imgplaysong = $(".playsong-left img")
 const nameplaysong = $(".playsong-name .name h3")
 const singerplaysong = $(".playsong-name  p")
@@ -373,22 +373,22 @@ const personal = {
     handleEvent:function() {
         tagPersonal.forEach(function(tag,index) {
             var pane = personalTags[index];
-            hr.forEach(function(a,index) {
-                a.style.left = 0
-                a.style.width = $$('.Category-item.active')[index].offsetWidth+'px'
-            } )
+            hr.style.left = 0
+            hr.style.width = $('#content .Category-item.active').offsetWidth+'px'
             tag.onclick = function() {
-                $$('.Category-item.active').forEach(function(e) {
+                $$('#content .Category-item.active').forEach(function(e) {
                     e.classList.remove("active")
                 })
                 this.classList.add("active")
-                hr.forEach(function(b) {
-                    b.style.left = $('.Category-item.active').offsetLeft+'px'
-                    b.style.width  = $('.Category-item.active').offsetWidth + "px";
-                } )
-                $('.content.active').classList.remove("active")
-                pane.classList.add("active")
-
+                hr.style.left = $('#content .Category-item.active').offsetLeft+'px'
+                hr.style.width  = $('#content .Category-item.active').offsetWidth + "px";
+                $$("#content .content.active").forEach(function(item) {
+                    item.classList.remove("active")
+                })
+                if(pane!==undefined)
+                {
+                    pane.classList.add("active")
+                }
             }
         });
         $$('.song').forEach(function(song,index) {
