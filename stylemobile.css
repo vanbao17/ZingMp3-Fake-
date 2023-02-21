@@ -272,6 +272,7 @@ body {
 }
 .responsive-content {
     display: none;
+    transition: 0.5s;
     padding-bottom: 60px;
 }
 .responsive-content.active {
@@ -363,6 +364,7 @@ body {
 }
 .zingchart-recommend,.zingchart-item {
     width: 90%;
+    height: 90px;
     display: flex;
     margin: 0px auto;
     padding: 20px 0px;
@@ -501,6 +503,7 @@ body {
 }
 #responsive-personal .text{
     text-align: center;
+    margin-top: 20px;
 }
 #responsive-personal .content {
     display: none;
@@ -555,6 +558,7 @@ body {
     background-color: #3560F5;
 }
 #responsive-playsong .pause-play {
+    width: 20px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -568,5 +572,24 @@ body {
     display: none;
 }
 #responsive-playsong .pause-play .tag-action.active {
+    display: block;
+}
+.zingchart-action .hearts {
+    width: 40px;
+    position: relative;
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.zingchart-action .hearts .heart {
+    position: absolute;
+    display: none;
+    color: #3560F5;
+}
+.zingchart-action .hearts .heart-outline {
+    display: none;
+}
+.zingchart-action .hearts .item-heart.active {
     display: block;
 }

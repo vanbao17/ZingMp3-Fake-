@@ -2,7 +2,7 @@
 const menuresponsive = $$('#responsive-menu-down .responsive-item')
 const renderinPersonal = $('.responsive-listsong-tym')
 const hrdown = $(".container-songstitle.responsive .Category-down");
-var getApi ='http://localhost:3000/songs';
+$(".responsive-content").style.paddingBottom = $("#responsive-menu-down").offsetHeight+$('#responsive-playsong').offsetHeight+"px"
 const zingchartresponsive = {
     isChangeColorTym:false,
     playpause:false,
@@ -80,9 +80,8 @@ const zingchartresponsive = {
         <div class="playsong-action">
             <ion-icon name="heart-outline"></ion-icon>
             <div class="pause-play">
-                <ion-icon name="pause" class="tag-action active">
-                <ion-icon name="play" class="tag-action">
-            </ion-icon>
+                <ion-icon name="pause" class="tag-action active">            </ion-icon>
+                <ion-icon name="play" class="tag-action">            </ion-icon>
             </div>
             <ion-icon name="play-skip-forward"></ion-icon>
         </div>
@@ -91,16 +90,22 @@ const zingchartresponsive = {
         audio.play()
         audio.ontimeupdate = function() {
             $("#responsive-playsong hr").style.width = ($("#responsive-playsong").offsetWidth*audio.currentTime)/audio.duration +'px';
+            if(audio.ended) {
+                console.log("end");
+            }
         }
-        $$('.pause-play').onclick = function() {
+        $('.pause-play').onclick = function() {
             zingchartresponsive.playpause = !zingchartresponsive.playpause
             if(zingchartresponsive.playpause==true) {
-
+                $('.pause-play ion-icon[name="pause"]').classList.remove('active')
+                $('.pause-play ion-icon[name="play"]').classList.add('active')
+                audio.pause()
             }
             if(zingchartresponsive.playpause==false) {
-
+                $('.pause-play ion-icon[name="pause"]').classList.add('active')
+                $('.pause-play ion-icon[name="play"]').classList.remove('active')
+                audio.play()
             }
-            console.log(zingchartresponsive.playpause);
         }
     },
     handleEvent :function() {
@@ -129,7 +134,7 @@ const zingchartresponsive = {
                 i=0;
             }
         },4000)  
-        $$("#responsive-zingchart .heart").forEach(function(item,index) {
+        $$("#responsive-zingchart .hearts .item-heart").forEach(function(item,index) {
             item.onclick = function() {
                 zingchartresponsive.isChangeColorTym = !zingchartresponsive.isChangeColorTym
                 if(zingchartresponsive.isChangeColorTym==true)
@@ -149,6 +154,36 @@ const zingchartresponsive = {
                 {
                     this.name = 'heart-outline';
                 }
+            }
+        })
+        $$("#responsive-zingchart .hearts .heart-outline").forEach(function(item,index) {
+            item.onclick = function() {
+                $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
+                    if(index==index1) {
+                        item1.classList.add('active');
+                    }
+                })
+                item.classList.remove('active')
+                var objectsong = {
+                    id:index,
+                    name:zingchartresponsive.listsong[index].name,
+                    path:zingchartresponsive.listsong[index].path,
+                    image:zingchartresponsive.listsong[index].image,
+                    singer:zingchartresponsive.listsong[index].singer,
+                }
+                zingchartresponsive.listsongRender.push(objectsong)
+                zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
+            }
+        })
+        $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
+            item1.onclick = function() {
+                $$("#responsive-zingchart .hearts .heart-outline").forEach(function(item,index) {
+                    if(index1==index) {
+                        item.classList.add('active');
+                    }
+                })
+                item1.classList.remove('active');
+                zingchartresponsive.deleteSongAtPersonal(index1);
             }
         })
         $('.responsive-listsong-tym .toExplore').onclick = function() {
@@ -186,16 +221,18 @@ const zingchartresponsive = {
             item.onclick = function() {
                 hrdown.style.left = item.offsetLeft +'px'
                 hrdown.style.width = item.offsetWidth+'px'
-                $$('#responsive-personal .content').forEach(function(item1,index1) {
-                    if(index==index1) {
-                        $('#responsive-personal .content.active').classList.remove('active')
-                            
+                $$("#responsive-personal .content").forEach(function(item1,index1) {
+                    if(index!=index1)
+                    {
+                        item1.classList.remove("active")
                     }
                 })
+                $$("#responsive-personal .content")[index].classList.add('active')
             }
         })
         $$('.zingchart-item').forEach(function(item,index) {
             item.onclick = function() {
+
                 var objectsong = {
                     id:index,
                     name:zingchartresponsive.listsong[index].name,
@@ -204,7 +241,14 @@ const zingchartresponsive = {
                     singer:zingchartresponsive.listsong[index].singer,
                 }
                 zingchartresponsive.playsong(objectsong)
-                $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight+'px'
+                if(zingchartresponsive.isChangeColorTym==true) {
+                    var heighofitem = item.offsetHeight;
+                    $('#responsive-personal').style.paddingBottom = (heighofitem*(zingchartresponsive.listsongRender.length-1))+"px"
+                }
+                $$('.responsive-content').forEach(function(item) {
+                    item.style.paddingBottom = ($('#responsive-playsong').offsetHeight+$('#responsive-menu-down').offsetHeight) +'px'
+                })
+                $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight+'px' 
             }
         })
     },
@@ -229,7 +273,7 @@ const zingchartresponsive = {
         $('.responsive-listsong-tym').innerHTML = htmls.join('')
     },
     deleteSongAtPersonal:function(id) {
-        zingchartresponsive.listsongRender.forEach(function(item) {
+        zingchartresponsive.listsongRender.forEach(function(item,index) {
             if (item.id==id) {
                 $('.songs-item-'+id).remove()
             }
@@ -237,7 +281,8 @@ const zingchartresponsive = {
         var a = zingchartresponsive.listsongRender.filter(function(item) {
             return item.id!=id
         })
-        $$("#responsive-zingchart .heart")[id+1].name = "heart-outline"
+        $$("#responsive-zingchart .heart")[id+1].classList.remove("active")
+        $$("#responsive-zingchart .heart-outline")[id].classList.add("active")
         zingchartresponsive.isChangeColorTym = !zingchartresponsive.isChangeColorTym
         zingchartresponsive.listsongRender = a;
         if(zingchartresponsive.listsongRender.length==0)
@@ -278,10 +323,13 @@ const zingchartresponsive = {
                                 <span>${item.singer}</span>
                             </div>
                         </div>
-                        <div class="zingchart-action">
-                            <ion-icon class="heart" name="heart-outline"></ion-icon>
+                        <section class="zingchart-action">
+                            <div class=hearts>
+                                <ion-icon class="item-heart heart" name="heart"></ion-icon>
+                                <ion-icon class="item-heart heart-outline active" name="heart-outline"></ion-icon>
+                            </div>
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
-                        </div>
+                        </section>
                     </div>
                 </div>
             `
