@@ -554,15 +554,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 3px;
+    height: 2px;
     background-color: #3560F5;
     border: none;
     outline: none;
     transition: 0.5s;
+    z-index: 99;
 }
 #responsive-playsong .down {
+    width: 100%;
     position: absolute;
     background-color: #d1d0d0;
+    top: 0;
+    z-index: 9;
 }
 #responsive-playsong .pause-play {
     width: 20px;

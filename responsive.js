@@ -102,7 +102,6 @@ const zingchartresponsive = {
             duration: 10000,
             iterations:Infinity
         })
-        console.log($('.playsong-infor .avatar'));
         $('.pause-play').onclick = function() {
             zingchartresponsive.playpause = !zingchartresponsive.playpause
             if(zingchartresponsive.playpause==true) {
@@ -139,7 +138,6 @@ const zingchartresponsive = {
                     singer:zingchartresponsive.listsong[0].singer,
                 }
             }
-            console.log(a,zingchartresponsive.listsong.length-1);
             zingchartresponsive.playsong(objectsong)   
         }
     },
