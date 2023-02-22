@@ -556,6 +556,13 @@ body {
     left: 0;
     height: 3px;
     background-color: #3560F5;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+}
+#responsive-playsong .down {
+    position: absolute;
+    background-color: #d1d0d0;
 }
 #responsive-playsong .pause-play {
     width: 20px;
@@ -592,4 +599,7 @@ body {
 }
 .zingchart-action .hearts .item-heart.active {
     display: block;
+}
+.zingchart-list-songs .zingchart-stt{
+    color: black;
 }

@@ -8,6 +8,7 @@ const zingchartresponsive = {
     playpause:false,
     listsongRender:[],
     widthHR:0,
+    cdThumbAnimation:0,
     listsong : [
         {
             name:'Định Mệnh',
@@ -68,7 +69,8 @@ const zingchartresponsive = {
     playsong:function(data) {
         $('#responsive-playsong').innerHTML = `
         <div class="playsong-infor">
-            <hr>
+            <hr class="up">
+            <hr class="down">
             <div class="avatar">
                 <img src="${data.image}" alt="">
             </div>
@@ -94,18 +96,51 @@ const zingchartresponsive = {
                 console.log("end");
             }
         }
+        const cdThumbAnimation = $('.playsong-infor .avatar').animate([
+            {transform :'rotate(360deg)'}
+        ],{
+            duration: 10000,
+            iterations:Infinity
+        })
+        console.log($('.playsong-infor .avatar'));
         $('.pause-play').onclick = function() {
             zingchartresponsive.playpause = !zingchartresponsive.playpause
             if(zingchartresponsive.playpause==true) {
                 $('.pause-play ion-icon[name="pause"]').classList.remove('active')
                 $('.pause-play ion-icon[name="play"]').classList.add('active')
                 audio.pause()
+                cdThumbAnimation.pause()
             }
             if(zingchartresponsive.playpause==false) {
                 $('.pause-play ion-icon[name="pause"]').classList.add('active')
                 $('.pause-play ion-icon[name="play"]').classList.remove('active')
                 audio.play()
+                cdThumbAnimation.play()
             }
+        }
+        $('.playsong-action ion-icon[name="play-skip-forward"]').onclick = function() {
+            var a = data.id+1;
+            if(a<=zingchartresponsive.listsong.length-1)
+            {
+                var objectsong = {
+                    id:a,
+                    name:zingchartresponsive.listsong[a].name,
+                    path:zingchartresponsive.listsong[a].path,
+                    image:zingchartresponsive.listsong[a].image,
+                    singer:zingchartresponsive.listsong[a].singer,
+                }
+            }
+            if(a>zingchartresponsive.listsong.length-1) {
+                var objectsong = {
+                    id:0,
+                    name:zingchartresponsive.listsong[0].name,
+                    path:zingchartresponsive.listsong[0].path,
+                    image:zingchartresponsive.listsong[0].image,
+                    singer:zingchartresponsive.listsong[0].singer,
+                }
+            }
+            console.log(a,zingchartresponsive.listsong.length-1);
+            zingchartresponsive.playsong(objectsong)   
         }
     },
     handleEvent :function() {
@@ -134,28 +169,6 @@ const zingchartresponsive = {
                 i=0;
             }
         },4000)  
-        $$("#responsive-zingchart .hearts .item-heart").forEach(function(item,index) {
-            item.onclick = function() {
-                zingchartresponsive.isChangeColorTym = !zingchartresponsive.isChangeColorTym
-                if(zingchartresponsive.isChangeColorTym==true)
-                {
-                    this.name = 'heart';
-                    var objectsong = {
-                        id:index-1,
-                        name:zingchartresponsive.listsong[index-1].name,
-                        path:zingchartresponsive.listsong[index-1].path,
-                        image:zingchartresponsive.listsong[index-1].image,
-                        singer:zingchartresponsive.listsong[index-1].singer,
-                    }
-                    zingchartresponsive.listsongRender.push(objectsong)
-                    zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
-                }
-                if(zingchartresponsive.isChangeColorTym==false)
-                {
-                    this.name = 'heart-outline';
-                }
-            }
-        })
         $$("#responsive-zingchart .hearts .heart-outline").forEach(function(item,index) {
             item.onclick = function() {
                 $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
@@ -232,7 +245,6 @@ const zingchartresponsive = {
         })
         $$('.zingchart-item').forEach(function(item,index) {
             item.onclick = function() {
-
                 var objectsong = {
                     id:index,
                     name:zingchartresponsive.listsong[index].name,
@@ -248,7 +260,8 @@ const zingchartresponsive = {
                 $$('.responsive-content').forEach(function(item) {
                     item.style.paddingBottom = ($('#responsive-playsong').offsetHeight+$('#responsive-menu-down').offsetHeight) +'px'
                 })
-                $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight+'px' 
+                $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight-2+'px' 
+            
             }
         })
     },
@@ -308,14 +321,14 @@ const zingchartresponsive = {
             return `
                 <hr>
                 <div class="zingchart-item">
-                    <div class="zingchart-stt">
+                    <div class="zingchart-stt" style="color:${index+1==1?`red`:index+1==2?'blue':index+1==3?'green':'black'}">
                         <p>${index+1}<ion-icon name="remove"></ion-icon></p>
                     </div>
                     <div class="zingchart-song">
-                        <div class="zingchart-ava">
+                        <div class="zingchart-ava click-song">
                             <img src="${item.image}" alt="">
                         </div>
-                        <div class="zingchart-title">
+                        <div class="zingchart-title click-song">
                             <div class="zingchart-title-namesong">
                                 <h3>${item.name}</h3>
                             </div>

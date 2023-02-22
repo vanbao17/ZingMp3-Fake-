@@ -776,7 +776,7 @@ const exlpore = {
             name:'Old Town Road',
             singer:'hehe',
             timeDeloy:'5 tiếng trước',
-            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            path:'https://vnso-zn-24-tf-mp3-s1-zmp3.zmdcdn.me/b5535a5c671a8e44d70b/8692159048210559009?authen=exp=1676126132~acl=/b5535a5c671a8e44d70b/*~hmac=79aa31a04fe6cb77c0579c91bd2fc0cc&fs=MTY3NTk1MzMzMjIzMXx3ZWJWNnwwfDE0LjI0OC4xMTIdUngODk',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
         {
@@ -862,7 +862,7 @@ const exlpore = {
             name:'Old Town Road',
             singer:'hehe',
             timeDeloy:'5 tiếng trước',
-            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
+            path:'https://vnso-zn-24-tf-mp3-s1-zmp3.zmdcdn.me/b5535a5c671a8e44d70b/8692159048210559009?authen=exp=1676126132~acl=/b5535a5c671a8e44d70b/*~hmac=79aa31a04fe6cb77c0579c91bd2fc0cc&fs=MTY3NTk1MzMzMjIzMXx3ZWJWNnwwfDE0LjI0OC4xMTIdUngODk',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
         {
