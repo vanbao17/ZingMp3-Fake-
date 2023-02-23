@@ -94,7 +94,27 @@ const zingchartresponsive = {
         audio.ontimeupdate = function() {
             $("#responsive-playsong hr").style.width = ($("#responsive-playsong").offsetWidth*audio.currentTime)/audio.duration +'px';
             if(audio.ended) {
-                console.log("end");
+                if(data.id<zingchartresponsive.listsong.length-1) {
+                    var a = data.id+1;
+                    var objectsong = {
+                        id:a,
+                        name:zingchartresponsive.listsong[a].name,
+                        path:zingchartresponsive.listsong[a].path,
+                        image:zingchartresponsive.listsong[a].image,
+                        singer:zingchartresponsive.listsong[a].singer,
+                    }
+                }
+                if(data.id==zingchartresponsive.listsong.length-1) {
+                    console.log(data.id);
+                    var objectsong = {
+                        id:0,
+                        name:zingchartresponsive.listsong[0].name,
+                        path:zingchartresponsive.listsong[0].path,
+                        image:zingchartresponsive.listsong[0].image,
+                        singer:zingchartresponsive.listsong[0].singer,
+                    }
+                }
+                zingchartresponsive.playsong(objectsong)   
             }
         }
         const cdThumbAnimation = $('.playsong-infor .avatar').animate([
