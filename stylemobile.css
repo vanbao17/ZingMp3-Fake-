@@ -203,6 +203,7 @@ body {
     position: relative;
     flex-shrink: 0;
     border-radius: 5px;
+    gap: 10px;
 }
 .responsive-slide-item ion-icon {
     position: absolute;
@@ -289,17 +290,21 @@ body {
     border: none;
     outline: none;
 }
-.youwanthear-responsive {
+.youwanthear-responsive,.singerhot-responsive {
     width: 100%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 }
-.youwanthear-responsive::-webkit-scrollbar {
+.youwanthear-responsive::-webkit-scrollbar,
+.singerhot-responsive::-webkit-scrollbar {
     display: none;
 }
-.youwanthear-responsive .youwanthear-item{
+.youwanthear-responsive .youwanthear-item,.singerhot-responsive .powerMidWeek-item{
     width: 25% !important;
     flex-shrink: 0;
+}
+.singerhot-responsive .singers {
+    display: none;
 }
 .youwanthear-responsive .youwanthear-item h3 {
     font-size: 12px !important;

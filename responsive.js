@@ -2,6 +2,7 @@
 const menuresponsive = $$('#responsive-menu-down .responsive-item')
 const renderinPersonal = $('.responsive-listsong-tym')
 const hrdown = $(".container-songstitle.responsive .Category-down");
+audio.volume = 100/100;
 $(".responsive-content").style.paddingBottom = $("#responsive-menu-down").offsetHeight+$('#responsive-playsong').offsetHeight+"px"
 const zingchartresponsive = {
     isChangeColorTym:false,
@@ -183,7 +184,10 @@ const zingchartresponsive = {
                     singer:zingchartresponsive.listsong[index].singer,
                 }
                 zingchartresponsive.listsongRender.push(objectsong)
+                console.log(zingchartresponsive.listsongRender.length);
+
                 zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
+                $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
             }
         })
         $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
@@ -195,6 +199,7 @@ const zingchartresponsive = {
                 })
                 item1.classList.remove('active');
                 zingchartresponsive.deleteSongAtPersonal(index1);
+                $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
             }
         })
         $('.responsive-listsong-tym .toExplore').onclick = function() {
@@ -312,7 +317,9 @@ const zingchartresponsive = {
                     $$(".responsive-content")[1].classList.add("active")
                 })
             }
-        }   
+        }
+        $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
+   
     },
     renderListsong:function() {
         var htmls = this.listsong.map(function(item,index) {

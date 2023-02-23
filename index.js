@@ -1428,7 +1428,9 @@ const exlpore = {
             </div>
             `
         })
-        $(".explore-powerMidWeek-list").innerHTML = htmls.join('');
+        $$(".explore-powerMidWeek-list").forEach(function(item) {
+            item.innerHTML = htmls.join('');
+        })
     },
     renderSlide:function() {
         var htmls = exlpore.slides.map(function(slide) {

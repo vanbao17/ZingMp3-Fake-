@@ -1284,7 +1284,7 @@ menu ul .menu2.item5 a {
     color: #4A79F9;
     text-decoration: underline;
 }
-.explore-content {
+.explore-content,.explore-content-responsive {
     width: 91%;
     margin: 0px auto;
     color: #fff;
@@ -1425,7 +1425,7 @@ menu ul .menu2.item5 a {
 .item-img:hover .item-shadow{
     visibility: visible;
 }
-#explore-powerMidWeek .singers span:hover,#explore-famousSinger .singers span:hover {
+.explore-powerMidWeek .singers span:hover,#explore-famousSinger .singers span:hover {
     color: #989696  ;
     text-decoration: none;
 }
