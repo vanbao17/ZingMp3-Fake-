@@ -67,7 +67,7 @@ const zingchartresponsive = {
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
         },
     ],
-    playsong:function(data) {
+    playsong:function(data,a) {
         $('#responsive-playsong').innerHTML = `
         <div class="playsong-infor">
             <hr class="up">
@@ -81,10 +81,10 @@ const zingchartresponsive = {
             </div>
         </div>
         <div class="playsong-action">
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="${a}" style="color:${a=="heart"?"#3560F5":""}"></ion-icon>
             <div class="pause-play">
-                <ion-icon name="pause" class="tag-action active">            </ion-icon>
-                <ion-icon name="play" class="tag-action">            </ion-icon>
+                <ion-icon name="pause" class="tag-action active"></ion-icon>
+                <ion-icon name="play" class="tag-action"></ion-icon>
             </div>
             <ion-icon name="play-skip-forward"></ion-icon>
         </div>
@@ -189,6 +189,7 @@ const zingchartresponsive = {
             }
         },4000)  
         $$("#responsive-zingchart .hearts .heart-outline").forEach(function(item,index) {
+            zingchartresponsive.isColorHeart="heart-outline"
             item.onclick = function() {
                 $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
                     if(index==index1) {
@@ -204,7 +205,6 @@ const zingchartresponsive = {
                     singer:zingchartresponsive.listsong[index].singer,
                 }
                 zingchartresponsive.listsongRender.push(objectsong)
-                console.log(zingchartresponsive.listsongRender.length);
 
                 zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
                 $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
@@ -212,6 +212,7 @@ const zingchartresponsive = {
         })
         $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
             item1.onclick = function() {
+                zingchartresponsive.isColorHeart="heart"
                 $$("#responsive-zingchart .hearts .heart-outline").forEach(function(item,index) {
                     if(index1==index) {
                         item.classList.add('active');
@@ -275,7 +276,14 @@ const zingchartresponsive = {
                     image:zingchartresponsive.listsong[index].image,
                     singer:zingchartresponsive.listsong[index].singer,
                 }
-                zingchartresponsive.playsong(objectsong)
+                var a = zingchartresponsive.listsongRender.some(function(item1) {
+                    return index==item1.id
+                })
+                var b = "heart-outline"
+                if(a) {
+                    b = "heart"
+                }
+                zingchartresponsive.playsong(objectsong,b)
                 if(zingchartresponsive.isChangeColorTym==true) {
                     var heighofitem = item.offsetHeight;
                     $('#responsive-personal').style.paddingBottom = (heighofitem*(zingchartresponsive.listsongRender.length-1))+"px"
@@ -284,7 +292,6 @@ const zingchartresponsive = {
                     item.style.paddingBottom = ($('#responsive-playsong').offsetHeight+$('#responsive-menu-down').offsetHeight) +'px'
                 })
                 $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight-2+'px' 
-            
             }
         })
     },
