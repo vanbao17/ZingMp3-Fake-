@@ -21,13 +21,13 @@ const zingchartresponsive = {
             name:'Chạm khẽ tim anh một chút thôi',
             singer:'Noo Phước Thịnh',
             path:'songs/song6.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+            image:'https://avatar-ex-swe.nixcdn.com/song/2017/10/17/6/c/9/9/1508222792935_640.jpg'
         },  
         {
             name:'Em đã thương người ta hơn anh',
             singer:'Noo Phước Thịnh',
             path:'songs/song8.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/6/d/e/b/6deb8ea62749618d200bbe270ade7f3e.jpg'
+            image:'https://i.scdn.co/image/ab67616d0000b27308becedeb90d846da6b66dc3'
         },
         {
             name:'Yêu một người sao buồn đến thế',
@@ -46,25 +46,45 @@ const zingchartresponsive = {
             singer:'Noo Phước Thịnh',
             timeDeloy:'1 tiếng trước',
             path:'songs/song9.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+            image:'https://avatar-ex-swe.nixcdn.com/song/2017/05/19/0/4/d/e/1495164349216_640.jpg'
         },
         {
             name:'Luôn yêu đời',
             singer:'Đen, Chang',
-            path:'songs/song7.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+            path:'songs/song14.mp3',
+            image:'https://toquoc.mediacdn.vn/thumb_w/640/280518851207290880/2023/2/6/3290684947036645947223808715986389199022976n-16756522731891705583167.jpeg'
         },
         {
             name:'Ngày khác lạ',
             singer:'Đen',
             path:'songs/song13.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+            image:'https://avatar-ex-swe.nixcdn.com/song/2018/02/24/2/5/c/e/1519436244959_640.jpg'
         },
         {
             name:'Ngôi sao cô đơn',
             singer:'Jack',
             path:'songs/song12.mp3',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/8/f/0/d/8f0da549f6cf94288361aac93d05d284.jpg'
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/e/2/e/b/e2eb2e4c19e54ab61871ce9f04ac339f.jpg'
+        },
+        {
+            name:'Cơn mơ băng giá',
+            singer:'Noo Phước Thịnh',
+            path:'songs/song5.mp3',
+            image:'https://i1.sndcdn.com/artworks-kVdZwpsz1CtvCy7c-POEWJg-t500x500.jpg'
+        },
+        {
+            name:'Những kẻ mộng mơ',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song1.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/4/3/c/143c3e0f7a42b90009f5738899280003.jpg'
+        },
+        {
+            name:'Chợt thấy em khóc',
+            singer:'Noo Phước Thịnh',
+            album:'',
+            path:'songs/song11.mp3',
+            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
     ],
     playsong:function(data,a) {
@@ -283,7 +303,13 @@ const zingchartresponsive = {
                 if(a) {
                     b = "heart"
                 }
-                zingchartresponsive.playsong(objectsong,b)
+                $$('.zingchart-item .zingchart-song>div').forEach(function(item2,index2) {
+                    item2.onclick = function() {
+                        zingchartresponsive.playsong(objectsong,b)
+                        $$(".zingchart-action .download")[(index)].style.display = "none";
+                    }
+                })
+                // zingchartresponsive.playsong(objectsong,b)
                 if(zingchartresponsive.isChangeColorTym==true) {
                     var heighofitem = item.offsetHeight;
                     $('#responsive-personal').style.paddingBottom = (heighofitem*(zingchartresponsive.listsongRender.length-1))+"px"
@@ -292,6 +318,19 @@ const zingchartresponsive = {
                     item.style.paddingBottom = ($('#responsive-playsong').offsetHeight+$('#responsive-menu-down').offsetHeight) +'px'
                 })
                 $('#responsive-playsong').style.bottom = $('#responsive-menu-down').offsetHeight-2+'px' 
+            }
+        })
+        $$('.zingchart-action ion-icon[name="ellipsis-horizontal"]').forEach(function(item,index) {
+            item.onclick = function() {
+                $$(".zingchart-action .download")[(index-1)].style.display = "block";
+                $$(".zingchart-action .download").forEach(function(item1,index1) {
+                    if(index!=(index1+1)) {
+                        item1.style.display = 'none';       
+                    }
+                })
+                $$(".zingchart-action .download")[(index-1)].onclick = function() {
+                    this.style.display="none"
+                }
             }
         })
     },
@@ -374,6 +413,9 @@ const zingchartresponsive = {
                                 <ion-icon class="item-heart heart-outline active" name="heart-outline"></ion-icon>
                             </div>
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
+                            <div class="download">
+                                <a download="${item.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                            </div>
                         </section>
                     </div>
                 </div>
