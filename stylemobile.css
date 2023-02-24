@@ -378,9 +378,9 @@ body {
     position: absolute;
     bottom: -40px;
     right: 0;
-    z-index: 90;
+    z-index:10;
     border-radius: 5px;
-    background-color: #dadada;
+    background-color: #efeded;
     padding: 10px;
     display: none;
 }

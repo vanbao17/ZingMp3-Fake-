@@ -586,9 +586,39 @@ menu ul .menu2.item5 a {
     font-size: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     position: relative;
     margin-right: 20px;
+}
+.song ion-icon {
+    font-size: 20px;
+}
+.song .download {
+    position: absolute;
+    right: 0;
+    bottom: -200%;
+    display: none;
+    z-index: 5;
+}
+.song .horizontal {
+    padding: 10px;
+    border-radius: 50%;
+    transform: translateX(10px);
+}
+.song .horizontal:hover {
+    background-color: #c8c6c671;
+    cursor: pointer;
+}
+.song .action-download {
+    padding: 10px;
+    color: #fff;
+    background-color: #0F1A2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 #songs #songs-content .song .time .mic {
     margin-right: 50px;
@@ -1391,7 +1421,7 @@ menu ul .menu2.item5 a {
 .newdeloy-item-left ion-icon:hover {
     color: #ffffffcc;
 }
-.newdeloy-item-right ion-icon {
+.newdeloy-item-right .horizontal {
     padding: 7px;
     display: flex;
     justify-content: center;
@@ -1400,6 +1430,27 @@ menu ul .menu2.item5 a {
     cursor: pointer;
     visibility: hidden;
 }
+/* .newdeloy-item-right ion-icon[name="ellipsis-horizontal"] */
+.newdeloy-item-right {
+    position: relative;
+}
+.newdeloy-item-right .download {
+    right: 0;
+    position: absolute;
+    text-decoration: none;
+    background-color: #0F1A2E;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+.newdeloy-item-right .download .action-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 10px;
+    text-decoration: none;
+}
 .newdeloy-item-right ion-icon:hover {
     background-color: #ffffff58;
     visibility: visible;
@@ -1407,12 +1458,12 @@ menu ul .menu2.item5 a {
 .explore-newdeloy-item:hover {
     background-color: #ffffff1c;
 }
-.explore-newdeloy-item:hover .newdeloy-item-right ion-icon:hover {
+.explore-newdeloy-item:hover .newdeloy-item-right .horizontal {
     visibility: visible;
 }
 .explore-newdeloy-item:hover .item-left-avatar .play,
 .explore-newdeloy-item:hover .item-left-avatar .opacity,
-.explore-newdeloy-item:hover .newdeloy-item-right ion-icon{
+.explore-newdeloy-item:hover .newdeloy-item-right .horizontal{
     visibility: visible;
 }
 .explore-newdeloys.active {

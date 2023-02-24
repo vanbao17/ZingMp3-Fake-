@@ -33,7 +33,6 @@ const main = $$('#content>.content');
 navContent.style.position = 'fixed !improtant'
 audio.volume = 20/100;
 processVolume.value = 50;
-
 const personal = {
     currentIndexSong:0,
     isPlay:false,
@@ -265,11 +264,34 @@ const personal = {
                         <ion-icon name="heart" class="heart"></ion-icon>
                         <p class="listtimesong">00:00</p>
                         <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
+                        <div class="download">
+                            <a download="${song.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                        </div>
                     </div>
                 </div>
             `
         })
         listsong.innerHTML = htmls.join('')
+        const itemdownloadPersonal = $$('.list-songs .song .time .horizontal')
+        itemdownloadPersonal.forEach(function(item,index) {
+            item.onclick = function() {
+                // $$('.list-songs .song .time .action-download').forEach(function(item1,index1) {
+                //     if(index==index1) {
+
+                //     }
+                // })
+                console.log();
+                $$(".list-songs .song .download")[(index)].style.display = "block";
+                $$(".list-songs .song .download").forEach(function(item1,index1) {
+                    if(index!=(index1)) {
+                        item1.style.display = 'none';       
+                    }
+                })
+                $$(".list-songs .song .download")[(index-1)].onclick = function() {
+                    this.style.display="none"
+                }
+            }
+        })
     }
     ,
     rederlibary:function() {
@@ -1519,12 +1541,29 @@ const exlpore = {
                         </div>
                     </div>
                     <div class="newdeloy-item-right">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                        <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
+                        <div class="download">
+                            <a download="${NewDeloy.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                        </div>
                     </div>
                 </div>
             `
         })
         $(".newdeloy-All").innerHTML = htmls.join('')
+        const itemdownloadPersonal = $$('.newdeloy-All .explore-newdeloy-item .newdeloy-item-right .horizontal')
+        itemdownloadPersonal.forEach(function(item,index) {
+            item.onclick = function() {
+                $$(".explore-newdeloy-item .newdeloy-item-right .download")[(index)].style.display = "block";
+                $$(".explore-newdeloy-item .newdeloy-item-right .download").forEach(function(item1,index1) {
+                    if(index!=(index1)) {
+                        item1.style.display = 'none';       
+                    }
+                })
+                $$(".explore-newdeloy-item .newdeloy-item-right .download")[(index)].onclick = function() {
+                    this.style.display="none"
+                }
+            }
+        })
     },
     renderDeloyNewVietNam:function() {
         var htmls = exlpore.NewDeloyVietNam.map(function(NewDeloy) {
