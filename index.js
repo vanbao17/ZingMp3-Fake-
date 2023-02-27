@@ -265,7 +265,7 @@ const personal = {
                         <p class="listtimesong">00:00</p>
                         <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
                         <div class="download">
-                            <a download="${song.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                            <a download="${song.name}" href="${song.path}" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
                         </div>
                     </div>
                 </div>
@@ -1543,7 +1543,7 @@ const exlpore = {
                     <div class="newdeloy-item-right">
                         <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
                         <div class="download">
-                            <a download="${NewDeloy.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                            <a download="${NewDeloy.name}" href="${NewDeloy.path}" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
                         </div>
                     </div>
                 </div>

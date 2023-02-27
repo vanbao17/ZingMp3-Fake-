@@ -8,6 +8,7 @@ const zingchartresponsive = {
     isChangeColorTym:false,
     playpause:false,
     listsongRender:[],
+    searchsong:[],
     widthHR:0,
     cdThumbAnimation:0,
     listsong : [
@@ -228,6 +229,7 @@ const zingchartresponsive = {
 
                 zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
                 $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
+                $(".favouriteSongs-title p span").textContent = (zingchartresponsive.listsongRender.length);
             }
         })
         $$("#responsive-zingchart .hearts .heart").forEach(function(item1,index1) {
@@ -241,6 +243,7 @@ const zingchartresponsive = {
                 item1.classList.remove('active');
                 zingchartresponsive.deleteSongAtPersonal(index1);
                 $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
+                $(".favouriteSongs-title p span").textContent = (zingchartresponsive.listsongRender.length);
             }
         })
         $('.responsive-listsong-tym .toExplore').onclick = function() {
@@ -333,6 +336,45 @@ const zingchartresponsive = {
                 }
             }
         })
+        $('#responsive-personal .item-libary:first-child').onclick = function() {
+            $('#favouriteSongs').style.transform="translateY(0)"
+        }
+        $('.favouriteSongs-content nav ion-icon[name="arrow-back-outline"]').onclick = function() {
+            $('#favouriteSongs').style.transform="translateY(100%)"
+        }
+        $('.favouriteSongs-content nav div ion-icon[name="search-outline"]').onclick = function() {
+            $(".favouriteSongs-content-menu").style.display = "none"
+            $(".search-favouriteSongs").style.display = "block"
+        }
+        $('.search-favouriteSongs span').onclick = function() {
+            $(".favouriteSongs-content-menu").style.display = "block"
+            $(".search-favouriteSongs").style.display = "none"
+        }
+        $('.search-favouriteSongs input').onkeyup = function() {
+            zingchartresponsive.listsongRender.forEach(function(item) {
+                if( $('.search-favouriteSongs input').value==item.name)
+                {
+                    $('.responsive-listsong-tym').innerHTML = `
+                    <div class="listsong-tym-item songs-item-${item.id}">
+                        <div class="listsong-tym-avatar">
+                            <img src="${item.image}" alt="">
+                        </div>
+                        <div class="listsong-tym-title">
+                            <h3>${item.name}</h3>
+                            <p>${item.singer}</p>
+                        </div>
+                        <div class="listsong-tym-action">
+                            <ion-icon name="heart" class="heart" onclick = "zingchartresponsive.deleteSongAtPersonal(${item.id})"></ion-icon>
+                            <ion-icon name="ellipsis-horizontal"></ion-icon>
+                        </div>
+                    </div>
+                    `;
+                }
+            }) 
+            if(this.value=='') {
+                zingchartresponsive.rendersongPersonal(zingchartresponsive.listsongRender)
+            }
+        }
     },
     rendersongPersonal:function(data) {
         var htmls  = data.map(function(item,index) {
@@ -385,7 +427,7 @@ const zingchartresponsive = {
             }
         }
         $(".responsive-personal-libarys .item-libary:first-child .libary-number").textContent = (zingchartresponsive.listsongRender.length);
-   
+        $(".favouriteSongs-title p span").textContent = (zingchartresponsive.listsongRender.length);
     },
     renderListsong:function() {
         var htmls = this.listsong.map(function(item,index) {
@@ -414,7 +456,7 @@ const zingchartresponsive = {
                             </div>
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
                             <div class="download">
-                                <a download="${item.path}" href="" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
+                                <a download="${item.name}" href="${item.path}" class="action-download"><ion-icon name="download"></ion-icon>Download</a>
                             </div>
                         </section>
                     </div>
