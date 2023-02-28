@@ -614,7 +614,9 @@ const personal = {
     handleTimeSong:function(s) {
         if(s<personal.songs.length)
         {
-            // audio.src = personal.songs[s].path
+            audio.src = personal.songs[s].path
+            audio.reload();
+            audio.pause();
             audio.onloadedmetadata = function() {
                 personal.songs.forEach(function(song,index) {
                     if(s==index)
