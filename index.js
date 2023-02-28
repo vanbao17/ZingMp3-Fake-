@@ -429,7 +429,6 @@ const personal = {
                 $('.menu1.active').classList.remove('active')
                 this.classList.add("active")    
                 $(".content.activecontent").classList.remove('activecontent')
-                console.log($(".content.activecontent"));
                 main[index].classList.add('activecontent')
             }
         })
@@ -615,7 +614,7 @@ const personal = {
     handleTimeSong:function(s) {
         if(s<personal.songs.length)
         {
-            audio.src = personal.songs[s].path
+            // audio.src = personal.songs[s].path
             audio.onloadedmetadata = function() {
                 personal.songs.forEach(function(song,index) {
                     if(s==index)
