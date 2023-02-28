@@ -146,13 +146,6 @@ const personal = {
             path:'songs/song11.mp3',
             image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
         },
-        {
-            name:'Old Town Road',
-            singer:'hehe',
-            album:'',
-            path:'https://vnso-zn-15-tf-mp3-320s1-zmp3.zmdcdn.me/3cd181e2d7a53efb67b4/3815851332802545146?authen=exp=1676125948~acl=/3cd181e2d7a53efb67b4/*~hmac=89d57b1d2d11979890814adcf81f3ada&fs=MTY3NTk1MzE0ODI0NHx3ZWJWNnwxMDQ4NDI0NzmUsICxfDU5LjE1My4yMzMdUngMTM4',
-            image:'https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/9/7/c/0/97c0d89266b572d570062a0b7abbb99a.jpg'
-        },
         // {
         //     name:'Đi đâu để thấy hoa bay',
         //     singer:'Hà Anh Tuấn',
