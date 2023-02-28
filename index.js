@@ -607,7 +607,7 @@ const personal = {
     handleTimeSong:function(s) {
         if(s<personal.songs.length)
         {
-            audio.reload();
+            // audio.reload();
             audio.src = personal.songs[s].path
             audio.onloadedmetadata = function() {
                 personal.songs.forEach(function(song,index) {

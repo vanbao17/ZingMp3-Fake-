@@ -306,9 +306,9 @@ const zingchartresponsive = {
                 if(a) {
                     b = "heart"
                 }
+                zingchartresponsive.playsong(objectsong,b)
                 $$('.zingchart-item .zingchart-song>div').forEach(function(item2,index2) {
                     item2.onclick = function() {
-                        zingchartresponsive.playsong(objectsong,b)
                         $$(".zingchart-action .download")[(index)].style.display = "none";
                     }
                 })
