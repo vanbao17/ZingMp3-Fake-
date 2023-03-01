@@ -607,8 +607,8 @@ const personal = {
     handleTimeSong:function(s) {
         if(s<personal.songs.length)
         {
-            // audio.reload();
             audio.src = personal.songs[s].path
+            audio.pause()
             audio.onloadedmetadata = function() {
                 personal.songs.forEach(function(song,index) {
                     if(s==index)
@@ -1834,7 +1834,6 @@ const exlpore = {
                 tagplaysong.style.bottom = 0;
                 buttonPause.classList.add("active")
                 buttonPlay.classList.remove("active");
-                audio.load()
                 personal.playsong(exlpore)
                 personal.displayPlayingsong(personal.currentIndexSong)
             }
@@ -1842,22 +1841,23 @@ const exlpore = {
         $$('#explore-event .explore-title p .icon').forEach(function(icon,index) {
             icon.onclick = function() {
                 this.classList.remove("active")
-                if(index==1&&($$('.event-item').length-exlpore.indexEvent)>3)
+                if(index==1&&(($$('.event-item').length-exlpore.indexEvent)>3)&&($$('#explore-event .event-item').length-3) != exlpore.indexEvent)
                 {
                     $("#explore-event p .icon-prev").classList.add("active")
                     $("#explore-event p .icon-next").classList.add("active")
                     exlpore.indexEvent++;
                     $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
                 }
-                if(index==0&&(exlpore.indexEvent)>0)
+                if(index==0&&exlpore.indexEvent>0)
                 {
                     $("#explore-event p .icon-prev").classList.add("active")
                     $("#explore-event p .icon-next").classList.add("active")
                     exlpore.indexEvent--;
                     $('.explore-event-list').style.transform= `translateX(calc(${-exlpore.indexEvent*34}%))`
                 }
-                if(($$('.event-item').length-3) == exlpore.indexEvent) {
+                if(($$('#explore-event .event-item').length-3) == exlpore.indexEvent) {
                     $("#explore-event p .icon-next").classList.remove("active")
+                    exlpore.indexEvent=$$('#explore-event .event-item').length-3
                 }
                 if(exlpore.indexEvent==0) {
                     $("#explore-event p .icon-prev").classList.remove("active")
