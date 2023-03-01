@@ -1577,8 +1577,8 @@ const exlpore = {
                             <p class="deloytime">${NewDeloy.timeDeloy}</p>
                         </div>
                     </div>
-                    <div class="newdeloy-item-right">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    <div class="newdeloy-item-right" class="horizontal">
+                        <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
                     </div>
                 </div>
             `
@@ -1604,8 +1604,8 @@ const exlpore = {
                             <p class="deloytime">${NewDeloy.timeDeloy}</p>
                         </div>
                     </div>
-                    <div class="newdeloy-item-right">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                    <div class="newdeloy-item-right" class="horizontal">
+                        <ion-icon name="ellipsis-horizontal" class="horizontal"></ion-icon>
                     </div>
                 </div>
             `
@@ -1827,8 +1827,8 @@ const exlpore = {
                 prevRadio.classList.remove("active")
             },3000)
         }
-        const onclickSongExplore = $$('.explore-newdeloy-item')
-        onclickSongExplore.forEach(function(e,index) {
+        const onclickSongExploreAll = $$('.newdeloysall .explore-newdeloy-item')
+        onclickSongExploreAll.forEach(function(e,index) {
             e.onclick = function() {
                 exlpore.currentIndexSong = index;
                 tagplaysong.style.bottom = 0;
