@@ -151,7 +151,7 @@ body {
 #responsive-menu-down {
     width: 100%;
     bottom: 0;
-    background-color: #e8dfdf;
+    background-color: #fff9f9;
     position: fixed;
     display: flex;
     justify-content: center;
